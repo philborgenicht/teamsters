@@ -48,7 +48,8 @@ class App extends Component{
 // }
   postUser = async(e) => {
 e.preventDefault()
-console.log(e.target.favAthlete.value)
+let fullValue=e.target.favAthlete.value.split(', ')
+console.log(fullValue[fullValue.length-1])
   await fetch('https://galvanize-borgenicht.herokuapp.com/customers',{
     method: 'POST',
     body: JSON.stringify({
@@ -58,8 +59,14 @@ console.log(e.target.favAthlete.value)
       email:e.target.email.value,
       phone:e.target.phone.value,
       favoritePlayer:e.target.favAthlete.value,
+      favoritePlayerId:'',
+
       favoriteSport:e.target.favSport.value,
+      favoriteSportId:'',
+
       favoriteTeam:e.target.favTeam.value,
+      favoriteTeamId:'',
+
       isActive:true,
       isAdmin:false
     }),

@@ -3,7 +3,16 @@ import EditProfile from './EditProfile.js'
 class Dashboard extends Component {
 
 state={
-  editProfile:false
+  customers:[]
+}
+async componentDidMount() {
+  const response = await fetch('https://galvanize-borgenicht.herokuapp.com/customers')
+  const customers = await response.json()
+
+
+  this.setState({customers:customers})
+  console.log(this.state)
+
 }
 
 editProfile=()=>{
