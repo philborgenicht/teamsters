@@ -57,7 +57,7 @@ const AccountPage = (props) => (
                   <div className="row">
                   <label htmlFor="favTeam">Favorite Team:
                   <select className="form-control" id="favTeam">
-                  {props.teams.map(team=> <option id={team.id}>{team.name}</option>)}
+                  {props.teams.map(team=> <option id={team.id}>{team.name}, {team.id}</option>)}
                   </select>
                   </label>
                   </div>
@@ -65,7 +65,7 @@ const AccountPage = (props) => (
                   <div className="row">
                   <label htmlFor="favSport">Favorite Sport:
                   <select className="form-control" id="favSport">
-                  {props.sports.map(sport=><option id={sport.id}>{sport.name}</option>)}
+                  {props.sports.map(sport=><option id={sport.id}>{sport.name}, {sport.id}</option>)}
                   </select>
                   </label>
                   </div>

@@ -123,3 +123,8 @@ button{
     transform: rotate(360deg);
   }
 }
+
+
+html{
+  font-family: 'Titillium Web', sans-serif;
+}

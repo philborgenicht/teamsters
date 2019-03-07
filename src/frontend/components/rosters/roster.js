@@ -1,87 +1,85 @@
-import React, {Component} from 'react'
-import axios from 'axios';
-export default class Roster extends Component{
+import React, {Component} from 'react';
 
-state={
-  players:[
-    {firstName:'Lebron', lastName:'James', sport:'Basketball', teamName:'Los Angeles Lakers', position: 'Forward'},
-    {firstName:'Von', lastName:'Miller', sport:'football', teamName:'Denver Broncos', position: 'Linebacker'},
-    {firstName:'Henrik', lastName:'Lundqvist', sport:'Hockey', teamName:'New York Rangers', position: 'Goaltender'},
-    {firstName:'Nolan', lastName:'Arenado', sport:'Baseball', teamName:'Colorado Rockies', position: 'Third Base'}
+import { AuthUserContext } from '../../../components/Session';
+import { withAuthorization } from '../../../components/Session';
 
+class Roster extends Component{
 
-  ]
-}
-
-componentDidMount() {
-  axios.get("https://desolate-eyrie-95298.herokuapp.com/athletes")
-    .then(res => {
-      const persons = res.data;
-      this.setState({ chicken:persons });
-    })
-}
 
 
   render(){
-
+    let useremail
     return(
-<div>
-{console.log(this.props.athletes)}
-{console.log("chicken", this.state.chicken)}
 
-      <div className="row">
-      <h1>ROSTER</h1>
-      </div>
+<div className="container">
+  <AuthUserContext.Consumer>
+    {authUser => (  <h1>Account: {useremail=authUser.email}{console.log(useremail)}</h1>  )}
 
-      <div className="row justify-content-center">
-
-            <div className="col-2 list-group-item roster-heading">
-            PLAYER
-            </div>
-
-            <div className="col-2 list-group-item roster-heading">
-            TEAM
-            </div>
-
-            <div className="col-2 list-group-item roster-heading">
-            SPORT
-            </div>
-
-            <div className="col-2 list-group-item roster-heading">
-            POSITION
-            </div>
-            <div className="col-2 list-group-item">
-            </div>
-      </div>
-
-
-{this.state.players.map(player=>
-      <div className="row justify-content-center">
-            <div className="col-2 list-group-item roster-info">
-            {player.firstName} {player.lastName}
-            </div>
-
-            <div className="col-2 list-group-item roster-info">
-            {player.teamName}
-            </div>
-
-            <div className="col-2 list-group-item roster-info">
-            {player.sport}
-            </div>
-
-            <div className="col-2 list-group-item roster-info">
-            {player.position}
-            </div>
-            <div className="col-2 list-group-item">
-            <button onClick={console.log('deleted')} className="btn-lg btn-outline-primary"> remove from team</button>
-            </div>
+  </AuthUserContext.Consumer>
+<div className="row justify-content-center">
+  <div className="col-2 list-group-item">
+  name
   </div>
-)}
+
+  <div className="col-2 list-group-item">
+  team
+  </div>
+
+  <div className="col-2 list-group-item">
+  sport
+  </div>
+
+  <div className="col-2 list-group-item">
+  position
+  </div>
+
+  <div className="col-2 list-group-item">
+  </div>
+
+
+
+
+
+
 
 
 </div>
+{this.props.athletes.filter(athlete=>athlete.onTeam===true).map(player=>
+  <div className="row justify-content-center">
+
+  <div className="col-2 list-group-item">
+  <div>{player.name}</div>
+  </div>
+
+  <div className="col-2 list-group-item">
+  <div>{player.teamName}</div>
+  </div>
+
+  <div className="col-2 list-group-item">
+  <div>{player.sport}</div>
+  </div>
+
+  <div className="col-2 list-group-item">
+  <div>{player.position}</div>
+  </div>
+
+  <div className="col-2 list-group-item">
+  <div><button onClick={this.props.trade} id={player.id}>remove from team</button></div>
+  </div>
 
 
-    )
-  }
+
+
+
+
+  </div>
+)}
+</div>
+
+)
 }
+
+}
+const authCondition = authUser => !!authUser;
+
+export default withAuthorization(authCondition)(Roster);

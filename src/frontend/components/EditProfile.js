@@ -39,28 +39,24 @@ const EditProfile=(props)=>{
           </div>
 
           <div className="row">
-          <label className="editprofile"htmlFor="favoritePlayerFirstName"> FAVORITE PLAYER FIRST NAME:
-          <input className="editprofile"id="favoritePlayerFirstName" type="text" placeholder="favorite player first name"/>
-          </label>
+          <select className="form-control" id="favAthlete">
+          {props.athletes.map(athlete=><option >{athlete.name}, {athlete.id}</option>)}
+          </select>
           </div>
 
           <div className="row">
-          <label className="editprofile"htmlFor="favoritePlayerLastName"> FAVORITE PLAYER LAST NAME:
-          <input className="editprofile"id="favoritePlayerLastName" type="text" placeholder="favorite player last name"/>
-          </label>
+          <select className="form-control" id="favSport">
+          {props.sports.map(sport=><option >{sport.name}, {sport.id}</option>)}
+          </select>
           </div>
 
           <div className="row">
-          <label className="editprofile"htmlFor="team"> FAVORITE TEAM:
-          <input className="editprofile"id="team" type="text" placeholder="favorite team"/>
-          </label>
+          <select className="form-control" id="favTeam">
+          {props.teams.map(team=><option >{team.name}, {team.id}</option>)}
+          </select>
           </div>
 
-          <div className="row">
-          <label className="editprofile"htmlFor="sport"> FAVORITE SPORT:
-          <input className="editprofile"id="sport" type="text" placeholder="favorite sport"/>
-          </label>
-          </div>
+
 
           <div className="row">
           <label className="editprofile"htmlFor="isActive"> ACCOUNT STATUS:

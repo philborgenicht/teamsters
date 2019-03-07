@@ -2,14 +2,6 @@ import React, {Component} from 'react'
 
 class Athletes extends Component{
 
-  state={
-    athletes:[...this.props.athletes]
-  }
-
-  submit=(e)=>{
-    e.preventDefault()
-    console.log(e.target.id)
-  }
 
 
   render(){
@@ -55,7 +47,7 @@ class Athletes extends Component{
                           <div className="col-2 list-group-item athleteinfo">{athlete.sport}</div>
                           <div className="col-2 list-group-item athleteinfo">{athlete.teamName}</div>
                           <div className="col-2 list-group-item athleteinfo">{athlete.position}</div>
-                          <div className="col-2 list-group-item athleteinfo"><button className="btn-lg btn-success" onClick={this.props.addToRoster}> Add to My Team </button></div>
+                          <div  className="col-2 list-group-item athleteinfo"><button id={athlete.id}className="btn-lg btn-success" onClick={this.props.draft}> Add to My Team </button></div>
                           </div>
                                             )}
 
