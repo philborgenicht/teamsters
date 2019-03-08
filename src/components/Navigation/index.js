@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
-
+import { withAuthorization } from '../Session';
 import { AuthUserContext } from '../Session';
 
 const Navigation = (props) => (
@@ -12,16 +12,17 @@ const Navigation = (props) => (
       {authUser =>
         authUser ? <NavigationAuth search={props.search}/> : <NavigationNonAuth search={props.search} />
       }
+
     </AuthUserContext.Consumer>
   </div>
 );
 
 const NavigationAuth = (props) => (
   <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+    <AuthUserContext.Consumer>
+    {authUser => (  <h6>Hello: {authUser.email}</h6>    )}
+    </AuthUserContext.Consumer>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -46,7 +47,15 @@ const NavigationAuth = (props) => (
         <SignOutButton />
         </li>
         <li class="nav-item">
-<Link to={ROUTES.ROSTER}>Roster</Link>
+        <Link to={ROUTES.ROSTER}>Roster</Link>
+        </li>
+
+        <li class="nav-item">
+        <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+        </li>
+
+        <li class="nav-item">
+        <Link to={ROUTES.MYSPORTS}>My Sports</Link>
         </li>
         <li class="nav-item">
         <Link to={ROUTES.TEAMS}>Teams</Link>
@@ -59,7 +68,7 @@ const NavigationAuth = (props) => (
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input  onKeyUp={props.search} id="input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+        <input  onChange={(e)=>props.search(e)} id="input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
@@ -73,10 +82,10 @@ const NavigationAuth = (props) => (
 
 const NavigationNonAuth = (props) => (
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+    <AuthUserContext.Consumer>
+    {authUser => (  <h6>Hello {authUser.email}</h6>    )}
+    </AuthUserContext.Consumer>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -92,7 +101,7 @@ const NavigationNonAuth = (props) => (
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input onKeyUp={props.search} id="input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+        <input  onChange={(e)=>props.search(e)} id="input" class="form-control mr-sm-2" type="search"  aria-label="Search"/>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
@@ -101,5 +110,6 @@ const NavigationNonAuth = (props) => (
 
 
 );
+const authCondition = authUser => !!authUser;
 
-export default Navigation;
+export default withAuthorization(authCondition)(Navigation);

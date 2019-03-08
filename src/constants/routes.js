@@ -10,3 +10,13 @@ export const TEAMS = '/teams'
 export const SPORTS = '/sports'
 export const STATS = '/stats'
 export const ATHLETES = '/athletes'
+
+export const BASEBALL = '/baseball'
+export const HOCKEY = '/hockey'
+export const FOOTBALL = '/football'
+
+export const BASKETBALL = '/basketball'
+
+export const MYSPORTS = '/mysports'
+
+export const MYTEAMS = '/myteams'

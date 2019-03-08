@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 // import './App.css';
-import Athletes from './components/athletes.js'
-import Dashboard from './components/dashboard.js'
+// import Athletes from './components/athletes.js'
+// import Dashboard from './components/dashboard.js'
 // import Footer from './components/footer.js'
-import Sports from './components/sports.js'
-import Teams from './components/teams.js'
+// import Sports from './components/sports.js'
+// import Teams from './components/teams.js'
 // import Toolbar from './components/toolbar.js'
-import Landing from './components/landing.js'
-import Roster from './components/rosters/roster.js'
-import Signup from './components/registry/signup.js'
-import Login from './components/registry/login.js'
+// import Landing from './components/landing.js'
+// import Roster from './components/rosters/roster.js'
+// import Signup from './components/registry/signup.js'
+// import Login from './components/registry/login.js'
+import { Link } from 'react-router-dom';
+import * as ROUTES from '../constants/routes';
 
 class Base extends Component {
+  state={
+    forgotPassword:false,
+    changePassword:false,
 
-    state={
+    filterString:'',
       customers:[],
       sports:[],
       teams:[],
@@ -29,6 +34,133 @@ class Base extends Component {
       showLogin:false,
       loggedIn:false
     }
+
+  componentDidMount = async() => {
+    const response = await fetch('https://galvanize-borgenicht.herokuapp.com/athletes')
+    const athletes = await response.json()
+
+    const response2 = await fetch('https://galvanize-borgenicht.herokuapp.com/teams')
+    const teams = await response2.json()
+
+    const response3 = await fetch('https://galvanize-borgenicht.herokuapp.com/sports')
+    const sports = await response3.json()
+
+    const response4 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers')
+    const customers = await response4.json()
+
+
+    this.setState({athletes:athletes, sports:sports, teams:teams, customers:customers})
+  }
+// postUser=(e)=>{
+//   e.preventDefault()
+//   console.log(e.target)
+// }
+  postUser = async(e) => {
+e.preventDefault()
+let fullAthlete=e.target.favAthlete.value.split(', ')
+let athName=fullAthlete.slice(0, fullAthlete.length-1)[0]
+let athId=Number.parseInt(fullAthlete[fullAthlete.length-1])
+
+let fullTeam=e.target.favTeam.value.split(', ')
+let teamName=fullTeam.slice(0, fullTeam.length-1)[0]
+let teamId=Number.parseInt(fullTeam[fullTeam.length-1])
+
+let fullSport=e.target.favSport.value.split(', ')
+let sportName=fullSport.slice(0, fullSport.length-1)[0]
+let sportId=Number.parseInt(fullSport[fullSport.length-1])
+
+console.log(athName, athId, teamName, teamId, sportName, sportId)
+
+  await fetch('https://galvanize-borgenicht.herokuapp.com/customers',{
+    method: 'POST',
+    body: JSON.stringify({
+      firstname:e.target.firstname.value,
+      lastname:e.target.lastname.value,
+      username:e.target.username.value,
+      email:e.target.email.value,
+      phone:e.target.phone.value,
+      favoritePlayer:e.target.favAthlete.value,
+      favoritePlayerId:athId,
+
+      favoriteSport:e.target.favSport.value,
+      favoriteSportId:sportId,
+
+      favoriteTeam:e.target.favTeam.value,
+      favoriteTeamId:teamId,
+
+      isActive:true,
+      isAdmin:false
+    }),
+    headers:{
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    }
+  })
+
+}
+
+
+
+//
+// submitForm=(e)=>{
+//   e.preventDefault()
+//   const user={
+//     firstname:e.target.firstname.value,
+//     lastname:e.target.lastname.value,
+//     username:e.target.username.value,
+//     email:e.target.email.value,
+//     phone:e.target.phone.value,
+//     favoritePlayer:e.target.favAthlete.value,
+//     favoriteTeam:e.target.favTeam.value,
+//     favoriteSport:e.target.favSport.value
+//   }
+//   console.log('USER', user)
+// }
+
+
+  forget=()=>{
+    this.setState({forgotPassword:true})
+  }
+  change=()=>{
+    this.setState({changePassword:true})
+  }
+  remember=()=>{
+    this.setState({forgotPassword:false})
+  }
+  revert=()=>{
+    this.setState({changePassword:false})
+  }
+
+  draft=(e)=>{
+    let playerid=Number.parseInt(e.target.id)
+    let currentAthletes=[...this.state.athletes]
+    let drafted=currentAthletes.filter(athlete=>athlete.id===playerid)
+    drafted[0].onTeam=true
+    console.log(drafted[0].onTeam)
+  }
+
+  trade=(e)=>{
+    let playerid=Number.parseInt(e.target.id)
+    let currentAthletes=[...this.state.athletes]
+    let traded=currentAthletes.filter(athlete=>athlete.id===playerid)[0]
+    let tradedIndex=currentAthletes.indexOf(traded)
+    traded.onTeam=false
+    this.setState({
+                    athletes:[
+                            ...this.state.athletes.slice(0,tradedIndex),
+                            {...traded, onTeam:false},
+                            ...this.state.athletes.slice(tradedIndex+1)
+                          ]
+
+                  })
+
+  }
+
+search=(e)=>{
+  let userinput=e.target.value
+  this.setState({filterString:userinput})
+}
+
 login=()=>{
   console.log('login')
 }
@@ -111,97 +243,31 @@ addToRoster=()=>{
 
 
 
-    async componentDidMount() {
-      const response = await fetch('https://galvanize-borgenicht.herokuapp.com/athletes')
-      const athletes = await response.json()
 
-      const response2 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers')
-      const customers = await response2.json()
-
-      const response3 = await fetch('https://galvanize-borgenicht.herokuapp.com/teams')
-      const teams = await response3.json()
-
-      const response4 = await fetch('https://galvanize-borgenicht.herokuapp.com/sports')
-      const sports = await response4.json()
-
-      const response5 = await fetch("https://galvanize-borgenicht.herokuapp.com/rosters")
-      const rosters = await response5.json()
-
-      this.setState({athletes:athletes, customers:customers, teams:teams, sports:sports, rosters:rosters})
-      console.log(this.state)
-
-    }
 
   render() {
     return (
-      <div className="App component">
-
-
-<div className="container">
-<div className="row">
-
-      {this.state.showLanding?
-        <div>
-        <Landing/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideLanding}> dismiss about us </button>
-        </div>
-         : <button className="btn-lg btn-outline-primary" onClick={this.showLanding}> view about us</button>}
-
-</div>
-
-<div className="row">
-{this.state.showSignup? <Signup signup={this.signup}/> : ''}
-</div>
-
-<div className="row">
-{this.state.showLogin? <Login login={this.login}/> : ''}
-</div>
-
 <div>
-      {this.state.showRoster?
-      <div>
-        <Roster athletes={this.state.athletes} rosters={this.state.rosters}/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideRoster}> dismiss roster </button>
-        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showTeams||this.state.showSports||this.state.showDashboard?"invisible":"btn-lg btn-outline-primary"} onClick={this.showRoster}> View roster</button>}
-</div>
-<div>
-      {this.state.showAthletes?
-        <div>
-        <Athletes athletes={this.state.athletes}/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideAthletes}> dismiss athletes </button>
-        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showRoster||this.state.showTeams||this.state.showSports||this.state.showDashboard?"invisible":"btn-lg btn-outline-primary"} onClick={this.showAthletes}> View Athletes</button>}
-</div>
-<div>
-      {this.state.showSports?
-        <div>
-        <Sports sports={this.state.sports}/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideSports}> dismiss sports </button>
-        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showTeams||this.state.showRoster||this.state.showDashboard?"invisible":"btn-lg btn-outline-primary"} onClick={this.showSports}> View Sports </button>}
-</div>
-<div>
-      {this.state.showTeams?
-        <div>
-        <Teams teams={this.state.teams}/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideTeams}> dismiss teams </button>
-        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showRoster||this.state.showSports||this.state.showDashboard?"invisible":"btn-lg btn-outline-primary"} onClick={this.showTeams}> View Teams </button>}
-</div>
-<div>
-      {this.state.showDashboard?
-        <div>
-        <Dashboard customers={this.state.customers}/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideDashboard}> dismiss dashboard </button>
-        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showTeams||this.state.showSports||this.state.showRoster?"invisible":"btn-lg btn-outline-primary"} onClick={this.showDashboard}> View Dashboard </button> }
-</div>
+
+<Link to={ROUTES.ROSTER}>Roster</Link>
+
+<Link to={ROUTES.TEAMS}>Teams</Link>
+
+<Link to={ROUTES.ATHLETES}>Athletes</Link>
+
+<Link to={ROUTES.SPORTS}>Landing</Link>
+
+<Link to={ROUTES.ADMIN}>Admin</Link>
+
+<Link to={ROUTES.HOME}>Home</Link>
+
+<Link to={ROUTES.STATS}>Stats</Link>
+
+<Link to={ROUTES.SIGN_IN}>Sign In</Link>
+
+<Link to={ROUTES.ACCOUNT}>Account</Link>
 
 
-
-
-
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-
-</div>
 </div>
     );
   }

@@ -38,7 +38,7 @@ render(){
 </div>
 <div>
       {this.state.customers.filter(customer=>
-      customer.id===customerId).map(customer=>
+      customer.email===customerId).map(customer=>
       <div className="row">
 
       <div className="col-6">

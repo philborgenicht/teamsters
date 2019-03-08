@@ -18,7 +18,11 @@ class Roster extends Component{
   </AuthUserContext.Consumer>
 <div className="row justify-content-center">
   <div className="col-2 list-group-item">
-  name
+  first name
+  </div>
+
+  <div className="col-2 list-group-item">
+  last name
   </div>
 
   <div className="col-2 list-group-item">
@@ -44,11 +48,23 @@ class Roster extends Component{
 
 
 </div>
-{this.props.athletes.filter(athlete=>athlete.onTeam===true).map(player=>
+{this.props.athletes.filter(athlete=>athlete.onTeam===true).filter(athlete=>
+
+                                                            athlete.name.split(' ')[0].toLowerCase().includes(this.props.filterString.toLowerCase())||
+                                                            athlete.name.split(' ')[1].toLowerCase().includes(this.props.filterString.toLowerCase())||
+                                                            athlete.name.toLowerCase().includes(this.props.filterString.toLowerCase())||
+                                                            athlete.sport.toLowerCase().includes(this.props.filterString.toLowerCase())||
+                                                            athlete.teamName.toLowerCase().includes(this.props.filterString.toLowerCase())||
+                                                            athlete.position.toLowerCase().includes(this.props.filterString.toLowerCase())
+                                                            ).map(player=>
   <div className="row justify-content-center">
 
   <div className="col-2 list-group-item">
-  <div>{player.name}</div>
+  <div>{player.name.split(' ')[0]}</div>
+  </div>
+
+  <div className="col-2 list-group-item">
+  <div>{player.name.split(' ')[1]}</div>
   </div>
 
   <div className="col-2 list-group-item">

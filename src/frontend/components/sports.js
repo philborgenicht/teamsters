@@ -3,6 +3,8 @@ import Football from './sports/football.js'
 import Baseball from './sports/baseball.js'
 import Basketball from './sports/basketball.js'
 import Hockey from './sports/hockey.js'
+import { Link } from 'react-router-dom';
+import * as ROUTES from '../../constants/routes.js';
 
 class Sports extends Component{
   state={
@@ -61,72 +63,58 @@ class Sports extends Component{
     <div className="row justify-content-center">
     <h1 className="heading">SPORTS!</h1>
     </div>
-    <div className="row">
-
-    <div className="col-3 list-group-item sport-heading">
-    Basketball
-    </div>
-
-    <div className="col-3 list-group-item sport-heading">
-    Baseball
-    </div>
-
-    <div className="col-3 list-group-item sport-heading">
-    Football
-    </div>
-
-    <div className="col-3 list-group-item sport-heading">
-    Hockey
-    </div>
 
 
 
 
-    </div>
+
+<div className="row">
+<div className="col-6">
+    {this.props.sports.filter(sport=>
+                                    sport.name.toLowerCase().includes(this.props.filterString.toLowerCase())
 
 
-    <div className="row">
 
 
-        <div className="col-3">
-              {this.state.displayBasketball?
-                <div >
-                <Basketball/>
-                <button className="btn-lg btn-primary" onClick={this.hideBasketball}> dismiss basketball </button>
-                </div>:
-                <button className="btn-lg btn-primary" onClick={this.showBasketball}> show basketball </button>}
-        </div>
+                                  ).map(sport=>(
 
-        <div className="col-3">
-              {this.state.displayBaseball?
-                <div >
-                <Baseball/>
-                <button className="btn-lg btn-primary" onClick={this.hideBaseball}> dismiss baseball </button>
-                </div>:
-                <button className="btn-lg btn-primary" onClick={this.showBaseball}> show baseball </button>}
-        </div>
+<div className="list-group-item">
+    {sport.name} <button onClick={this.props.acquireSport} id={sport.id}> add to list </button>
+</div>
+
+    ))}
+</div>
+<div className="col-6">
+
+<div className="row">
+<Link to={ROUTES.FOOTBALL}>Football</Link>
+
+</div>
+
+<div className="row">
+<Link to={ROUTES.BASEBALL}>Baseball</Link>
+
+</div>
+
+<div className="row">
+<Link to={ROUTES.BASKETBALL}>Basketball</Link>
+
+</div>
+
+<div className="row">
+<Link to={ROUTES.HOCKEY}>Hockey</Link>
+
+</div>
 
 
-          <div className="col-3">
-              {this.state.displayFootball?
-                <div >
-                <Football/>
-                <button className="btn-lg btn-primary" onClick={this.hideFootball}> dismiss football </button>
-                </div>:
-                <button className="btn-lg btn-primary" onClick={this.showFootball}> show football </button>}
-          </div>
+</div>
+</div>
 
 
-          <div className="col-3">
-              {this.state.displayHockey?
-                <div >
-                <Hockey/>
-                <button className="btn-lg btn-primary" onClick={this.hideHockey}> dismiss hockey </button>
-                </div>:
-                <button className="btn-lg btn-primary" onClick={this.showHockey}> show hockey </button>}
-          </div>
 
-      </div>
+
+
+
 
 
     </div>
