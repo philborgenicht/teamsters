@@ -72,7 +72,7 @@ const EditProfile=(props)=>{
           </div>
 
           <div className="row">
-          <button className="btn-lg btn-outline-primary" type="submit" > Submit Changes </button>
+          <button className="btn btn-outline-primary" type="submit" > Submit Changes </button>
           </div>
 
 

@@ -3,7 +3,7 @@ import React from 'react'
 const Stats=(props)=>{
 
     return(
-<div>
+<div className="container">
 <p>stats</p>
 </div>
 

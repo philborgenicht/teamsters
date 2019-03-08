@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import * as ROUTES from '../../../constants/routes.js'
+import {Link} from 'react-router-dom'
 
 import { AuthUserContext } from '../../../components/Session';
 import { withAuthorization } from '../../../components/Session';
@@ -13,10 +15,18 @@ class MyTeams extends Component{
 
 <div className="container">
   <AuthUserContext.Consumer>
-    {authUser => (  <h1>Account: {useremail=authUser.email}{console.log(useremail)}</h1>  )}
+    {authUser => (  <p>Account: {useremail=authUser.email}</p>  )}
 
   </AuthUserContext.Consumer>
+  <Link to={ROUTES.PRACTICE}>Practice</Link>
+  <Link to={ROUTES.ROSTER}>Roster</Link>
 
+
+  <Link to={ROUTES.MYSPORTS}>My Sports</Link>
+
+  <Link to={ROUTES.TEAMS}>Teams</Link>
+  <Link to={ROUTES.ATHLETES}>Athletes</Link>
+  <Link to={ROUTES.SPORTS}>Sports</Link>
   <div className="row justify-content-center">
   <h1 className="heading"> TEAMS </h1>
   </div>
@@ -39,7 +49,7 @@ class MyTeams extends Component{
   </div>
 
   <div className="col-2 list-group-item team-heading">
-  <button> remove </button>
+  <button className="btn btn-outline-success"> remove </button>
   </div>
 
   </div>
@@ -70,7 +80,7 @@ class MyTeams extends Component{
     </div>
 
     <div className="col-2 list-group-item">
-    <div><button onClick={this.props.removeTeam} id={team.id}>remove from list</button></div>
+    <div><button className="btn btn-outline-success" onClick={this.props.removeTeam} id={team.id}>remove from list</button></div>
     </div>
 
 

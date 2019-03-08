@@ -28,7 +28,7 @@ export default class Login extends Component{
 </div>
 
 <div className="row">
-<button className="btn-lg btn-outline-success" type="submit"> Sign In:</button>
+<button className="btn btn-outline-success" type="submit"> Sign In:</button>
 </div>
 
 </div>

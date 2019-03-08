@@ -7,7 +7,7 @@ import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
-const SignInPage = () => (
+const SignInPage = (props) => (
   <div>
     <h1>SignIn</h1>
     <SignInForm />
@@ -30,6 +30,7 @@ class SignInFormBase extends Component {
   }
 
   onSubmit = event => {
+
     const { email, password } = this.state;
 
     this.props.firebase
@@ -58,6 +59,7 @@ class SignInFormBase extends Component {
       <form onSubmit={this.onSubmit}>
         <input
           name="email"
+          id="email"
           value={email}
           onChange={this.onChange}
           type="text"
@@ -70,7 +72,7 @@ class SignInFormBase extends Component {
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <button className="btn btn-outline-success" disabled={isInvalid} type="submit">
           Sign In
         </button>
 

@@ -4,26 +4,26 @@ const Footer=(props)=>{
 
     return(
 
-      <footer class="page-footer font-small blue pt-4 ">
+      <footer className="sticky-bottom fixed-bottom">
 
-          <div class="container-fluid text-center text-md-left">
+          <div className="container-fluid text-center text-md-left">
 
-            <div class="row">
+            <div className="row">
 
-              <div class="col-md-6 mt-md-0 mt-3">
+              <div className="col-md-6 mt-md-0 mt-3">
 
-                <h5 class="text-uppercase">Teamsters</h5>
+                <h5 className="text-uppercase">Teamsters</h5>
                 <p>Thank you for visiting and becoming a part of the Teamsters team</p>
 
               </div>
 
-              <hr class="clearfix w-100 d-md-none pb-3"></hr>
+              <hr className="clearfix w-100 d-md-none pb-3"></hr>
 
-              <div class="col-md-3 mb-md-0 mb-3">
+              <div className="col-md-3 mb-md-0 mb-3">
 
-                  <h5 class="text-uppercase">About Us</h5>
+                  <h5 className="text-uppercase">About Us</h5>
 
-                  <ul class="list-unstyled">
+                  <ul className="list-unstyled">
                     <li>
                       <a href="#!">The Developer</a>
                     </li>
@@ -34,17 +34,17 @@ const Footer=(props)=>{
 
                     </li>
                     <li>
-                    
+
                     </li>
                   </ul>
 
                 </div>
 
-                <div class="col-md-3 mb-md-0 mb-3">
+                <div className="col-md-3 mb-md-0 mb-3">
 
-                  <h5 class="text-uppercase">Sports Resources</h5>
+                  <h5 className="text-uppercase">Sports Resources</h5>
 
-                  <ul class="list-unstyled">
+                  <ul className="list-unstyled">
                     <li>
                       <a href="#!">ESPN</a>
                     </li>
@@ -61,7 +61,7 @@ const Footer=(props)=>{
 
                 </div>
             </div>
-          </div>          <div class="footer-copyright text-center py-3">© 2018 Copyright:
+          </div>          <div className="footer-copyright text-center py-3">© 2018 Copyright:
             <a href="galvanize.com"> Galvanize Institute</a>
           </div>
         </footer>

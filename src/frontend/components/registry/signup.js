@@ -78,7 +78,7 @@ export default class Signup extends Component{
       </div>
 
       <div className="row">
-      <button type="submit" className="btn-lg btn-outline-success"> Signup: </button>
+      <button type="submit" className="btn btn-outline-success"> Signup: </button>
       </div>
 
 

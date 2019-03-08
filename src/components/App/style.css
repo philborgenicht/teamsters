@@ -1,5 +1,50 @@
 html{
-
   font-family: 'Titillium Web', sans-serif;
 
 }
+input, select{
+  border-radius: 20px;
+
+  text-shadow: 1px 1px #FF0000;
+  color:orange
+}
+
+.sport-title{
+  padding:19px
+}
+body{
+  padding-bottom:500px;
+  background-color: #fafffd;
+  text-shadow: 1px 1px #FF0000;
+}
+footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+   text-shadow: 1px 1px black;
+   color:orange
+}
+
+.teamLogo{
+  max-width: 200px
+}
+.sportLogo{
+  max-width: 200px
+}
+
+.nav-link{
+  font-size: 15px;
+  font-weight: bold;
+
+
+}
+/*
+9fd356
+#342e37
+#fafffd
+#3c91e6
+#fa824c */

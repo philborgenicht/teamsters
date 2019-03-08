@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
+import * as ROUTES from '../../constants/routes';
 
 import { AuthUserContext } from '../Session';
 import { PasswordForgetForm } from '../PasswordForget';
@@ -8,7 +10,7 @@ import { withAuthorization } from '../Session';
 const AccountPage = (props) => (
 <div className="container">
   <AuthUserContext.Consumer>
-    {authUser => (  <h1>Account: {authUser.email}</h1>    )}
+    {authUser => (  <p>Account: {authUser.email}</p>    )}
   </AuthUserContext.Consumer>
 
 
@@ -70,7 +72,11 @@ const AccountPage = (props) => (
                   </label>
                   </div>
         <div className="row">
-        <button type="submit" id="submit"> Complete Profile </button>
+              <button className="btn btn-outline-success" type="submit" id="submit"> Complete Profile </button>
+        </div>
+        <div className="row">
+        <Link to={ROUTES.PRACTICE}><button> GO PLAY </button></Link>
+
         </div>
 
         </form>
@@ -83,7 +89,7 @@ const AccountPage = (props) => (
 
         {props.changePassword?
         <div><PasswordChangeForm /> <button onClick={props.revert}> dismiss</button></div>
-        : <button onClick={props.change}> change password </button>}
+        : <button className="btn btn-outline-success" onClick={props.change}> change password </button>}
 </div>
 
 </div>

@@ -30,14 +30,7 @@ class Homepage extends Component {
       showLogin:false,
       loggedIn:false
     }
-login=()=>{
-  console.log('login')
-}
 
-signup= ()=> {
-
-console.log('user')
-}
 
 showLogin=()=>{
   this.setState({showLogin:true, showLanding:false, showRoster:false, showAthletes:false, showSports:false, showTeams:false, showDashboard:false, showSignup:false})
@@ -106,9 +99,7 @@ logout=()=>{
   this.setState({loggedIn:false})
 }
 
-addToRoster=()=>{
-  console.log('recruited')
-}
+
 
 
 
@@ -129,7 +120,7 @@ addToRoster=()=>{
       const rosters = await response5.json()
 
       this.setState({athletes:athletes, customers:customers, teams:teams, sports:sports, rosters:rosters})
-      console.log(this.state)
+
 
     }
 
@@ -155,9 +146,9 @@ addToRoster=()=>{
       {this.state.showLanding?
         <div>
         <Landing/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideLanding}> dismiss about us </button>
+        <button className="btn btn-outline-primary" onClick={this.hideLanding}> dismiss about us </button>
         </div>
-         : <button className="btn-lg btn-outline-primary" onClick={this.showLanding}> view about us</button>}
+         : <button className="btn btn-outline-primary" onClick={this.showLanding}> view about us</button>}
 
 </div>
 
@@ -173,36 +164,36 @@ addToRoster=()=>{
       {this.state.showRoster?
       <div>
         <Roster athletes={this.state.athletes} rosters={this.state.rosters}/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideRoster}> dismiss roster </button>
-        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showTeams||this.state.showSports||this.state.showDashboard?"invisible":"btn-lg btn-outline-primary"} onClick={this.showRoster}> View roster</button>}
+        <button className="btn btn-outline-primary" onClick={this.hideRoster}> dismiss roster </button>
+        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showTeams||this.state.showSports||this.state.showDashboard?"invisible":"btn btn-outline-primary"} onClick={this.showRoster}> View roster</button>}
 </div>
 <div>
       {this.state.showAthletes?
         <div>
         <Athletes athletes={this.state.athletes}/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideAthletes}> dismiss athletes </button>
-        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showRoster||this.state.showTeams||this.state.showSports||this.state.showDashboard?"invisible":"btn-lg btn-outline-primary"} onClick={this.showAthletes}> View Athletes</button>}
+        <button className="btn btn-outline-primary" onClick={this.hideAthletes}> dismiss athletes </button>
+        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showRoster||this.state.showTeams||this.state.showSports||this.state.showDashboard?"invisible":"btn btn-outline-primary"} onClick={this.showAthletes}> View Athletes</button>}
 </div>
 <div>
       {this.state.showSports?
         <div>
         <Sports sports={this.state.sports}/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideSports}> dismiss sports </button>
-        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showTeams||this.state.showRoster||this.state.showDashboard?"invisible":"btn-lg btn-outline-primary"} onClick={this.showSports}> View Sports </button>}
+        <button className="btn btn-outline-primary" onClick={this.hideSports}> dismiss sports </button>
+        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showTeams||this.state.showRoster||this.state.showDashboard?"invisible":"btn btn-outline-primary"} onClick={this.showSports}> View Sports </button>}
 </div>
 <div>
       {this.state.showTeams?
         <div>
         <Teams teams={this.state.teams}/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideTeams}> dismiss teams </button>
-        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showRoster||this.state.showSports||this.state.showDashboard?"invisible":"btn-lg btn-outline-primary"} onClick={this.showTeams}> View Teams </button>}
+        <button className="btn btn-outline-primary" onClick={this.hideTeams}> dismiss teams </button>
+        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showRoster||this.state.showSports||this.state.showDashboard?"invisible":"btn btn-outline-primary"} onClick={this.showTeams}> View Teams </button>}
 </div>
 <div>
       {this.state.showDashboard?
         <div>
         <Dashboard customers={this.state.customers}/>
-        <button className="btn-lg btn-outline-primary" onClick={this.hideDashboard}> dismiss dashboard </button>
-        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showTeams||this.state.showSports||this.state.showRoster?"invisible":"btn-lg btn-outline-primary"} onClick={this.showDashboard}> View Dashboard </button> }
+        <button className="btn btn-outline-primary" onClick={this.hideDashboard}> dismiss dashboard </button>
+        </div> : <button className={this.state.showSignup||this.state.showLogin||this.state.showAthletes||this.state.showTeams||this.state.showSports||this.state.showRoster?"invisible":"btn btn-outline-primary"} onClick={this.showDashboard}> View Dashboard </button> }
 </div>
 
 

@@ -60,6 +60,30 @@ class Sports extends Component{
   render(){
   return(
     <div className="container ">
+<div className="row justify-content-center">
+
+
+
+<div className="col-2">
+    <Link to={ROUTES.PRACTICE}>Practice</Link>
+</div>
+<div className="col-2">
+    <Link to={ROUTES.ROSTER}>Roster</Link>
+</div>
+<div className="col-2">
+    <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+</div>
+<div className="col-2">
+    <Link to={ROUTES.MYSPORTS}>My Sports</Link>
+</div>
+<div className="col-2">
+    <Link to={ROUTES.TEAMS}>Teams</Link>
+</div>
+<div className="col-2">
+    <Link to={ROUTES.ATHLETES}>Athletes</Link>
+</div>
+
+</div>
     <div className="row justify-content-center">
     <h1 className="heading">SPORTS!</h1>
     </div>
@@ -79,29 +103,36 @@ class Sports extends Component{
                                   ).map(sport=>(
 
 <div className="list-group-item">
-    {sport.name} <button onClick={this.props.acquireSport} id={sport.id}> add to list </button>
+<div className="row">
+<div className='col-6'>
+    {sport.name}
+</div>
+<div className='col-6'>
+ <button className="btn btn-block btn-success" onClick={this.props.acquireSport} id={sport.id}> add to list </button>
+</div>
+</div>
 </div>
 
     ))}
 </div>
 <div className="col-6">
 
-<div className="row">
+<div className="row list-group-item sport-title">
 <Link to={ROUTES.FOOTBALL}>Football</Link>
 
 </div>
 
-<div className="row">
+<div className="row list-group-item sport-title">
 <Link to={ROUTES.BASEBALL}>Baseball</Link>
 
 </div>
 
-<div className="row">
+<div className="row list-group-item sport-title">
 <Link to={ROUTES.BASKETBALL}>Basketball</Link>
 
 </div>
 
-<div className="row">
+<div className="row list-group-item sport-title">
 <Link to={ROUTES.HOCKEY}>Hockey</Link>
 
 </div>

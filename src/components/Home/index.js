@@ -4,12 +4,12 @@ import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
 import { withAuthorization } from '../Session';
 import Dashboard from '../../frontend/components/dashboard.js'
+import EditProfile from '../../frontend/components/EditProfile.js'
 class HomePage extends Component{
-  state={userEmail:'', athletes:[], sports:[], teams:[], customers:[]}
+  state={userEmail:'', athletes:[], sports:[], teams:[], customers:[], editProfile:false}
   setEmail=(e)=>{
     let email=e.target.id
     this.setState({userEmail:email})
-    console.log(this.state.userEmail)
   }
   componentDidMount = async() => {
     const response = await fetch('https://galvanize-borgenicht.herokuapp.com/athletes')
@@ -27,17 +27,27 @@ class HomePage extends Component{
 
     this.setState({athletes:athletes, sports:sports, teams:teams, customers:customers})
   }
+  editProfile=()=>{
+    this.setState({editProfile:true})
+  }
   render(){
     return(
 
 
 <div className="container">
-  <AuthUserContext.Consumer>
-    {authUser => (  <button onClick={this.setEmail}id={authUser.email}>view info</button>    )}
-  </AuthUserContext.Consumer>
 
+
+<div className="row justify-content-center">
+  <AuthUserContext.Consumer>
+    {authUser => (  <button className="btn btn-success btn-block" onClick={this.setEmail}id={authUser.email}>view info</button>    )}
+  </AuthUserContext.Consumer>
+</div>
+<div className="row">
+<div className="col-6">
 {this.state.customers.filter(customer=>customer.email===this.state.userEmail).map(customer=>
-  <div>
+
+<div>
+
   <div className="row">
         <div  className="dashboard">
         FIRST NAME: {customer.firstname}
@@ -95,7 +105,6 @@ class HomePage extends Component{
   <div className="row">
         <div className="col-2">
         </div>
-
         <div className="dashboard">
         ID #: {customer.favoriteTeamId}
         </div>
@@ -126,9 +135,29 @@ class HomePage extends Component{
         ACCOUNT PRIVILEGES: {customer.isAdmin? "ADMINISTRATOR" : "STANDARD"}
         </div>
   </div>
-  </div>
+<div className="row">
+<button onClick={this.editProfile} className="btn btn-block btn-danger">edit profile</button>
+</div>
+
+</div>
 )}
 </div>
+<div className="col-6">
+
+{this.state.editProfile? <EditProfile
+                                    teams={this.state.teams}
+                                    customers={this.state.customers}
+                                    athletes={this.state.athletes}
+                                    sports={this.state.sports}/>: ''}
+</div>
+
+
+</div>
+
+
+</div>
+
+
 );
 }
 }

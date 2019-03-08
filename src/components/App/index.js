@@ -7,14 +7,23 @@ import Athletes from '../../frontend/components/athletes.js'
 import Sports from '../../frontend/components/sports.js'
 import Stats from '../../frontend/components/stats.js'
 
+
+import Players from '../../frontend/components/managerbox/players.js'
+import Clubs from '../../frontend/components/managerbox/clubs.js'
+import Activities from '../../frontend/components/managerbox/activities.js'
+import ManagerBox from '../../frontend/components/managerbox/managerbox.js'
+import Main from '../../frontend/components/main.js'
+
+import PlayerRecruits from '../../frontend/components/managerbox/playerRecruits.js'
+import TeamRecruits from '../../frontend/components/managerbox/teamRecruits.js'
 import MyTeams from '../../frontend/components/rosters/myteams.js'
 import MySports from '../../frontend/components/rosters/mysports.js'
-
+import Footer from '../../frontend/components/footer.js'
 import Football from '../../frontend/components/sports/football.js'
 import Baseball from '../../frontend/components/sports/baseball.js'
 import Basketball from '../../frontend/components/sports/basketball.js'
 import Hockey from '../../frontend/components/sports/hockey.js'
-
+import Practice from '../../frontend/components/rosters/practice.js'
 import Navigation from '../Navigation';
 import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
@@ -40,7 +49,12 @@ class App extends Component{
     sortedByLastName:false,
     sortedBySport:false,
     sortedByPosition:false,
-    sortedByTeamName:false
+    sortedByTeamName:false,
+    sortedBySportTitle:false,
+    sortedByCityTitle:false,
+    sortedByStateTitle:false,
+    sortedByTeamTitle:false,
+    userEmail:''
   }
   componentDidMount = async() => {
     const response = await fetch('https://galvanize-borgenicht.herokuapp.com/athletes')
@@ -58,11 +72,63 @@ class App extends Component{
 
     this.setState({athletes:athletes, sports:sports, teams:teams, customers:customers})
   }
-// postUser=(e)=>{
-//   e.preventDefault()
-//   console.log(e.target)
-// }
 
+  sortByTeamTitle=()=>{
+    let currentTeams=this.state.teams
+    let newState=currentTeams.sort((team1, team2)=>{
+      if((team1.name)<(team2.name)){
+        return -1
+      }
+      else if((team1.name)>(team2.name)){
+        return 1
+      }
+    })
+    this.setState({teams:newState, sortedByTeamTitle:true, sortedByCityTitle:false, sortedByStateTitle:false, sortedBySportTitle:false})
+  }
+  sortByCityTitle=()=>{
+    let currentTeams=this.state.teams
+    let newState=currentTeams.sort((team1, team2)=>{
+      if((team1.city)<(team2.city)){
+        return -1
+      }
+      else if((team1.city)>(team2.city)){
+        return 1
+      }
+    })
+    this.setState({teams:newState, sortedByTeamTitle:false, sortedByCityTitle:true, sortedByStateTitle:false, sortedBySportTitle:false})
+  }
+
+  sortByStateTitle=()=>{
+    let currentTeams=this.state.teams
+    let newState=currentTeams.sort((team1, team2)=>{
+      if((team1.state)<(team2.state)){
+        return -1
+      }
+      else if((team1.state)>(team2.state)){
+        return 1
+      }
+    })
+    this.setState({teams:newState, sortedByTeamTitle:false, sortedByCityTitle:false, sortedByStateTitle:true, sortedBySportTitle:false})
+  }
+
+  sortBySportTitle=()=>{
+    let currentTeams=this.state.teams
+    let newState=currentTeams.sort((team1, team2)=>{
+      if((team1.sportName)<(team2.sportName)){
+        return -1
+      }
+      else if((team1.sportName)>(team2.sportName)){
+        return 1
+      }
+    })
+    this.setState({teams:newState, sortedByTeamTitle:false, sortedByCityTitle:false, sortedByStateTitle:false, sortedBySportTitle:true})
+  }
+
+
+
+
+
+//
 sortByFirstName=()=>{
   let currentAthletes=this.state.athletes
   let newState=currentAthletes.sort((ath1, ath2)=>{
@@ -145,8 +211,6 @@ let fullSport=e.target.favSport.value.split(', ')
 let sportName=fullSport.slice(0, fullSport.length-1)[0]
 let sportId=Number.parseInt(fullSport[fullSport.length-1])
 
-console.log(athName, athId, teamName, teamId, sportName, sportId)
-
   await fetch('https://galvanize-borgenicht.herokuapp.com/customers',{
     method: 'POST',
     body: JSON.stringify({
@@ -172,6 +236,7 @@ console.log(athName, athId, teamName, teamId, sportName, sportId)
       'Accept': 'application/json',
     }
   })
+
 }
 
   forget=()=>{
@@ -192,7 +257,6 @@ console.log(athName, athId, teamName, teamId, sportName, sportId)
     let currentAthletes=[...this.state.athletes]
     let drafted=currentAthletes.filter(athlete=>athlete.id===playerid)
     drafted[0].onTeam=true
-    console.log(drafted[0].onTeam)
   }
 
   acquireSport=(e)=>{
@@ -207,7 +271,6 @@ console.log(athName, athId, teamName, teamId, sportName, sportId)
     let currentTeams=[...this.state.teams]
     let teamId=Number.parseInt(e.target.id)
     let chosenTeam=currentTeams.filter(team=>team.id===teamId)[0]
-    console.log(chosenTeam)
     chosenTeam.onList=true
   }
   trade=(e)=>{
@@ -264,17 +327,59 @@ search=(e)=>{
   this.setState({filterString:userinput})
 }
 
+setUserEmail=(e)=>{
+  let email=e.target.email.value
+  this.setState({userEmail:email})
+}
+
   render(){
     return(
   <Router>
     <div>
-      <Navigation search={this.search}/>
+      <Navigation className="sticky-top" search={this.search}/>
 
       <hr />
+<Route exact path={ROUTES.MAIN} render={()=><Main/>}/>
+<Route exact path={ROUTES.PRACTICE} render={()=><Practice/>}/>
 
-      <Route exact path={ROUTES.LANDING} component={LandingPage} />
-      <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
-      <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
+<Route exact path={ROUTES.MANAGERBOX} render={()=><ManagerBox/>}/>
+
+<Route exact path={ROUTES.PLAYERS} render={()=><Players/>}/>
+
+<Route exact path={ROUTES.CLUBS} render={()=><Clubs/>}/>
+
+<Route exact path={ROUTES.ACTIVITIES} render={()=><Activities/>}/>
+<Route exact path={ROUTES.LANDING} render={()=><LandingPage userEmail={this.state.userEmail}/>}/>
+
+<Route exact path={ROUTES.SIGN_UP} render={()=><SignUpPage />}/>
+<Route exact path={ROUTES.SIGN_IN} render={()=><SignInPage />}/>
+
+<Route exact path={ROUTES.TEAM_RECRUITS} render={()=><TeamRecruits
+                                                      sortByTeamTitle={this.sortByTeamTitle}
+                                                      sortByCityTitle={this.sortByCityTitle}
+                                                      sortByStateTitle={this.sortByStateTitle}
+                                                      sortBySportTitle={this.sortBySportTitle}
+                                                      filterString={this.state.filterString}
+                                                      sortedByTeamTitle={this.state.sortedByTeamTitle}
+                                                      sortedByCityTitle={this.state.sortedByCityTitle}
+                                                      sortedByStateTitle={this.state.sortedByStateTitle}
+                                                      sortedBySportTitle={this.state.sortedBySportTitle}
+                                                        />}/>
+
+<Route exact path={ROUTES.PLAYER_RECRUITS} render={()=><PlayerRecruits
+                                                        filterString={this.state.filterString}
+                                                        sortByFirstName={this.sortByFirstName}
+                                                        sortByLastName={this.sortByLastName}
+                                                        sortByTeamName={this.sortByTeamName}
+                                                        sortByPosition={this.sortByPosition}
+                                                        sortBySport={this.sortBySport}
+                                                        sortedBySport={this.state.sortedBySport}
+                                                        sortedByLastName={this.state.sortedByLastName}
+                                                        sortedByFirstName={this.state.sortedByFirstName}
+                                                        sortedByTeamName={this.state.sortedByTeamName}
+                                                        sortedByPosition={this.state.sortedByPosition}
+                                                        />}/>
+
       <Route
         exact
         path={ROUTES.PASSWORD_FORGET}
@@ -284,8 +389,7 @@ search=(e)=>{
 
 <Route exact path={ROUTES.MYTEAMS} render={()=><MyTeams filterString={this.state.filterString} search={this.search} removeTeam={this.removeTeam} sports={this.state.sports} teams={this.state.teams} athletes={this.state.athletes} />}/>
 
-<Route exact path={ROUTES.FOOTBALL} render={()=><Football
-/>}/>
+<Route exact path={ROUTES.FOOTBALL} render={()=><Football/>}/>
 
 <Route exact path={ROUTES.BASEBALL} render={()=><Baseball
 />}/>
@@ -307,6 +411,16 @@ search=(e)=>{
                                                 />}/>
 
 <Route exact path={ROUTES.TEAMS} render={()=><Teams
+                                                    sortByTeamTitle={this.sortByTeamTitle}
+                                                    sortByCityTitle={this.sortByCityTitle}
+                                                    sortByStateTitle={this.sortByStateTitle}
+                                                    sortBySportTitle={this.sortBySportTitle}
+
+                                                    sortedByTeamTitle={this.state.sortedByTeamTitle}
+                                                    sortedByCityTitle={this.state.sortedByCityTitle}
+                                                    sortedByStateTitle={this.state.sortedByStateTitle}
+                                                    sortedBySportTitle={this.state.sortedBySportTitle}
+
                                                     acquireTeam={this.acquireTeam}
                                                     search={this.search}
                                                     filterString={this.state.filterString}
@@ -356,6 +470,7 @@ search=(e)=>{
 
       <Route exact path={ROUTES.ACCOUNT} render={()=>
                                                 <AccountPage
+                                                  userEmail={this.state.userEmail}
                                                   forgotPassword={this.state.forgotPassword}
                                                   changePassword={this.state.changePassword}
                                                   forget={this.forget}
@@ -378,8 +493,9 @@ search=(e)=>{
                                                   />
 
 
-
+<Footer />
     </div>
+
   </Router>
 );
 }

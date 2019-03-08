@@ -10,6 +10,10 @@ import React, { Component } from 'react';
 // import Roster from './components/rosters/roster.js'
 // import Signup from './components/registry/signup.js'
 // import Login from './components/registry/login.js'
+import { AuthUserContext } from '../components/Session';
+
+import { withAuthorization } from '../components/Session';
+
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../constants/routes';
 
@@ -32,7 +36,8 @@ class Base extends Component {
       showRoster:false,
       showSignup:false,
       showLogin:false,
-      loggedIn:false
+      loggedIn:false,
+      useremail:''
     }
 
   componentDidMount = async() => {
@@ -51,10 +56,7 @@ class Base extends Component {
 
     this.setState({athletes:athletes, sports:sports, teams:teams, customers:customers})
   }
-// postUser=(e)=>{
-//   e.preventDefault()
-//   console.log(e.target)
-// }
+
   postUser = async(e) => {
 e.preventDefault()
 let fullAthlete=e.target.favAthlete.value.split(', ')
@@ -69,7 +71,6 @@ let fullSport=e.target.favSport.value.split(', ')
 let sportName=fullSport.slice(0, fullSport.length-1)[0]
 let sportId=Number.parseInt(fullSport[fullSport.length-1])
 
-console.log(athName, athId, teamName, teamId, sportName, sportId)
 
   await fetch('https://galvanize-borgenicht.herokuapp.com/customers',{
     method: 'POST',
@@ -101,22 +102,6 @@ console.log(athName, athId, teamName, teamId, sportName, sportId)
 
 
 
-//
-// submitForm=(e)=>{
-//   e.preventDefault()
-//   const user={
-//     firstname:e.target.firstname.value,
-//     lastname:e.target.lastname.value,
-//     username:e.target.username.value,
-//     email:e.target.email.value,
-//     phone:e.target.phone.value,
-//     favoritePlayer:e.target.favAthlete.value,
-//     favoriteTeam:e.target.favTeam.value,
-//     favoriteSport:e.target.favSport.value
-//   }
-//   console.log('USER', user)
-// }
-
 
   forget=()=>{
     this.setState({forgotPassword:true})
@@ -136,7 +121,6 @@ console.log(athName, athId, teamName, teamId, sportName, sportId)
     let currentAthletes=[...this.state.athletes]
     let drafted=currentAthletes.filter(athlete=>athlete.id===playerid)
     drafted[0].onTeam=true
-    console.log(drafted[0].onTeam)
   }
 
   trade=(e)=>{
@@ -161,14 +145,7 @@ search=(e)=>{
   this.setState({filterString:userinput})
 }
 
-login=()=>{
-  console.log('login')
-}
 
-signup= ()=> {
-
-console.log('user')
-}
 
 showLogin=()=>{
   this.setState({showLogin:true, showLanding:false, showRoster:false, showAthletes:false, showSports:false, showTeams:false, showDashboard:false, showSignup:false})
@@ -237,17 +214,25 @@ logout=()=>{
   this.setState({loggedIn:false})
 }
 
-addToRoster=()=>{
-  console.log('recruited')
-}
 
 
 
 
 
   render() {
+    let useremail
     return (
 <div>
+
+
+<h1> thank you for signing up, please click <span><Link to={ROUTES.ACCOUNT}>Here</Link></span> to complete your profile</h1>
+<div>
+<AuthUserContext.Consumer>
+  {authUser => useremail=authUser.email}
+</AuthUserContext.Consumer>
+</div>
+
+
 
 <Link to={ROUTES.ROSTER}>Roster</Link>
 
@@ -265,12 +250,12 @@ addToRoster=()=>{
 
 <Link to={ROUTES.SIGN_IN}>Sign In</Link>
 
-<Link to={ROUTES.ACCOUNT}>Account</Link>
 
 
 </div>
     );
   }
 }
+const authCondition = authUser => !!authUser;
 
-export default Base;
+export default withAuthorization(authCondition)(Base);

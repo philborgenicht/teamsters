@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import * as ROUTES from '../../../constants/routes.js'
+import {Link} from 'react-router-dom'
 
 import { AuthUserContext } from '../../../components/Session';
 import { withAuthorization } from '../../../components/Session';
@@ -13,9 +15,20 @@ class MySports extends Component{
 
 <div className="container">
   <AuthUserContext.Consumer>
-    {authUser => (  <h1>Account: {useremail=authUser.email}{console.log(useremail)}</h1>  )}
+    {authUser => (  <p>Account: {useremail=authUser.email}</p>  )}
 
   </AuthUserContext.Consumer>
+
+  <Link to={ROUTES.PRACTICE}>Practice</Link>
+  <Link to={ROUTES.ROSTER}>Roster</Link>
+
+  <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+
+
+  <Link to={ROUTES.TEAMS}>Teams</Link>
+  <Link to={ROUTES.ATHLETES}>Athletes</Link>
+  <Link to={ROUTES.SPORTS}>Sports</Link>
+
 <h1> my sports </h1>
 <div className="row">
     <div className="col-12 list-group-item">Sports</div>
@@ -26,7 +39,7 @@ class MySports extends Component{
                                                             ).map(sport=>(
   <div>
   {sport.name}
-  <button onClick={this.props.removeSport} id={sport.id}>remove team</button>
+  <button className="btn btn-outline-success" onClick={this.props.removeSport} id={sport.id}>remove team</button>
   </div>
 ))}
 </div>

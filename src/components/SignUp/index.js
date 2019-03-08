@@ -6,7 +6,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
-const SignUpPage = () => (
+const SignUpPage = (props) => (
   <div>
     <h1>SignUp</h1>
     <SignUpForm />
@@ -43,7 +43,7 @@ class SignUpFormBase extends Component {
           })
           .then(() => {
             this.setState({ ...INITIAL_STATE });
-            this.props.history.push(ROUTES.HOME);
+            this.props.history.push(ROUTES.LANDING);
           })
           .catch(error => {
             this.setState({ error });
@@ -98,6 +98,7 @@ class SignUpFormBase extends Component {
         />
         <input
           name="email"
+          id="email"
           value={email}
           onChange={this.onChange}
           type="text"
@@ -117,7 +118,7 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <button className="btn btn-outline-success"disabled={isInvalid} type="submit">
           Sign Up
         </button>
 

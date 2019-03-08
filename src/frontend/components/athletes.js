@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
+import * as ROUTES from '../../constants/routes.js'
 
 class Athletes extends Component{
 
@@ -7,14 +9,20 @@ class Athletes extends Component{
   render(){
     return(
       <div className="container ">
+      <Link to={ROUTES.PRACTICE}>Practice</Link>
+      <Link to={ROUTES.ROSTER}>Roster</Link>
+
+      <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+
+      <Link to={ROUTES.MYSPORTS}>My Sports</Link>
+
+      <Link to={ROUTES.TEAMS}>Teams</Link>
+      <Link to={ROUTES.SPORTS}>Sports</Link>
       <div className="row justify-content-center">
         <h1 className="heading"> ATHLETES: </h1>
-        <button onClick={this.props.sortByFirstName}>sort by first name</button>
-        <button onClick={this.props.sortByLastName}>sort by last name</button>
-        <button onClick={this.props.sortByTeamName}>sort by team name</button>
-        <button onClick={this.props.sortBySport}>sort by sport name</button>
-        <button onClick={this.props.sortByPosition}>sort by position</button>
       </div>
+
+
 
             <div className="row justify-content-center">
 
@@ -47,7 +55,33 @@ class Athletes extends Component{
                         </div>
 
             </div>
+            <div className="row justify-content-center">
 
+            <div className="col-2 list-group-item-dark">
+              <button className="btn btn-sm btn-primary" onClick={this.props.sortByFirstName}>sort by</button>
+            </div>
+
+            <div className="col-2 list-group-item-dark">
+              <button className="btn btn-sm btn-primary" onClick={this.props.sortByLastName}>sort by</button>
+            </div>
+
+            <div className="col-2 list-group-item-dark">
+              <button className="btn btn-sm btn-primary" onClick={this.props.sortBySport}>sort by</button>
+            </div>
+
+            <div className="col-2 list-group-item-dark">
+              <button className="btn btn-sm btn-primary" onClick={this.props.sortByTeamName}>sort by</button>
+            </div>
+
+
+            <div className="col-2 list-group-item-dark">
+              <button className="btn btn-sm btn-primary" onClick={this.props.sortByPosition}>sort by</button>
+            </div>
+
+            <div className="col-2 list-group-item-dark">
+            </div>
+
+            </div>
 
 
                         {this.props.athletes.filter
@@ -64,7 +98,7 @@ class Athletes extends Component{
                           <div className="col-2 list-group-item athleteinfo">{athlete.sport}</div>
                           <div className="col-2 list-group-item athleteinfo">{athlete.teamName}</div>
                           <div className="col-2 list-group-item athleteinfo">{athlete.position}</div>
-                          <div  className="col-2 list-group-item athleteinfo"><button id={athlete.id}className="btn-lg btn-success" onClick={this.props.draft}> Add to My Team </button></div>
+                          <div  className="col-2 list-group-item athleteinfo"><button className="btn btn-outline-success" id={athlete.id}className="btn btn-sm btn-success" onClick={this.props.draft}> Add to My Team </button></div>
                           </div>
                                             )}
 

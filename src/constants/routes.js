@@ -20,3 +20,19 @@ export const BASKETBALL = '/basketball'
 export const MYSPORTS = '/mysports'
 
 export const MYTEAMS = '/myteams'
+
+export const PLAYERS = '/players'
+
+export const CLUBS = '/clubs'
+
+export const ACTIVITIES = '/activities'
+
+export const MANAGERBOX ='/managerbox'
+
+export const PRACTICE = '/practice'
+
+export const MAIN = '/main'
+
+export const PLAYER_RECRUITS = '/playerRecruits'
+
+export const TEAM_RECRUITS ='/teamRecruits'
