@@ -15,7 +15,8 @@ state={
   sortedByLastName:false,
   sortedBySport:false,
   sortedByTeamName:false,
-  sortedByPosition:false
+  sortedByPosition:false,
+  userEmail:''
 
 }
 sortByFirstName=()=>{
@@ -97,8 +98,33 @@ componentDidMount = async() => {
 
   this.setState({athletes:athletes, customers:customers, customers_athletes:customers_athletes})
 }
-recruit=(e)=>{
-  console.log(e.target.id)
+recruit=async (e)=>{
+  let playerId=e.target.id
+  let desiredAthlete=this.state.athletes.filter(athlete=>athlete.id==playerId)[0]
+  let athleteId=desiredAthlete.id
+  console.log("desiredathlete", desiredAthlete)
+  let customer=this.state.customers.filter(user=>user.email===this.state.userEmail)[0]
+  console.log(customer)
+  let customerId=customer.id
+  console.log(customer.id)
+
+  ///posting new athlete to an individual user's dashboard
+  await fetch(`https://galvanize-borgenicht.herokuapp.com/customers_athletes/`,{
+    method: 'POST',
+    body: JSON.stringify({
+      customerId:customerId,
+      athleteId:athleteId
+
+    }),
+    headers:{
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    }
+  })
+
+}
+setUserEmail=(e)=>{
+  this.setState({userEmail:e.target.id})
 }
   render(){
     let useremail
@@ -111,7 +137,12 @@ recruit=(e)=>{
 
 <div className='col-2'>
   <AuthUserContext.Consumer>
-    {authUser => (  <p>Account: {useremail=authUser.email}</p>  )}
+    {authUser => (
+      <div>
+      <p>Account: {useremail=authUser.email}</p>
+      <button onClick={this.setUserEmail} id={authUser.email}> click to make changes </button>
+      </div>
+        )}
 
   </AuthUserContext.Consumer>
 </div>

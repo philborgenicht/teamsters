@@ -102,7 +102,7 @@ purchase=(e)=>{
 <div className='col-2'>
   <AuthUserContext.Consumer>
     {authUser => (  <p>Account: {useremail=authUser.email}</p>  )}
-
+{console.log(useremail)}
   </AuthUserContext.Consumer>
 </div>
 
