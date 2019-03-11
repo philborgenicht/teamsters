@@ -5,9 +5,13 @@ import { withAuthorization } from '../../../components/Session';
 import {Link} from 'react-router-dom'
 class ManagerBox extends Component{
 
+state={userEmail:''}
+setUserEmail=(e)=>{
+  this.setState({userEmail:e.target.id})
+  console.log(this.state.userEmail)
+}
 
-
-  render(){
+  render(e){
     let useremail
     return(
 
@@ -16,11 +20,17 @@ class ManagerBox extends Component{
 
 <div className="row">
   <AuthUserContext.Consumer>
-    {authUser => (  <p>Account: {useremail=authUser.email}</p>  )}
+    {authUser => (
+      <div>
+      <p>Account: {useremail=authUser.email}</p>
+      <button id={authUser.email} onClick={this.setUserEmail}> click</button>
+    </div>
+    )}
+
   </AuthUserContext.Consumer>
 </div>
 
-
+{console.log("chicken", useremail)}
 
 
 
