@@ -20,15 +20,34 @@ class Roster extends Component{
   </AuthUserContext.Consumer>
 
 
-  <Link to={ROUTES.PRACTICE}>Practice</Link>
+<div className="row justify-content-center">
 
+<div className='col-2'>
   <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+</div>
 
+<div className='col-2'>
   <Link to={ROUTES.MYSPORTS}>My Sports</Link>
+</div>
 
-  <Link to={ROUTES.TEAMS}>Teams</Link>
-  <Link to={ROUTES.ATHLETES}>Athletes</Link>
+<div className='col-2'>
+  <Link to={ROUTES.TEAMS}>Available Teams</Link>
+</div>
+
+<div className='col-2'>
+  <Link to={ROUTES.ATHLETES}>Available Athletes</Link>
+</div>
+
+<div className='col-2'>
   <Link to={ROUTES.SPORTS}>Sports</Link>
+</div>
+
+
+</div>
+
+<div className="row justify-content-center">
+<h1>My Athletes</h1>
+</div>
 
 <div className="row justify-content-center">
   <div className="col-2 list-group-item">

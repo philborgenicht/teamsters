@@ -16,32 +16,32 @@ class Practice extends Component{
   </AuthUserContext.Consumer>
 
 
-<div className='row justify-content-center'>
 
-<div className="col-2">
-<Link to={ROUTES.ROSTER}>Roster</Link>
-</div>
+  <div className="row justify-content-center">
 
+  <div className='col-2'>
+  <Link to={ROUTES.ROSTER}>My Athletes</Link>
+  </div>
 
-<div className="col-2">
-<Link to={ROUTES.MYTEAMS}>My Teams</Link>
-</div>
+  <div className='col-2'>
+    <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+  </div>
 
-<div className="col-2">
-<Link to={ROUTES.MYSPORTS}>My Sports</Link>
-</div>
+  <div className='col-2'>
+    <Link to={ROUTES.MYSPORTS}>My Sports</Link>
+  </div>
 
-<div className="col-2">
-<Link to={ROUTES.TEAMS}>Teams</Link>
-</div>
+  <div className='col-2'>
+    <Link to={ROUTES.TEAMS}>Available Teams</Link>
+  </div>
 
-<div className="col-2">
-<Link to={ROUTES.ATHLETES}>Athletes</Link>
-</div>
+  <div className='col-2'>
+    <Link to={ROUTES.ATHLETES}>Available Athletes</Link>
+  </div>
 
-<div className="col-2">
-<Link to={ROUTES.SPORTS}>Sports</Link>
-</div>
+  <div className='col-2'>
+    <Link to={ROUTES.SPORTS}>Sports</Link>
+  </div>
 
 </div>
 
@@ -49,7 +49,7 @@ class Practice extends Component{
 <h1> Practice Box </h1>
 </div>
 
-</div>
+  </div>
 
 )
 }

@@ -14,22 +14,45 @@ class MyTeams extends Component{
     return(
 
 <div className="container">
+<div className='row'>
   <AuthUserContext.Consumer>
     {authUser => (  <p>Account: {useremail=authUser.email}</p>  )}
 
   </AuthUserContext.Consumer>
-  <Link to={ROUTES.PRACTICE}>Practice</Link>
-  <Link to={ROUTES.ROSTER}>Roster</Link>
+</div>
 
 
-  <Link to={ROUTES.MYSPORTS}>My Sports</Link>
-
-  <Link to={ROUTES.TEAMS}>Teams</Link>
-  <Link to={ROUTES.ATHLETES}>Athletes</Link>
-  <Link to={ROUTES.SPORTS}>Sports</Link>
   <div className="row justify-content-center">
-  <h1 className="heading"> TEAMS </h1>
+
+  <div className='col-2'>
+    <Link to={ROUTES.ROSTER}>My Athletes</Link>
   </div>
+
+  <div className='col-2'>
+    <Link to={ROUTES.MYSPORTS}>My Sports</Link>
+  </div>
+
+  <div className='col-2'>
+    <Link to={ROUTES.TEAMS}>Available Teams</Link>
+  </div>
+
+  <div className='col-2'>
+    <Link to={ROUTES.ATHLETES}>Available Athletes</Link>
+  </div>
+
+  <div className='col-2'>
+    <Link to={ROUTES.SPORTS}>Sports</Link>
+  </div>
+
+  </div>
+
+  <div className="row justify-content-center">
+  <h1 className="heading"> My Teams </h1>
+  </div>
+
+
+  
+
   <div className="row justify-content-center">
 
   <div className="col-2 list-group-item team-heading">

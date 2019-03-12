@@ -36,3 +36,5 @@ export const MAIN = '/main'
 export const PLAYER_RECRUITS = '/playerRecruits'
 
 export const TEAM_RECRUITS ='/teamRecruits'
+
+export const SPORT_RECRUITS = '/sportRecruits'

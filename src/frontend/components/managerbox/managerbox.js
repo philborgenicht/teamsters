@@ -5,10 +5,14 @@ import { withAuthorization } from '../../../components/Session';
 import {Link} from 'react-router-dom'
 class ManagerBox extends Component{
 
-state={userEmail:''}
+state={
+  userEmail:'',
+  isEditable:false
+}
 setUserEmail=(e)=>{
   this.setState({userEmail:e.target.id})
   console.log(this.state.userEmail)
+  this.setState({isEditable:true})
 }
 
   render(e){
@@ -36,37 +40,38 @@ setUserEmail=(e)=>{
 
 <div className="row justify-content-center">
 
-<div className='col-2'>
-</div>
-<div className='col-2'>
-<Link to={ROUTES.ACTIVITIES}> Activities </Link>
-</div>
+
+
 
 
 <div className='col-2'>
-<Link to={ROUTES.PLAYERS}> Players </Link>
+<Link to={ROUTES.PLAYERS}> My Players </Link>
 </div>
 
 
 <div className='col-2'>
-<Link to={ROUTES.CLUBS}> Clubs </Link>
+<Link to={ROUTES.CLUBS}> My Clubs </Link>
 </div>
 
 
 <div className='col-2'>
-<Link to={ROUTES.PLAYER_RECRUITS}> Athletes </Link>
+<Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
 </div>
 
 
 <div className='col-2'>
-<Link to={ROUTES.TEAM_RECRUITS}> TEAMS </Link>
+<Link to={ROUTES.TEAM_RECRUITS}> All Teams </Link>
+</div>
+
+<div className='col-2'>
+<Link to={ROUTES.SPORT_RECRUITS}> All Sports </Link>
 </div>
 
 
 </div>
 
 <div className="row justify-content-center">
-<h1> managerbox </h1>
+<h1> Manager Box </h1>
 </div>
 
 </div>

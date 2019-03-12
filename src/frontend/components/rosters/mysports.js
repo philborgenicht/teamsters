@@ -19,27 +19,52 @@ class MySports extends Component{
 
   </AuthUserContext.Consumer>
 
-  <Link to={ROUTES.PRACTICE}>Practice</Link>
-  <Link to={ROUTES.ROSTER}>Roster</Link>
+  <div className="row justify-content-center">
 
-  <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+  <div className='col-2'>
+  <Link to={ROUTES.ROSTER}>My Athletes</Link>
+  </div>
+
+  <div className='col-2'>
+    <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+  </div>
+
+  <div className='col-2'>
+    <Link to={ROUTES.ATHLETES}>Available Athletes</Link>
+  </div>
+
+  <div className='col-2'>
+    <Link to={ROUTES.TEAMS}>Available Teams</Link>
+  </div>
 
 
-  <Link to={ROUTES.TEAMS}>Teams</Link>
-  <Link to={ROUTES.ATHLETES}>Athletes</Link>
-  <Link to={ROUTES.SPORTS}>Sports</Link>
 
-<h1> my sports </h1>
-<div className="row">
-    <div className="col-12 list-group-item">Sports</div>
-</div>
+  <div className='col-2'>
+    <Link to={ROUTES.SPORTS}>Sports</Link>
+  </div>
+
+
+  </div>
+  <div className="row justify-content-center">
+      <h1>My Sports</h1>
+  </div>
+
+
 
 {this.props.sports.filter(sport=>sport.onList===true).filter(sport=>
                                                               sport.name.toLowerCase().includes(this.props.filterString.toLowerCase())
                                                             ).map(sport=>(
+  <div className="row justify-content-center list-group-item">
+
+
   <div>
   {sport.name}
-  <button className="btn btn-outline-success" onClick={this.props.removeSport} id={sport.id}>remove team</button>
+  </div>
+  <div>
+  <button className="btn btn-outline-success" onClick={this.props.removeSport} id={sport.id}>remove sport</button>
+  </div>
+
+
   </div>
 ))}
 </div>

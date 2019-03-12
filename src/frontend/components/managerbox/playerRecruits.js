@@ -10,14 +10,37 @@ state={
   athletes:[],
   customers:[],
   customers_athletes:[],
+  customers_teams:[],
+  teams:[],
   user:[],
   sortedByFirstName:false,
   sortedByLastName:false,
   sortedBySport:false,
   sortedByTeamName:false,
   sortedByPosition:false,
-  userEmail:''
+  userEmail:'',
+  isEditable:false,
+  playersToAdd:[]
+}
 
+componentDidMount = async() => {
+  const response = await fetch('https://galvanize-borgenicht.herokuapp.com/athletes')
+  const athletes = await response.json()
+
+  const response2 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers_athletes')
+  const customers_athletes= response2.json()
+
+  const response3 = await fetch('https://galvanize-borgenicht.herokuapp.com/teams')
+  const teams= response3.json()
+
+  const response4 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers')
+  const customers = await response4.json()
+
+  const response5 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers_teams')
+  const customers_teams= response5.json()
+
+
+  this.setState({athletes:athletes, customers:customers, customers_athletes:customers_athletes})
 }
 sortByFirstName=()=>{
   let currentAthletes=this.state.athletes
@@ -84,23 +107,10 @@ sortBySport=()=>{
   })
   this.setState({athletes:newState, sortedByFirstName:false, sortedByLastName:false, sortedByTeamName:false, sortedByPosition:false, sortedBySport:true})
 }
-componentDidMount = async() => {
-  const response = await fetch('https://galvanize-borgenicht.herokuapp.com/athletes')
-  const athletes = await response.json()
 
-  const response2 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers_athletes')
-  const customers_athletes= response2.json()
-
-
-  const response4 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers')
-  const customers = await response4.json()
-
-
-  this.setState({athletes:athletes, customers:customers, customers_athletes:customers_athletes})
-}
 recruit=async (e)=>{
   let playerId=e.target.id
-  let desiredAthlete=this.state.athletes.filter(athlete=>athlete.id==playerId)[0]
+  let desiredAthlete=this.props.athletes.filter(athlete=>athlete.id==playerId)[0]
   let athleteId=desiredAthlete.id
   console.log("desiredathlete", desiredAthlete)
   let customer=this.state.customers.filter(user=>user.email===this.state.userEmail)[0]
@@ -108,8 +118,12 @@ recruit=async (e)=>{
   let customerId=customer.id
   console.log(customer.id)
 
+  let currentState=this.state.playersToAdd
+  currentState.push(desiredAthlete.name)
+  this.setState({playersToAdd:currentState})
+
   ///posting new athlete to an individual user's dashboard
-  await fetch(`https://galvanize-borgenicht.herokuapp.com/customers_athletes/`,{
+  await fetch('https://galvanize-borgenicht.herokuapp.com/customers_athletes/',{
     method: 'POST',
     body: JSON.stringify({
       customerId:customerId,
@@ -125,6 +139,7 @@ recruit=async (e)=>{
 }
 setUserEmail=(e)=>{
   this.setState({userEmail:e.target.id})
+  this.setState({isEditable:true})
 }
   render(){
     let useremail
@@ -133,9 +148,9 @@ setUserEmail=(e)=>{
 <div className="container">
 
 
-<div className="row">
 
-<div className='col-2'>
+
+<div className='row'>
   <AuthUserContext.Consumer>
     {authUser => (
       <div>
@@ -146,16 +161,36 @@ setUserEmail=(e)=>{
 
   </AuthUserContext.Consumer>
 </div>
+
+
+<div className="row justify-content-center">
+
 <div className='col-2'>
+    <Link to={ROUTES.MANAGERBOX}> Manager Box </Link>
 </div>
-<div className='col-4'>
-<Link to={ROUTES.MANAGERBOX}> MANAGER BOX </Link>
+
+<div className='col-2'>
+    <Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
 </div>
-<div className='col-4'>
-<Link to={ROUTES.TEAM_RECRUITS}> Teams </Link>
+
+<div className='col-2'>
+    <Link to={ROUTES.TEAM_RECRUITS}> All Teams </Link>
+</div>
+
+<div className='col-2'>
+    <Link to={ROUTES.PLAYERS}> My Players</Link>
+</div>
+
+<div className='col-2'>
+    <Link to={ROUTES.CLUBS}> My Clubs</Link>
 </div>
 
 </div>
+
+<div className='row'>
+<h1> All Players </h1>
+</div>
+
 
 <div className="row">
 
@@ -194,23 +229,23 @@ setUserEmail=(e)=>{
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark">
-<button className="btn btn-sm btn-primary" onClick={this.sortByFirstName}>sort by first name</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByFirstName}>sort by first name</button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button className="btn btn-sm btn-primary" onClick={this.sortByLastName}>sort by last name</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByLastName}>sort by last name</button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button className="btn btn-sm btn-primary" onClick={this.sortBySport}>sort by sport</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortBySport}>sort by sport</button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button className="btn btn-sm btn-primary" onClick={this.sortByTeamName}>sort by team</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByTeamName}>sort by team</button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button className="btn btn-sm btn-primary" onClick={this.sortByPosition}>sort by position</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByPosition}>sort by position</button>
 </div>
 <div className='col-2 list-group-item-dark'>
 </div>
@@ -221,7 +256,7 @@ setUserEmail=(e)=>{
 
 
 
-{this.state.athletes.filter(athlete=>
+{this.props.athletes.filter(athlete=>
   athlete.name.split(' ')[0].toLowerCase().includes(this.props.filterString.toLowerCase())||
   athlete.name.split(' ')[1].toLowerCase().includes(this.props.filterString.toLowerCase())||
   athlete.sport.toLowerCase().includes(this.props.filterString.toLowerCase())||
@@ -252,7 +287,7 @@ setUserEmail=(e)=>{
 </div>
 
 <div className="col-2 list-group-item">
-<button className="btn btn-outline-success" onClick={this.recruit} id={athlete.id}> recruit</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-outline-success" onClick={this.recruit} id={athlete.id}> recruit</button>
 </div>
 
 
@@ -260,6 +295,20 @@ setUserEmail=(e)=>{
 
 
 </div>)}
+
+{this.state.playersToAdd.map(elem=>
+<div>
+<form>
+{elem}
+<button type="submit"> confirm </button>
+</form>
+</div>)}
+
+
+
+
+
+
 </div>
 
 )

@@ -9,18 +9,39 @@ class Athletes extends Component{
   render(){
     return(
       <div className="container ">
-      <Link to={ROUTES.PRACTICE}>Practice</Link>
-      <Link to={ROUTES.ROSTER}>Roster</Link>
 
-      <Link to={ROUTES.MYTEAMS}>My Teams</Link>
-
-      <Link to={ROUTES.MYSPORTS}>My Sports</Link>
-
-      <Link to={ROUTES.TEAMS}>Teams</Link>
-      <Link to={ROUTES.SPORTS}>Sports</Link>
       <div className="row justify-content-center">
-        <h1 className="heading"> ATHLETES: </h1>
+        <h1 className="heading"> ATHLETES </h1>
       </div>
+
+      <div className="row justify-content-center">
+
+<div className='col-2'>
+<Link to={ROUTES.PRACTICE}>Practice</Link>
+</div>
+
+<div className='col-2'>
+<Link to={ROUTES.ROSTER}>Roster</Link>
+</div>
+
+<div className='col-2'>
+<Link to={ROUTES.MYTEAMS}>My Teams</Link>
+</div>
+
+<div className='col-2'>
+<Link to={ROUTES.MYSPORTS}>My Sports</Link>
+</div>
+
+<div className='col-2'>
+<Link to={ROUTES.TEAMS}>Teams</Link>
+</div>
+
+<div className='col-2'>
+<Link to={ROUTES.SPORTS}>Sports</Link>
+</div>
+  
+      </div>
+
 
 
 

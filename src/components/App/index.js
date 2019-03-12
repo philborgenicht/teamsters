@@ -14,6 +14,7 @@ import Activities from '../../frontend/components/managerbox/activities.js'
 import ManagerBox from '../../frontend/components/managerbox/managerbox.js'
 import Main from '../../frontend/components/main.js'
 
+import SportRecruits from '../../frontend/components/managerbox/sportRecruits.js'
 import PlayerRecruits from '../../frontend/components/managerbox/playerRecruits.js'
 import TeamRecruits from '../../frontend/components/managerbox/teamRecruits.js'
 import MyTeams from '../../frontend/components/rosters/myteams.js'
@@ -44,6 +45,9 @@ class App extends Component{
     customers:[],
     sports:[],
     teams:[],
+    customers_sports:[],
+    customers_teams:[],
+    customers_athletes:[],
     filterString:'',
     sortedByFirstName:false,
     sortedByLastName:false,
@@ -69,8 +73,17 @@ class App extends Component{
     const response4 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers')
     const customers = await response4.json()
 
+    const resonse5 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers_athletes')
+    const customers_athletes = await resonse5.json()
 
-    this.setState({athletes:athletes, sports:sports, teams:teams, customers:customers})
+    const response6 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers_teams')
+    const customers_teams = await response6.json()
+
+    const response7 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers_sports')
+    const customers_sports = await response7.json()
+
+
+    this.setState({athletes:athletes, sports:sports, teams:teams, customers:customers, customers_athletes:customers_athletes, customers_sports:customers_sports, customers_teams:customers_teams})
   }
 
   sortByTeamTitle=()=>{
@@ -344,15 +357,65 @@ setUserEmail=(e)=>{
 
 <Route exact path={ROUTES.MANAGERBOX} render={()=><ManagerBox/>}/>
 
-<Route exact path={ROUTES.PLAYERS} render={()=><Players/>}/>
+<Route exact path={ROUTES.PLAYERS} render={()=><Players
+  athletes={this.state.athletes}
+  customers={this.state.customers}
+  teams={this.state.teams}
+  sports={this.state.sports}
+  filterString={this.state.filterString}
+  customers_sports={this.state.customers_sports}
+  customers_teams={this.state.customers_teams}
+  customers_athletes={this.state.customers_athletes}
+  draft={this.draft}
+  trade={this.trade} />}/>
 
-<Route exact path={ROUTES.CLUBS} render={()=><Clubs/>}/>
+<Route exact path={ROUTES.CLUBS} render={()=><Clubs
 
-<Route exact path={ROUTES.ACTIVITIES} render={()=><Activities/>}/>
+  athletes={this.state.athletes}
+  customers={this.state.customers}
+  teams={this.state.teams}
+  sports={this.state.sports}
+  customers_sports={this.state.customers_sports}
+  customers_teams={this.state.customers_teams}
+  customers_athletes={this.state.customers_athletes}
+  filterString={this.state.filterString}
+  acquireTeam={this.acquireTeam}
+  removeTeam={this.removeTeam}
+   />}/>
+
+<Route exact path={ROUTES.ACTIVITIES} render={()=><Activities
+  athletes={this.state.athletes}
+  customers={this.state.customers}
+  teams={this.state.teams}
+  sports={this.state.sports}
+  customers_sports={this.state.customers_sports}
+  customers_teams={this.state.customers_teams}
+  customers_athletes={this.state.customers_athletes}
+  filterString={this.state.filterString}
+  acquireSport={this.acquireSport}
+  removeSport={this.removeSport} />}/>
 <Route exact path={ROUTES.LANDING} render={()=><LandingPage userEmail={this.state.userEmail}/>}/>
 
 <Route exact path={ROUTES.SIGN_UP} render={()=><SignUpPage />}/>
 <Route exact path={ROUTES.SIGN_IN} render={()=><SignInPage />}/>
+
+<Route exact path={ROUTES.SPORT_RECRUITS} render={()=><SportRecruits
+                                                      customers={this.state.customers}
+                                                      sortBySportTitle={this.sortBySportTitle}
+                                                      filterString={this.state.filterString}
+                                                      sports={this.state.sports}
+                                                      sortedBySportTitle={this.state.sortedBySportTitle}
+                                                      athletes={this.state.athletes}
+                                                      customers={this.state.customers}
+                                                      teams={this.state.teams}
+                                                      sports={this.state.sports}
+                                                      customers_sports={this.state.customers_sports}
+                                                      customers_teams={this.state.customers_teams}
+                                                      customers_athletes={this.state.customers_athletes}
+                                                      acquireSport={this.acquireSport}
+                                                      removeSport={this.removeSport}
+                                                        />}/>
+
 
 <Route exact path={ROUTES.TEAM_RECRUITS} render={()=><TeamRecruits
                                                       sortByTeamTitle={this.sortByTeamTitle}
@@ -364,6 +427,15 @@ setUserEmail=(e)=>{
                                                       sortedByCityTitle={this.state.sortedByCityTitle}
                                                       sortedByStateTitle={this.state.sortedByStateTitle}
                                                       sortedBySportTitle={this.state.sortedBySportTitle}
+                                                      athletes={this.state.athletes}
+                                                      customers={this.state.customers}
+                                                      teams={this.state.teams}
+                                                      sports={this.state.sports}
+                                                      customers_sports={this.state.customers_sports}
+                                                      customers_teams={this.state.customers_teams}
+                                                      customers_athletes={this.state.customers_athletes}
+                                                      acquireTeam={this.acquireTeam}
+                                                      removeTeam={this.removeTeam}
                                                         />}/>
 
 <Route exact path={ROUTES.PLAYER_RECRUITS} render={()=><PlayerRecruits
@@ -378,6 +450,15 @@ setUserEmail=(e)=>{
                                                         sortedByFirstName={this.state.sortedByFirstName}
                                                         sortedByTeamName={this.state.sortedByTeamName}
                                                         sortedByPosition={this.state.sortedByPosition}
+                                                        athletes={this.state.athletes}
+                                                        customers={this.state.customers}
+                                                        teams={this.state.teams}
+                                                        sports={this.state.sports}
+                                                        customers_sports={this.state.customers_sports}
+                                                        customers_teams={this.state.customers_teams}
+                                                        customers_athletes={this.state.customers_athletes}
+                                                        draft={this.draft}
+                                                        trade={this.trade}
                                                         />}/>
 
       <Route
