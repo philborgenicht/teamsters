@@ -3,10 +3,8 @@ html{
 
 }
 input, select{
-  border-radius: 20px;
-
-  text-shadow: 1px 1px #FF0000;
-  color:orange
+color:gray;
+border-radius: 5px
 }
 
 .sport-title{
@@ -14,20 +12,23 @@ input, select{
 }
 body{
   padding-bottom:500px;
-  background-color: #fafffd;
-  text-shadow: 1px 1px #FF0000;
+  background-color: white;
+
 }
 footer {
    position: fixed;
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: red;
+   background-color: black;
    color: white;
    text-align: center;
    text-shadow: 1px 1px black;
-   color:orange
+   color:white;
+   font-size: 10px
 }
+
+
 
 .teamLogo{
   max-width: 200px
@@ -37,11 +38,14 @@ footer {
 }
 
 .nav-link{
-  font-size: 15px;
-  font-weight: bold;
-
+  font-size: 12px;
+  color:white
 
 }
+.greeting{
+  color:white
+}
+
 /*
 9fd356
 #342e37

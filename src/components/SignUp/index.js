@@ -7,9 +7,16 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 const SignUpPage = (props) => (
-  <div>
+  <div className='container'>
+  <div className='row justify-content-center'>
+    <div className='col-6'>
     <h1>SignUp</h1>
+    </div>
+
+  </div>
+  <div className='row justify-content-center'>
     <SignUpForm />
+  </div>
   </div>
 );
 
@@ -88,14 +95,47 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
+<div className='container'>
       <form onSubmit={this.onSubmit}>
+<div className='row'>
+
+<div className='col-3'>
+<label htmlFor='fullName'><u>Full Name:</u></label>
+</div>
+
+<div className='col-3'>
+<label htmlFor='email'><u>Email Address:</u></label>
+</div>
+
+<div className='col-3'>
+<label htmlFor='password'><u>Password:</u></label>
+</div>
+
+<div className='col-3'>
+<label htmlFor='passwordconfirm'><u>Confirm Password:</u></label>
+</div>
+
+
+
+</div>
+
+<div className='row'>
+
+
+
+<div className='col-3'>
         <input
           name="username"
           value={username}
           onChange={this.onChange}
           type="text"
           placeholder="Full Name"
+          id='fullName'
         />
+</div>
+
+
+<div className='col-3'>
         <input
           name="email"
           id="email"
@@ -103,35 +143,63 @@ class SignUpFormBase extends Component {
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
+          id='email'
         />
+</div>
+
+
+<div className='col-3'>
         <input
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
+          id='password'
         />
+</div>
+
+
+<div className='col-3'>
         <input
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm Password"
+          id='passwordconfirm'
         />
-        <button className="btn btn-outline-success"disabled={isInvalid} type="submit">
+</div>
+
+
+</div>
+<br/><br/>
+<div className='row justify-content-center'>
+
+        <button className="btn btn-block btn-dark"disabled={isInvalid} type="submit">
           Sign Up
         </button>
 
+
+
+
+
+</div>
         {error && <p>{error.message}</p>}
       </form>
+</div>
     );
   }
 }
 
 const SignUpLink = () => (
+<div className='container'>
+<div calssName='row'>
   <p>
-    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+    Don't have an account? <Link to={ROUTES.SIGN_UP}><button className='btn btn-primary'>Sign Up</button></Link>
   </p>
+</div>
+</div>
 );
 const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 export default SignUpPage;

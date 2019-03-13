@@ -151,12 +151,20 @@ chooseSport=async (e)=>{
 
 </div>)}
 
+<br/>
+
 {this.state.sportsToAdd.map(elem=>
-<div>
+<div className=''>
+<div className=''>
 <form>
+<div className="col-6 list-group-item">
 {elem}
-<button type="submit"> confirm </button>
+</div>
+<div className='col-6 list-group-item'>
+<button className='btn btn-block btn-dark'type="submit"> confirm </button>
+</div>
 </form>
+</div>
 </div>)}
 
 

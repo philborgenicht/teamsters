@@ -39,48 +39,50 @@ class HomePage extends Component{
 
 <div className="row justify-content-center">
   <AuthUserContext.Consumer>
-    {authUser => (  <button className="btn btn-success btn-block" onClick={this.setEmail}id={authUser.email}>view info</button>    )}
+    {authUser => (  <button className="btn btn-info btn-block" onClick={this.setEmail}id={authUser.email}>view info</button>    )}
   </AuthUserContext.Consumer>
+
 </div>
+<br/>
 <div className="row">
-<div className="col-6">
+<div className="col-5">
 {this.state.customers.filter(customer=>customer.email===this.state.userEmail).map(customer=>
 
 <div>
 
   <div className="row">
         <div  className="dashboard">
-        FIRST NAME: {customer.firstname}
+        <u>FIRST NAME:</u> {customer.firstname}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        LAST NAME: {customer.lastname}
+        <u>LAST NAME:</u> {customer.lastname}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        USERNAME: {customer.username}
+        <u>USERNAME:</u> {customer.username}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        EMAIL ADDRESS: {customer.email}
+        <u>EMAIL ADDRESS:</u> {customer.email}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        PHONE NUMBER: {customer.phone}
+        <u>PHONE NUMBER:</u> {customer.phone}
         </div>
   </div>
 
   <div className="row">
         <div className="dashboard">
-        FAVORITE PLAYER: {customer.favoritePlayer}
+        <u>FAVORITE PLAYER:</u> {customer.favoritePlayer}
 
         </div>
   </div>
@@ -90,7 +92,7 @@ class HomePage extends Component{
         <div className='col-2'>
         </div>
         <div className="dashboard">
-          ID#: {customer.favoritePlayerId}
+          <u>ID#:</u> {customer.favoritePlayerId}
         </div>
   </div>
 
@@ -98,21 +100,7 @@ class HomePage extends Component{
 
   <div className="row">
         <div className="dashboard">
-        FAVORITE TEAM: {customer.favoriteTeam}
-        </div>
-  </div>
-
-  <div className="row">
-        <div className="col-2">
-        </div>
-        <div className="dashboard">
-        ID #: {customer.favoriteTeamId}
-        </div>
-  </div>
-
-  <div className="row">
-        <div className="dashboard">
-        FAVORITE SPORT: {customer.favoriteSport}
+        <u>FAVORITE TEAM:</u> {customer.favoriteTeam}
         </div>
   </div>
 
@@ -120,29 +108,45 @@ class HomePage extends Component{
         <div className="col-2">
         </div>
         <div className="dashboard">
-        ID #: {customer.favoriteSportId}
+        <u>ID #:</u>{customer.favoriteTeamId}
         </div>
   </div>
 
   <div className="row">
         <div className="dashboard">
-        ACCOUNT STATUS: {customer.isActive? "ACTIVE" : "DISABLED"}
+        <u>FAVORITE SPORT:</u> {customer.favoriteSport}
+        </div>
+  </div>
+
+  <div className="row">
+        <div className="col-2">
+        </div>
+        <div className="dashboard">
+        <u>ID #:</u> {customer.favoriteSportId}
         </div>
   </div>
 
   <div className="row">
         <div className="dashboard">
-        ACCOUNT PRIVILEGES: {customer.isAdmin? "ADMINISTRATOR" : "STANDARD"}
+        <u>ACCOUNT STATUS:</u> {customer.isActive? "ACTIVE" : "DISABLED"}
+        </div>
+  </div>
+
+  <div className="row">
+        <div className="dashboard">
+        <u>ACCOUNT PRIVILEGES:</u> {customer.isAdmin? "ADMINISTRATOR" : "STANDARD"}
         </div>
   </div>
 <div className="row">
-<button onClick={this.editProfile} className="btn btn-block btn-danger">edit profile</button>
+<button onClick={this.editProfile} className="btn btn-block btn-primary">edit profile</button>
 </div>
 
 </div>
 )}
 </div>
-<div className="col-6">
+<div className='col-2'>
+</div>
+<div className="col-5">
 
 {this.state.editProfile? <EditProfile
                                     teams={this.state.teams}

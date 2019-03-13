@@ -16,9 +16,9 @@ const Navigation = (props) => (
 );
 
 const NavigationAuth = (props) => (
-  <nav className="navbar navbar-expand-sm navbar-light bg-primary sticky-top">
+  <nav className="navbar navbar-expand-sm navbar-dark bg-dark sticky-top" >
     <AuthUserContext.Consumer>
-    {authUser => (  <h6>Hello: {authUser.email}</h6>    )}
+    {authUser => (  <h6 className="greeting">Hello: {authUser.email}</h6>    )}
     </AuthUserContext.Consumer>
 
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,7 +35,7 @@ const NavigationAuth = (props) => (
 
 
 
-        <SignOutButton />
+
 
 
         <Link className="nav-link"to={ROUTES.PRACTICE}>Practice Box</Link>
@@ -45,7 +45,7 @@ const NavigationAuth = (props) => (
 
         <Link className="nav-link"to={ROUTES.STATS}>Stats</Link>
 
-
+<SignOutButton />
       </ul>
       <form className="form-inline my-2 my-lg-0">
         <input  onChange={(e)=>props.search(e)} id="input" className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>

@@ -289,10 +289,14 @@ Sport
 
 
 {this.state.teamsToDelete.map(elem=>
-<div>
+<div >
 <form>
+<div className="col-6">
 {elem}
+</div>
+<div className='col-6'>
 <button type="submit"> confirm </button>
+</div>
 </form>
 </div>)}
 

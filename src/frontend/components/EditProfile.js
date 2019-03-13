@@ -8,71 +8,82 @@ const EditProfile=(props)=>{
 
 
           <div className="row">
-          <label className="editprofile"htmlFor="firstName"> FIRST NAME:
+          <label className="editprofile"htmlFor="firstName"> <u>FIRST NAME:</u></label>
+          </div>
+
+          <div className='row'>
           <input className="editprofile"id="firstName" type="text" placeholder="first name"/>
-          </label>
           </div>
 
 
           <div className="row">
-          <label className="editprofile"htmlFor="lastName"> LAST NAME:
+          <label className="editprofile"htmlFor="lastName"> <u>LAST NAME:</u></label>
+          </div>
+
+          <div className='row'>
           <input className="editprofile"id="lastName" type="text" placeholder="last name"/>
-          </label>
           </div>
 
           <div className="row">
-          <label className="editprofile"htmlFor="userName"> USERNAME:
+          <label className="editprofile"htmlFor="userName"> <u>USERNAME:</u></label>
+          </div>
+
+          <div className='row'>
           <input className="editprofile"id="userName" type="text" placeholder="username"/>
-          </label>
           </div>
 
+
+
           <div className="row">
-          <label className="editprofile"htmlFor="emailAddress"> EMAIL ADDRESS:
+          <label className="editprofile"htmlFor="emailAddress"> <u>EMAIL ADDRESS:</u></label>
+          </div>
+
+          <div className='row'>
           <input className="editprofile"id="emailAddress" type="text" placeholder="email address"/>
-          </label>
           </div>
 
           <div className="row">
-          <label className="editprofile"htmlFor="phoneNumber"> PHONE NUMBER:
+          <label className="editprofile"htmlFor="phoneNumber"> <u>PHONE NUMBER:</u></label>
+          </div>
+
+          <div className='row'>
           <input className="editprofile"id="phoneNumber" type="text" placeholder="phone number"/>
-          </label>
           </div>
 
           <div className="row">
+          <label htmlFor="favAthlete"><u>FAVORITE ATHLETE:</u></label>
+          </div>
+
+          <div className='row'>
           <select className="form-control" id="favAthlete">
           {props.athletes.map(athlete=><option >{athlete.name}, {athlete.id}</option>)}
           </select>
           </div>
 
           <div className="row">
+          <label htmlFor="favSport"><u>FAVORITE SPORT:</u>          </label>
+          </div>
+
+          <div className='row'>
           <select className="form-control" id="favSport">
           {props.sports.map(sport=><option >{sport.name}, {sport.id}</option>)}
           </select>
           </div>
 
           <div className="row">
+          <label htmlFor="favTeam"><u>FAVORITE TEAM:</u></label>
+          </div>
+
+          <div className='row'>
           <select className="form-control" id="favTeam">
           {props.teams.map(team=><option >{team.name}, {team.id}</option>)}
           </select>
           </div>
-
-
-
-          <div className="row">
-          <label className="editprofile"htmlFor="isActive"> ACCOUNT STATUS:
-          <input className="editprofile"id="isActive" type="checkbox" />
-          </label>
-          </div>
+<br/><br/>
 
 
           <div className="row">
-          <label className="editprofile"htmlFor="isAdmin"> ACCOUNT PRIVILEGES:
-          <input className="editprofile"id="isAdmin" type="checkbox" />
-          </label>
-          </div>
-
-          <div className="row">
-          <button className="btn btn-outline-primary" type="submit" > Submit Changes </button>
+          <button className="btn btn-block btn-dark" type="submit" > Submit Changes </button>
           </div>
 
 
