@@ -38,3 +38,8 @@ export const PLAYER_RECRUITS = '/playerRecruits'
 export const TEAM_RECRUITS ='/teamRecruits'
 
 export const SPORT_RECRUITS = '/sportRecruits'
+export const STATS2 ='/stats2'
+export const STATS3 ='/stats3'
+export const STATS4 ='/stats4'
+export const STATS5 ='/stats5'
+export const STATS6 ='/stats6'

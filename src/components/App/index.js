@@ -6,6 +6,10 @@ import Teams from '../../frontend/components/teams.js'
 import Athletes from '../../frontend/components/athletes.js'
 import Sports from '../../frontend/components/sports.js'
 import Stats from '../../frontend/components/stats.js'
+import Stats2 from '../../frontend/components/stats2.js'
+import Stats3 from '../../frontend/components/stats3.js'
+import Stats4 from '../../frontend/components/stats4.js'
+import Stats5 from '../../frontend/components/stats5.js'
 
 
 import Players from '../../frontend/components/managerbox/players.js'
@@ -33,6 +37,7 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
+import Stats6 from '../../frontend/components/stats6.js'
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
@@ -394,6 +399,14 @@ setUserEmail=(e)=>{
   filterString={this.state.filterString}
   acquireSport={this.acquireSport}
   removeSport={this.removeSport} />}/>
+
+<Route exact path={ROUTES.STATS2} render={()=><Stats2 />}/>
+<Route exact path={ROUTES.STATS3} render={()=><Stats3 />}/>
+<Route exact path={ROUTES.STATS4} render={()=><Stats4 />}/>
+<Route exact path={ROUTES.STATS5} render={()=><Stats5 />}/>
+<Route exact path={ROUTES.STATS6} render={()=><Stats6 />}/>
+
+
 <Route exact path={ROUTES.LANDING} render={()=><LandingPage userEmail={this.state.userEmail}/>}/>
 
 <Route exact path={ROUTES.SIGN_UP} render={()=><SignUpPage />}/>

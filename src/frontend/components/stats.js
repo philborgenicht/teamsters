@@ -133,168 +133,168 @@ reset=()=>{
 <div className='row'>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Name:</u>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 {player.strPlayer}
 </div>
 </div>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Nationality:</u>
 </div>
-<div className='row'>{player.strNationality}
+<div className='row list-group-item'>{player.strNationality}
 </div>
 </div>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Player Id#:</u>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 {player.idPlayer}
 </div>
 </div>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Team Id#:</u>
 </div>
-<div className='row'>{player.idTeam}
+<div className='row list-group-item'>{player.idTeam}
 </div>
 </div>
 
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Team:</u>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 {player.strTeam}
 </div>
 </div>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 
 <u>Sport:</u>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 {player.strSport}
 </div>
 </div>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Date of Birth:</u>
 </div>
-<div className='row'>{player.dateBorn}
+<div className='row list-group-item'>{player.dateBorn}
 </div>
 </div>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>City of Birth:</u>
 </div>
-<div className='row'>{player.strBirthLocation}
+<div className='row list-group-item'>{player.strBirthLocation}
 </div>
 </div>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Height:</u>
 </div>
-<div className='row'>{player.strHeight}
+<div className='row list-group-item'>{player.strHeight}
 </div>
 </div>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Weight:</u>
 </div>
-<div className='row'>{player.strWeight}
+<div className='row list-group-item'>{player.strWeight}
 </div>
 </div>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Gender:</u>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 {player.strGender}
 </div>
 </div>
 
 <div className='col-2'>
 
-<div className='row'>
+<div className='row list-group-item'>
 <u>Position:</u>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 {player.strPosition}
 </div>
 </div>
 
 <div className='col-2'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>College Attended:</u>
 </div>
-<div className='row'>{player.strCollege}
+<div className='row list-group-item'>{player.strCollege}
 </div>
 </div>
 
 </div>
 <br/><br/>
 
-<div className='row'>
+<div className='row list-group-item'>
 <u>Biography:</u> {player.strDescriptionEN}
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 <br/><br/>
 <div className='col-4'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Social Media:</u>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 <a href="{player.strFacebook}" alt="link">{player.strFacebook}</a>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 <a href='{player.strWebsite}' alt="link">{player.strWebsite}</a>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 <a href='{player.strTwitter}' alt="link">{player.strTwitter}</a>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 <a target="blank" href={player.strInstagram} alt="link">{player.strInstagram}</a>
 </div>
 </div>
 
 <div className='col-8'>
-<div className='row'>
+<div className='row list-group-item'>
 <u>Images:</u>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 <a href="{player.strThumb}">{player.strThumb}</a>
 </div>
 
-<div className='row'>
+<div className='row list-group-item'>
 <a href="{player.strCutout}">{player.strCutout}</a>
 </div>
 
-<div className='row'>
+<div className='row list-group-item'>
 <a href="{player.strFanart1}">{player.strFanart1}</a>
 </div>
 
-<div className='row'>
+<div className='row list-group-item'>
 <a href="{player.strFanart2}">{player.strFanart2}</a>
 </div>
 
-<div className='row'>
+<div className='row list-group-item'>
 <a href="{player.strFanart3}">{player.strFanart3}</a>
 </div>
-<div className='row'>
+<div className='row list-group-item'>
 <a href="{player.strFanart4}">{player.strFanart4}</a>
 </div>
 </div>
