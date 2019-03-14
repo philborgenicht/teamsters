@@ -5,9 +5,7 @@ import axios from 'axios'
 
 class Stats5 extends Component{
 state={
-  league:'',
-  teams:null,
-  viewTeams:false
+
 }
 
 //search all teams by league
@@ -17,18 +15,21 @@ state={
     this.setState({league:league})
     const results = await fetch(`https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=${league}`)
     const data= await results.json()
-console.log(data)
-const teams=data.teams
-this.setState({teams:teams})
-console.log(this.state.teams)
-this.setState({viewTeams:true})
+
 
   }
 
 
 
 //
-
+// Events on a specific day
+// https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=2014-10-10
+// https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=2014-10-10&s=Soccer
+// https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=2014-10-10&l=Australian_A-League
+//
+// TV Events on a specific day
+// https://www.thesportsdb.com/api/v1/json/1/eventstv.php?d=2018-07-07
+// https://www.thesportsdb.com/api/v1/json/1/eventstv.php?d=2018-07-07&s=Fighting
 
 
 
@@ -51,75 +52,6 @@ this.setState({viewTeams:true})
 
       </form>
 
-
-
-
-      {this.state.viewTeams?
-        <div>
-
-
-
-{this.state.teams.map(team=>
-<div>
-
-{team.idTeam}
-{team.strTeam}
-{team.strTeamShort}
-{team.intFormedYear}
-
-{team.strSport}
-{team.strLeague}
-
-{team.strStadium}
-{team.strRSS}
-
-{team.strStadiumThumb}
-{team.strStadiumDescription}
-
-{team.strStadiumLocation}
-{team.intStadiumCapacity}
-
-{team.strWebsite}
-{team.strFacebook}
-
-{team.strTwitter}
-{team.strInstagram}
-
-{team.strDescriptionEN}
-{team.strGender}
-
-{team.strCountry}
-{team.strTeamBadge}
-
-
-
-{team.strTeamJersey}
-{team.strTeamLogo}
-
-{team.strTeamFanart1}
-{team.strTeamFanart2}
-{team.strTeamFanart3}
-{team.strTeamFanart4}
-{team.strTeamBanner}
-{team.strYouTube}
-{team.strManager}
-{team.strDivision}
-
-
-
-
-
-
-
-
-
-
-</div>
-
-)}
-
-
-        </div> :''}
 
 
 
