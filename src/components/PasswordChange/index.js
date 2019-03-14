@@ -50,6 +50,7 @@ class PasswordChangeForm extends Component {
           onChange={this.onChange}
           type="password"
           placeholder="New Password"
+          required
         />
 </div>
 <br/>
@@ -60,6 +61,7 @@ class PasswordChangeForm extends Component {
           onChange={this.onChange}
           type="password"
           placeholder="Confirm New Password"
+          required
         />
 </div>
 <br/>

@@ -88,7 +88,7 @@ chooseSport=async (e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button id={authUser.email} onClick={this.setUserEmail} > click to make changes </button>
+      <button className='btn btn-block btn-dark' id={authUser.email} onClick={this.setUserEmail} > click to make changes </button>
       </div>
       )}
 
@@ -102,14 +102,6 @@ chooseSport=async (e)=>{
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
-</div>
-
-<div className='col-2'>
-    <Link to={ROUTES.TEAM_RECRUITS}> All Teams </Link>
-</div>
-
-<div className='col-2'>
     <Link to={ROUTES.PLAYERS}> My Players</Link>
 </div>
 
@@ -118,8 +110,18 @@ chooseSport=async (e)=>{
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.ACTIVITIES}> ACTIVITIES </Link>
+    <Link to={ROUTES.ACTIVITIES}> My Sports </Link>
 </div>
+
+<div className='col-2'>
+    <Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
+</div>
+
+<div className='col-2'>
+    <Link to={ROUTES.TEAM_RECRUITS}> All Teams </Link>
+</div>
+
+
 
 </div>
 
@@ -134,14 +136,14 @@ chooseSport=async (e)=>{
 <div className="row justify-content-center">
 
 
-<div className="col-6 list-group-item">
+<div className="col-6 list-group-item column-info">
 <div>{sport.name}</div>
 </div>
 
 
 
 
-<div className="col-6 list-group-item">
+<div className="col-6 list-group-item column-info">
 <button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-outline-success" onClick={this.chooseSport} id={sport.id}> choose Sport</button>
 </div>
 

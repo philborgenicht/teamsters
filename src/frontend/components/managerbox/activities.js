@@ -106,7 +106,7 @@ deleteSport=async (e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button id={authUser.email} onClick={this.setUserEmail}> VIEW YOUR SPORTS </button>
+      <button className='btn btn-block btn-dark'id={authUser.email} onClick={this.setUserEmail}> VIEW YOUR SPORTS </button>
     </div>
     )}
   </AuthUserContext.Consumer>
@@ -122,6 +122,15 @@ deleteSport=async (e)=>{
 </div>
 
 <div className='col-2'>
+    <Link to={ROUTES.PLAYERS}> My Players</Link>
+</div>
+
+<div className='col-2'>
+    <Link to={ROUTES.CLUBS}> My Clubs</Link>
+</div>
+
+
+<div className='col-2'>
     <Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
 </div>
 
@@ -130,12 +139,10 @@ deleteSport=async (e)=>{
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.PLAYERS}> My Players</Link>
+    <Link to={ROUTES.SPORT_RECRUITS}> All Sports </Link>
 </div>
 
-<div className='col-2'>
-    <Link to={ROUTES.CLUBS}> My Activities</Link>
-</div>
+
 
 </div>
 
@@ -147,14 +154,13 @@ deleteSport=async (e)=>{
 
 <div className="row justify-content-center">
 
-<div className="col-6 list-group-item">
+<div className="col-6 list-group-item column-heading">
 SPORT
 </div>
 
 
 
-<div className="col-6 list-group-item">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-outline-success">ditch 'em'</button>
+<div className="col-6 list-group-item column-heading">
 </div>
 
 </div>
@@ -169,13 +175,13 @@ SPORT
 
 
 
-<div className='col-6 list-group-item'>
+<div className='col-6 list-group-item column-info'>
 {sport.name}
 </div>
 
 
-<div className='col-6 list-group-item'>
-<button disabled={this.state.isEditable? '' : 'disabled'} id={sport.id} onClick={this.deleteSport}> ditch </button>
+<div className='col-6 list-group-item column-info'>
+<button className='btn btn-block btn-dark'disabled={this.state.isEditable? '' : 'disabled'} id={sport.id} onClick={this.deleteSport}> release </button>
 </div>
 
 
@@ -185,18 +191,18 @@ SPORT
 
 {this.state.sportsToDelete.map(elem=>
 <div >
+<div >
 <form>
 
-<div className="col-6">
+<div className="col-6 list-group-item column-info">
 {elem}
 </div>
-<div className='col-6'>
-<button type="submit"> confirm </button>
+<div className='col-6 list-group-item column-info'>
+<button className='btn btn-block btn-dark' type="submit"> confirm </button>
 </div>
 </form>
+</div>
 </div>)}
-
-
 
 </div>
 

@@ -110,7 +110,7 @@ await fetch('https://galvanize-borgenicht.herokuapp.com/athletes',{
 <div className="row justify-content-center">
 
   <AuthUserContext.Consumer>
-    {authUser =>  <div><button className="btn btn-warning btn-lg btn-block"id={authUser.email} onClick={this.setEmail}>Enter Admin Section</button></div>}
+    {authUser =>  <div><button className="btn btn-info btn-lg btn-block"id={authUser.email} onClick={this.setEmail}>Enter Admin Section</button></div>}
 
 
 
@@ -121,11 +121,11 @@ await fetch('https://galvanize-borgenicht.herokuapp.com/athletes',{
 {this.state.showAdmin?
                       <div className="row justify-content-center">
                       <div className='col-6'>
-                      <button className="btn btn-danger btn-lg btn-block" onClick={this.editTeams}>add teams</button>
+                      <button className="btn btn-info btn-lg btn-block" onClick={this.editTeams}>add teams</button>
                       </div>
 
                       <div className='col-6'>
-                      <button className="btn btn-danger btn-lg btn-block" onClick={this.editAthletes}>add athletes</button>
+                      <button className="btn btn-info btn-lg btn-block" onClick={this.editAthletes}>add athletes</button>
                       </div>
                       </div>
                       :
@@ -144,16 +144,16 @@ await fetch('https://galvanize-borgenicht.herokuapp.com/athletes',{
   <div className="form-row">
     <div className="form-group col-md-6">
       <label htmlFor="teamName">Team Name</label>
-      <input type="text" className="form-control" id="teamName" placeholder="Team Name"/>
+      <input type="text" className="form-control" id="teamName" placeholder="Team Name" required/>
     </div>
     <div className="form-group col-md-6">
       <label htmlFor="city">Team City</label>
-      <input type="text" class="form-control" id="city" placeholder="City"/>
+      <input type="text" class="form-control" id="city" placeholder="City" required/>
     </div>
   </div>
   <div className="form-group">
     <label htmlFor="state">Team State</label>
-    <input type="text" class="form-control" id="state" placeholder="State"/>
+    <input type="text" class="form-control" id="state" placeholder="State" required/>
   </div>
   <div className="form-group">
     <label htmlFor="sport">Sport Affiliation</label>
@@ -164,7 +164,7 @@ await fetch('https://galvanize-borgenicht.herokuapp.com/athletes',{
 
   <div className="form-group">
   </div>
-  <button className="btn btn-outline-success" type="submit" className="btn btn-primary">submit</button>
+  <button className="btn btn-block btn-dark" type="submit" className="btn btn-primary">submit</button>
 </form>
   </div> : ''}
 
@@ -177,7 +177,7 @@ await fetch('https://galvanize-borgenicht.herokuapp.com/athletes',{
   <div className="form-row">
     <div className="form-group-sm col-md-6">
       <label htmlFor="name">Athlete Name</label>
-      <input type="text" className="form-control" id="name" placeholder="athlete name"/>
+      <input type="text" className="form-control" id="name" placeholder="athlete name" required/>
     </div>
     <div className="form-group-sm col-md-6">
       <label htmlFor="sport">Sport</label>
@@ -194,11 +194,11 @@ await fetch('https://galvanize-borgenicht.herokuapp.com/athletes',{
   </div>
   <div className="form-group">
     <label htmlFor="position">Position</label>
-    <input type="text" className="form-control" id="position" placeholder="position"/>
+    <input type="text" className="form-control" id="position" placeholder="position" required/>
   </div>
 
 
-  <button className="btn btn-outline-success" type="submit" className="btn btn-primary">Submit</button>
+  <button className="btn btn-block btn-dark" type="submit" className="btn btn-primary">Submit</button>
 </form>
   </div> : ''}
 

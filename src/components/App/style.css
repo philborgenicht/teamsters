@@ -28,7 +28,9 @@ footer {
    font-size: 10px
 }
 
-
+.signout{
+  padding-right: 100px
+}
 
 .teamLogo{
   max-width: 200px
@@ -44,6 +46,38 @@ footer {
 }
 .greeting{
   color:white
+}
+
+.column-heading{
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  font-size: 15px
+}
+
+.column-info{
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  font-size: 12px
+}
+
+.list-group-item{
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+}
+.basketballplayer{
+  background-color: #2A324B
+}
+.baseballplayer{
+  background-color: #767B91
+}
+.footballplayer{
+  background-color: #C7CCDB
+}
+.hockeyplayer{
+  background-color: #E1E5EE
 }
 
 /*

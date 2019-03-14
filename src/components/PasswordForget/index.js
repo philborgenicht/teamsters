@@ -58,6 +58,7 @@ class PasswordForgetFormBase extends Component {
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
+          required
         />
 </div>
 <br/>

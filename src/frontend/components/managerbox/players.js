@@ -169,7 +169,7 @@ releaseAthlete=async (e)=>{
       <div>
 
       <p>Account: {authUser.email}</p>
-      <button id={authUser.email} onClick={this.setUserEmail}>VIEW YOUR PLAYERS </button>
+      <button className='btn btn-block btn-dark' id={authUser.email} onClick={this.setUserEmail}>VIEW YOUR PLAYERS </button>
       </div>
      )}
 
@@ -183,6 +183,14 @@ releaseAthlete=async (e)=>{
 </div>
 
 <div className='col-2'>
+    <Link to={ROUTES.ACTIVITIES}> My Sports</Link>
+</div>
+
+<div className='col-2'>
+    <Link to={ROUTES.CLUBS}> My Clubs</Link>
+</div>
+
+<div className='col-2'>
     <Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
 </div>
 
@@ -191,12 +199,9 @@ releaseAthlete=async (e)=>{
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.PLAYERS}> My Players</Link>
+    <Link to={ROUTES.SPORT_RECRUITS}> All Sports </Link>
 </div>
 
-<div className='col-2'>
-    <Link to={ROUTES.CLUBS}> My Clubs</Link>
-</div>
 
 </div>
 
@@ -206,38 +211,38 @@ releaseAthlete=async (e)=>{
 
 <div className="row justify-content-center">
 
-<div className="col-2">
+<div className="col-2 list-group-item-dark column-info">
 First Name
 <i className={this.state.sortedByFirstName ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2">
+<div className="col-2 list-group-item-dark column-info">
 Last Name
 <i className={this.state.sortedByLastName ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2">
+<div className="col-2 list-group-item-dark column-info">
 Sport
 <i className={this.state.sortedBySportName ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2">
+<div className="col-2 list-group-item-dark column-info">
 Team
 <i className={this.state.sortedByTeamName ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2">
+<div className="col-2 list-group-item-dark column-info">
 Position
 <i className={this.state.sortedByPosition ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2">
-<button className="btn btn-outline-success">ditch 'em'</button>
+<div className="col-2 list-group-item-dark column-heading">
+
 </div>
 
 
@@ -245,27 +250,27 @@ Position
 
 <div className="row justify-content-center">
 
-<div className="col-2">
-<button disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByFirstName} > sort</button>
+<div className="col-2 list-group-item-dark column-heading">
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByFirstName} > sort</button>
 </div>
 
-<div className="col-2">
-<button disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByLastName} > sort</button>
+<div className="col-2 list-group-item-dark column-heading">
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByLastName} > sort</button>
 </div>
 
-<div className="col-2">
-<button disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortBySportName} > sort</button>
+<div className="col-2 list-group-item-dark column-heading">
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortBySportName} > sort</button>
 </div>
 
-<div className="col-2">
-<button disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByTeamName} > sort</button>
+<div className="col-2 list-group-item-dark column-heading">
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByTeamName} > sort</button>
 </div>
 
-<div className="col-2">
-<button disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByPosition} > sort</button>
+<div className="col-2 list-group-item-dark column-heading">
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByPosition} > sort</button>
 </div>
 
-<div className="col-2">
+<div className="col-2 list-group-item-dark column-heading">
 
 </div>
 
@@ -289,30 +294,30 @@ Position
 
 
   map(athlete=>
-<div className="row justify-content-center">
+<div className='row justify-content-center'>
 
-<div className='col-2 list-group-item'>
+<div className='col-2 list-group-item column-info'>
 {athlete.name.split(' ')[0]}
 </div>
 
-<div className='col-2 list-group-item'>
+<div className='col-2 list-group-item column-info'>
 {athlete.name.split(' ')[1]}
 </div>
 
-<div className='col-2 list-group-item'>
+<div className='col-2 list-group-item column-info'>
 {athlete.sport}
 </div>
 
-<div className='col-2 list-group-item'>
+<div className='col-2 list-group-item column-info'>
 {athlete.teamName}
 </div>
 
-<div className='col-2 list-group-item'>
+<div className='col-2 list-group-item column-info'>
 {athlete.position}
 </div>
 
-<div className='col-2'>
-<button disabled={this.state.isEditable? '' : 'disabled'} id={athlete.id} onClick={this.releaseAthlete}> ditch </button>
+<div className='col-2 list-group-item column-info'>
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} id={athlete.id} onClick={this.releaseAthlete}> ditch </button>
 </div>
 
 
@@ -325,20 +330,23 @@ Position
 
 {this.state.playersToDelete.map(elem=>
 <div>
+<div>
 <form>
-<div className="col-6">
+<div className="col-6 list-group-item">
 {elem}
 </div>
-<div className='col-6'>
-<button type="submit"> confirm </button>
+<div className='col-6 list-group-item'>
+<button className='btn btn-block btn-dark' type="submit"> confirm </button>
 </div>
 </form>
+</div>
 </div>)}
 
 
 
 
 </div>
+
 
 )
 }

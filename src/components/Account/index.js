@@ -24,7 +24,7 @@ const AccountPage = (props) => (
         </div>
 
         <div className='row'>
-        <input  type='text' placeholder="first name" id='firstname'/>
+        <input  type='text' placeholder="first name" id='firstname' required/>
         </div>
 
         <div className="row">
@@ -32,7 +32,7 @@ const AccountPage = (props) => (
         </div>
 
         <div className='row'>
-        <input type='text' placeholder="last name" id='lastname'/>
+        <input type='text' placeholder="last name" id='lastname' required/>
         </div>
 
         <div className="row">
@@ -40,7 +40,7 @@ const AccountPage = (props) => (
         </div>
 
         <div className='row'>
-        <input type='text' placeholder="username" id='username'/>
+        <input type='text' placeholder="username" id='username' required/>
         </div>
 
         <div className="row">
@@ -58,7 +58,7 @@ const AccountPage = (props) => (
         </div>
 
         <div className='row'>
-        <input type="tel" placeholder="phone number" id='phone' />
+        <input type="tel" placeholder="phone number" id='phone'  required/>
         </div>
 
                   <div className="row">
@@ -106,11 +106,11 @@ const AccountPage = (props) => (
 <div className='col-3'>
         {props.forgotPassword?
         <div><PasswordForgetForm /> <button className='btn btn-block btn-warning'onClick={props.remember} > dismiss</button><br/><br/></div>
-        : <div><button className='btn btn-danger' onClick={props.forget}> forgot password </button><br/><br/></div>}
+        : <div><button className='btn btn-dark btn-block' onClick={props.forget}> forgot password </button><br/><br/></div>}
 
         {props.changePassword?
         <div><PasswordChangeForm /> <button className='btn btn-block btn-warning'onClick={props.revert}> dismiss</button><br/><br/></div>
-        : <button className="btn btn-warning" onClick={props.change}> change password </button>}
+        : <button className="btn btn-info btn-block" onClick={props.change}> change password </button>}
 </div>
 
 </div>

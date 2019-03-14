@@ -45,10 +45,11 @@ const NavigationAuth = (props) => (
 
         <Link className="nav-link"to={ROUTES.STATS}>Stats</Link>
 
-<SignOutButton />
+
       </ul>
       <form className="form-inline my-2 my-lg-0">
-        <input  onChange={(e)=>props.search(e)} id="input" className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+      <div className='signout'><SignOutButton /></div>
+        <input  onChange={(e)=>props.search(e)} id="input" className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required/>
       </form>
 
     </div>
@@ -91,7 +92,7 @@ const NavigationNonAuth = (props) => (
       </ul>
 
       <form class="form-inline my-2 my-lg-0">
-        <input  onChange={(e)=>props.search(e)} id="input" class="form-control mr-sm-2" type="search"  aria-label="Search"/>
+        <input  onChange={(e)=>props.search(e)} id="input" class="form-control mr-sm-2" type="search"  aria-label="Search" required/>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>

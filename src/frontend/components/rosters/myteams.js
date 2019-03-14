@@ -51,28 +51,28 @@ class MyTeams extends Component{
   </div>
 
 
-  
+
 
   <div className="row justify-content-center">
 
-  <div className="col-2 list-group-item team-heading">
+  <div className="col-2 list-group-item team-heading column-heading">
   NAME
   </div>
 
-  <div className="col-2 list-group-item team-heading">
+  <div className="col-2 list-group-item team-heading column-heading">
   CITY
   </div>
 
-  <div className="col-2 list-group-item team-heading">
+  <div className="col-2 list-group-item team-heading column-heading">
   STATE
   </div>
 
-  <div className="col-2 list-group-item team-heading">
+  <div className="col-2 list-group-item team-heading column-heading">
   SPORT
   </div>
 
-  <div className="col-2 list-group-item team-heading">
-  <button className="btn btn-outline-success"> remove </button>
+  <div className="col-2 list-group-item team-heading column-heading">
+
   </div>
 
   </div>
@@ -86,23 +86,23 @@ class MyTeams extends Component{
                                                             ).map(team=>
     <div className="row justify-content-center">
 
-    <div className="col-2 list-group-item">
+    <div className="col-2 list-group-item column-info">
     <div>{team.name}</div>
     </div>
 
-    <div className="col-2 list-group-item">
+    <div className="col-2 list-group-item column-info">
     <div>{team.city}</div>
     </div>
 
-    <div className="col-2 list-group-item">
+    <div className="col-2 list-group-item column-info">
     <div>{team.state}</div>
     </div>
 
-    <div className="col-2 list-group-item">
+    <div className="col-2 list-group-item column-info">
     <div>{team.sportName}</div>
     </div>
 
-    <div className="col-2 list-group-item">
+    <div className="col-2 list-group-item column-info">
     <div><button className="btn btn-outline-success" onClick={this.props.removeTeam} id={team.id}>remove from list</button></div>
     </div>
 

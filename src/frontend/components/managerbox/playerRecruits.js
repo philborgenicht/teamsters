@@ -155,7 +155,7 @@ setUserEmail=(e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button onClick={this.setUserEmail} id={authUser.email}> click to make changes </button>
+      <button className='btn btn-block btn-dark' onClick={this.setUserEmail} id={authUser.email}> click to make changes </button>
       </div>
         )}
 
@@ -170,20 +170,26 @@ setUserEmail=(e)=>{
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
-</div>
-
-<div className='col-2'>
-    <Link to={ROUTES.TEAM_RECRUITS}> All Teams </Link>
-</div>
-
-<div className='col-2'>
     <Link to={ROUTES.PLAYERS}> My Players</Link>
 </div>
 
 <div className='col-2'>
     <Link to={ROUTES.CLUBS}> My Clubs</Link>
 </div>
+
+<div className='col-2'>
+    <Link to={ROUTES.ACTIVITIES}> My Sports</Link>
+</div>
+
+<div className='col-2'>
+    <Link to={ROUTES.SPORT_RECRUITS}> All Sports </Link>
+</div>
+
+<div className='col-2'>
+    <Link to={ROUTES.TEAM_RECRUITS}> All Teams </Link>
+</div>
+
+
 
 </div>
 
@@ -195,27 +201,27 @@ setUserEmail=(e)=>{
 <div className="row">
 
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 <div>First Name</div>
 <i className={this.state.sortedByFirstName ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 <div>Last Name</div>
 <i className={this.state.sortedByLastName ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 <div>Sport</div>
 <i className={this.state.sortedBySport ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 <div>Team</div>
 <i className={this.state.sortedByTeamName ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 <div>Position</div>
 <i className={this.state.sortedByPosition ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
@@ -229,23 +235,23 @@ setUserEmail=(e)=>{
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByFirstName}>sort by first name</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByFirstName}>sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByLastName}>sort by last name</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByLastName}>sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortBySport}>sort by sport</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySport}>sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByTeamName}>sort by team</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamName}>sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByPosition}>sort by position</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByPosition}>sort</button>
 </div>
 <div className='col-2 list-group-item-dark'>
 </div>
@@ -266,27 +272,27 @@ setUserEmail=(e)=>{
 <div className="row">
 
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item column-info">
 <div>{athlete.name.split(' ')[0]}</div>
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item column-info">
 <div>{athlete.name.split(' ')[1]}</div>
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item column-info">
 <div>{athlete.sport}</div>
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item column-info">
 <div>{athlete.teamName}</div>
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item column-info">
 <div>{athlete.position}</div>
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item column-info">
 <button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-outline-success" onClick={this.recruit} id={athlete.id}> recruit</button>
 </div>
 
@@ -300,10 +306,10 @@ setUserEmail=(e)=>{
 <div className=''>
 <div className=''>
 <form>
-<div className="col-6 list-group-item">
+<div className="col-6 list-group-item column-info">
 {elem}
 </div>
-<div className='col-6 list-group-item'>
+<div className='col-6 list-group-item column-info'>
 <button className='btn btn-block btn-dark'type="submit"> confirm </button>
 </div>
 </form>

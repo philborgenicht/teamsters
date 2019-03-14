@@ -157,7 +157,7 @@ releaseTeam=async (e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button id={authUser.email} onClick={this.setUserEmail}> VIEW YOUR TEAMS </button>
+      <button className='btn btn-block btn-dark' id={authUser.email} onClick={this.setUserEmail}> VIEW YOUR TEAMS </button>
     </div>
     )}
   </AuthUserContext.Consumer>
@@ -173,6 +173,14 @@ releaseTeam=async (e)=>{
 </div>
 
 <div className='col-2'>
+    <Link to={ROUTES.PLAYERS}> My Players</Link>
+</div>
+
+<div className='col-2'>
+    <Link to={ROUTES.ACTIVITIES}> My Sports</Link>
+</div>
+
+<div className='col-2'>
     <Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
 </div>
 
@@ -181,12 +189,9 @@ releaseTeam=async (e)=>{
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.PLAYERS}> My Players</Link>
+    <Link to={ROUTES.SPORT_RECRUITS}> All Sports </Link>
 </div>
 
-<div className='col-2'>
-    <Link to={ROUTES.CLUBS}> My Clubs</Link>
-</div>
 
 </div>
 
@@ -198,56 +203,55 @@ releaseTeam=async (e)=>{
 
 <div className="row justify-content-center">
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item-dark column-heading">
 Team
 <i className={this.state.sortedByTeamTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item-dark column-heading">
 City
 <i className={this.state.sortedByCityTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item-dark column-heading">
 State
 <i className={this.state.sortedByStateTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item-dark column-heading">
 Sport
 <i className={this.state.sortedBySportTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2 list-group-item">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-outline-success">ditch 'em'</button>
+<div className="col-2 list-group-item-dark column-heading">
 </div>
 
 </div>
 
 <div className="row justify-content-center">
 
-<div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByTeamTitle}>sort by team</button>
+<div className="col-2 list-group-item-dark column-heading">
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamTitle}>sort</button>
 </div>
 
-<div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByCityTitle}>sort by city</button>
+<div className="col-2 list-group-item-dark column-heading">
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByCityTitle}>sort</button>
 </div>
 
-<div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortByStateTitle}>sort by state</button>
+<div className="col-2 list-group-item-dark column-heading">
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByStateTitle}>sort</button>
 </div>
 
-<div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-sm btn-primary" onClick={this.sortBySportTitle}>sort by sport</button>
+<div className="col-2 list-group-item-dark column-heading">
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySportTitle}>sort</button>
 </div>
 
 
-<div className='col-2 list-group-item-dark'>
+<div className='col-2 list-group-item-dark column-heading'>
 </div>
 </div>
 
@@ -263,24 +267,24 @@ Sport
 
 
 
-<div className='col-2 list-group-item'>
+<div className='col-2 list-group-item column-info'>
 {team.name}
 </div>
 
-<div className='col-2 list-group-item'>
+<div className='col-2 list-group-item column-info'>
 {team.city}
 </div>
 
-<div className='col-2 list-group-item'>
+<div className='col-2 list-group-item column-info'>
 {team.state}
 </div>
 
-<div className='col-2 list-group-item'>
+<div className='col-2 list-group-item column-info'>
 {team.sportName}
 </div>
 
-<div className='col-2 list-group-item'>
-<button disabled={this.state.isEditable? '' : 'disabled'} id={team.id} onClick={this.releaseTeam}> ditch </button>
+<div className='col-2 list-group-item column-info'>
+<button className='btn btn-block btn-dark' disabled={this.state.isEditable? '' : 'disabled'} id={team.id} onClick={this.releaseTeam}> Release</button>
 </div>
 
 
@@ -291,11 +295,11 @@ Sport
 {this.state.teamsToDelete.map(elem=>
 <div >
 <form>
-<div className="col-6">
+<div className="col-6 list-group-item column-info">
 {elem}
 </div>
-<div className='col-6'>
-<button type="submit"> confirm </button>
+<div className='col-6 list-group-item column-info'>
+<button className='btn btn-block btn-dark'  type="submit"> confirm </button>
 </div>
 </form>
 </div>)}

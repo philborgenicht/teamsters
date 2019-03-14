@@ -13,7 +13,7 @@ const SignInPage = (props) => (
     <div className='col-3'>
     </div>
     <div className='col-3'>
-    <h1>SignIn</h1>
+    <h1>Log In</h1>
     </div>
   </div>
     <SignInForm />
@@ -85,6 +85,7 @@ class SignInFormBase extends Component {
           type="text"
           placeholder="Email Address"
           id='email'
+          required
         />
 </div>
 
@@ -96,6 +97,7 @@ class SignInFormBase extends Component {
           type="password"
           placeholder="Password"
           id='password'
+          required
         />
 </div>
 <div className='col-3'>

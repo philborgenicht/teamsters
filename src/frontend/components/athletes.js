@@ -39,7 +39,7 @@ class Athletes extends Component{
 <div className='col-2'>
 <Link to={ROUTES.SPORTS}>Sports</Link>
 </div>
-  
+
       </div>
 
 
@@ -52,22 +52,22 @@ class Athletes extends Component{
                         <i className={this.props.sortedByFirstName ? "fa fa-spinner fa-pulse" : ''}></i>
                         </div>
 
-                        <div className="col-2 list-group-item-dark athlete-heading">
+                        <div className="col-2 list-group-item-dark athlete-heading column-heading">
                         Last Name
                         <i className={this.props.sortedByLastName ? "fa fa-spinner fa-pulse" : ''}></i>
                         </div>
 
-                        <div className="col-2 list-group-item-dark athlete-heading">
+                        <div className="col-2 list-group-item-dark athlete-heading column-heading">
                         Sport
                         <i className={this.props.sortedBySport ? "fa fa-spinner fa-pulse" : ''}></i>
                         </div>
 
-                        <div className="col-2 list-group-item-dark athlete-heading">
+                        <div className="col-2 list-group-item-dark athlete-heading column-heading">
                         Team
                         <i className={this.props.sortedByTeamName ? "fa fa-spinner fa-pulse" : ''}></i>
                         </div>
 
-                        <div className="col-2 list-group-item-dark athlete-heading">
+                        <div className="col-2 list-group-item-dark athlete-heading column-heading">
                         Position
                         <i className={this.props.sortedByPosition ? "fa fa-spinner fa-pulse" : ''}></i>
                         </div>
@@ -78,25 +78,25 @@ class Athletes extends Component{
             </div>
             <div className="row justify-content-center">
 
-            <div className="col-2 list-group-item-dark">
-              <button className="btn btn-sm btn-primary" onClick={this.props.sortByFirstName}>sort by</button>
+            <div className="col-2 list-group-item-dark column-info">
+              <button className="btn btn-sm btn-dark" onClick={this.props.sortByFirstName}>sort </button>
             </div>
 
-            <div className="col-2 list-group-item-dark">
-              <button className="btn btn-sm btn-primary" onClick={this.props.sortByLastName}>sort by</button>
+            <div className="col-2 list-group-item-dark column-info">
+              <button className="btn btn-sm btn-dark" onClick={this.props.sortByLastName}>sort </button>
             </div>
 
-            <div className="col-2 list-group-item-dark">
-              <button className="btn btn-sm btn-primary" onClick={this.props.sortBySport}>sort by</button>
+            <div className="col-2 list-group-item-dark column-info">
+              <button className="btn btn-sm btn-dark" onClick={this.props.sortBySport}>sort </button>
             </div>
 
-            <div className="col-2 list-group-item-dark">
-              <button className="btn btn-sm btn-primary" onClick={this.props.sortByTeamName}>sort by</button>
+            <div className="col-2 list-group-item-dark column-info">
+              <button className="btn btn-sm btn-dark" onClick={this.props.sortByTeamName}>sort </button>
             </div>
 
 
-            <div className="col-2 list-group-item-dark">
-              <button className="btn btn-sm btn-primary" onClick={this.props.sortByPosition}>sort by</button>
+            <div className="col-2 list-group-item-dark column-info">
+              <button className="btn btn-sm btn-dark" onClick={this.props.sortByPosition}>sort </button>
             </div>
 
             <div className="col-2 list-group-item-dark">
@@ -114,12 +114,12 @@ class Athletes extends Component{
                                     athlete.position.toLowerCase().includes(this.props.filterString.toLowerCase())
                         ).map(athlete=>
                           <div className="row justify-content-center">
-                          <div className="col-2 list-group-item athleteinfo">{athlete.name.split(' ')[0]}</div>
-                          <div className="col-2 list-group-item athleteinfo">{athlete.name.split(' ')[1]}</div>
-                          <div className="col-2 list-group-item athleteinfo">{athlete.sport}</div>
-                          <div className="col-2 list-group-item athleteinfo">{athlete.teamName}</div>
-                          <div className="col-2 list-group-item athleteinfo">{athlete.position}</div>
-                          <div  className="col-2 list-group-item athleteinfo"><button className="btn btn-outline-success" id={athlete.id}className="btn btn-sm btn-success" onClick={this.props.draft}> Add to My Team </button></div>
+                          <div className="col-2 list-group-item athleteinfo column-info">{athlete.name.split(' ')[0]}</div>
+                          <div className="col-2 list-group-item athleteinfo column-info">{athlete.name.split(' ')[1]}</div>
+                          <div className="col-2 list-group-item athleteinfo column-info">{athlete.sport}</div>
+                          <div className="col-2 list-group-item athleteinfo column-info">{athlete.teamName}</div>
+                          <div className="col-2 list-group-item athleteinfo column-info">{athlete.position}</div>
+                          <div  className="col-2 list-group-item athleteinfo column-info"><button className="btn btn-outline-success" id={athlete.id}className="btn btn-sm btn-success" onClick={this.props.draft}> Add to My Team </button></div>
                           </div>
                                             )}
 

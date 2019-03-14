@@ -29,6 +29,12 @@ searchPlayers=async(e)=>{
   console.log(chicken.player)
   this.setState({player:player})
   this.setState({viewPlayer:true})
+  e.target.firstname.value=''
+  e.target.lastname.value=''
+}
+reset=()=>{
+  document.getElementById('firstname').value=''
+  document.getElementById('lastname').value=''
 }
 
 //lookup all players by teamid
@@ -74,85 +80,233 @@ searchPlayers=async(e)=>{
 
 <div className="container">
 
-  <div className='row justify-content-center'>
-  <p>stats are awesome</p>
-  </div>
-<div className='row justify-content-center'>
-  //player  form
-  <div className='col-3'>
-  <form onSubmit={this.searchPlayers}>
-  <input onChange={this.setFirstName}/>
-  <input onChange={this.setLastName}/>
-  <button type = 'submit'> submit </button>
-  </form>
-  </div>
+                <div className='row justify-content-center'>
+                <p>stats are awesome</p>
+                </div>
+          <div className='row justify-content-center'>
 
-  <div className='col-3'>
-  </div>
+                <div className='col-6'>
+                <form onSubmit={this.searchPlayers}>
+                <div className='row'>
+                <div className='col-6'>
+                <label htmlFor='firstname'>First Name</label>
+                </div>
+                <div className='col-6'>
+                <label htmlFor='lastname'>Last Name</label>
+                </div>
+                </div>
+                <div className='row'>
+                <div className='col-6'>
+                <input id="firstname"placeholder="player first name" onChange={this.setFirstName} required/>
+                </div>
+                <div className='col-6'>
+                <input id='lastname'placeholder="player last name" onChange={this.setLastName} required/>
+                </div>
+                </div>
+                <br/><br/>
+                <div className='row'>
+                <button className='btn btn-block btn-dark'type = 'submit'> submit </button>
+                </div>
+                <br/><br/>
+                <div className='row'>
+                <button className='btn btn-block btn-dark' onClick={this.reset}>clear</button>
+                </div>
+                </form>
+                </div>
 
-  <div className='col-3'>
-  </div>
+                <div className='col-3'>
 
-  <div className='col-3'>
-  </div>
-</div>
-//player results
-<div className="row justify-content-center">
+                </div>
 
-</div>
+                <div className='col-3'>
+                </div>
 
-<div className="row justify-content-center">
-</div>
-
-<div className="row justify-content-center">
-</div>
-
-<div className="row justify-content-center">
-</div>
-
-
-{console.log(this.state.player)}
-
+                <div className='col-3'>
+                </div>
+         </div>
 {this.state.viewPlayer?
+
 <div>
+
 {this.state.player.map(player=>
-  <div>
-{player.idPlayer}...
-{player.idTeam}...
-{player.strNationality}
-{player.strTeam}
-{player.strSport}
-{player.dateBorn}
-{player.strBirthLocation}
-{player.strDescriptionEn}
-{player.strGender}
-{player.strPosition}
-{player.strCollege}
-{player.strFacebook}
-{player.strWebsite}
-{player.strTwitter}
-{player.strInstagram }
-{player.strInstagram}
-{player.strHeight}
-{player.strWeight}
-{player.strThum}
-{player.strCutout}
-{player.Fanart1}
-{player.Fanart2}
-{player.Fanart3}
-{player.Fanart4}
+<div>
+<div className='row'>
+
+<div className='col-2'>
+<div className='row'>
+<u>Name:</u>
+</div>
+<div className='row'>
+{player.strPlayer}
+</div>
 </div>
 
+<div className='col-2'>
+<div className='row'>
+<u>Nationality:</u>
+</div>
+<div className='row'>{player.strNationality}
+</div>
+</div>
+
+<div className='col-2'>
+<div className='row'>
+<u>Player Id#:</u>
+</div>
+<div className='row'>
+{player.idPlayer}
+</div>
+</div>
+
+<div className='col-2'>
+<div className='row'>
+<u>Team Id#:</u>
+</div>
+<div className='row'>{player.idTeam}
+</div>
+</div>
+
+
+<div className='col-2'>
+<div className='row'>
+<u>Team:</u>
+</div>
+<div className='row'>
+{player.strTeam}
+</div>
+</div>
+
+<div className='col-2'>
+<div className='row'>
+
+<u>Sport:</u>
+</div>
+<div className='row'>
+{player.strSport}
+</div>
+</div>
+
+<div className='col-2'>
+<div className='row'>
+<u>Date of Birth:</u>
+</div>
+<div className='row'>{player.dateBorn}
+</div>
+</div>
+
+<div className='col-2'>
+<div className='row'>
+<u>City of Birth:</u>
+</div>
+<div className='row'>{player.strBirthLocation}
+</div>
+</div>
+
+<div className='col-2'>
+<div className='row'>
+<u>Height:</u>
+</div>
+<div className='row'>{player.strHeight}
+</div>
+</div>
+
+<div className='col-2'>
+<div className='row'>
+<u>Weight:</u>
+</div>
+<div className='row'>{player.strWeight}
+</div>
+</div>
+
+<div className='col-2'>
+<div className='row'>
+<u>Gender:</u>
+</div>
+<div className='row'>
+{player.strGender}
+</div>
+</div>
+
+<div className='col-2'>
+
+<div className='row'>
+<u>Position:</u>
+</div>
+<div className='row'>
+{player.strPosition}
+</div>
+</div>
+
+<div className='col-2'>
+<div className='row'>
+<u>College Attended:</u>
+</div>
+<div className='row'>{player.strCollege}
+</div>
+</div>
+
+</div>
+<br/><br/>
+
+<div className='row'>
+<u>Biography:</u> {player.strDescriptionEN}
+</div>
+<div className='row'>
+<br/><br/>
+<div className='col-4'>
+<div className='row'>
+<u>Social Media:</u>
+</div>
+<div className='row'>
+<a href="{player.strFacebook}" alt="link">{player.strFacebook}</a>
+</div>
+<div className='row'>
+<a href='{player.strWebsite}' alt="link">{player.strWebsite}</a>
+</div>
+<div className='row'>
+<a href='{player.strTwitter}' alt="link">{player.strTwitter}</a>
+</div>
+<div className='row'>
+<a target="blank" href={player.strInstagram} alt="link">{player.strInstagram}</a>
+</div>
+</div>
+
+<div className='col-8'>
+<div className='row'>
+<u>Images:</u>
+</div>
+<div className='row'>
+<a href="{player.strThumb}">{player.strThumb}</a>
+</div>
+
+<div className='row'>
+<a href="{player.strCutout}">{player.strCutout}</a>
+</div>
+
+<div className='row'>
+<a href="{player.strFanart1}">{player.strFanart1}</a>
+</div>
+
+<div className='row'>
+<a href="{player.strFanart2}">{player.strFanart2}</a>
+</div>
+
+<div className='row'>
+<a href="{player.strFanart3}">{player.strFanart3}</a>
+</div>
+<div className='row'>
+<a href="{player.strFanart4}">{player.strFanart4}</a>
+</div>
+</div>
+
+</div>
+
+</div>
 )}
 </div>
+  :''}
 
 
-   :''}
-</div>
-
-)}}
-
-
-
+</div>)}}
 
 export default Stats;

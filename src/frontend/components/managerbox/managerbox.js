@@ -27,7 +27,7 @@ setUserEmail=(e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button id={authUser.email} onClick={this.setUserEmail}> click</button>
+      <button className='btn btn-block btn-dark'id={authUser.email} onClick={this.setUserEmail}> click to make changes</button>
     </div>
     )}
 
@@ -51,6 +51,11 @@ setUserEmail=(e)=>{
 
 <div className='col-2'>
 <Link to={ROUTES.CLUBS}> My Clubs </Link>
+</div>
+
+
+<div className='col-2'>
+<Link to={ROUTES.ACTIVITIES}> My Sports </Link>
 </div>
 
 

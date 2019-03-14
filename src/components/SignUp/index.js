@@ -131,6 +131,7 @@ class SignUpFormBase extends Component {
           type="text"
           placeholder="Full Name"
           id='fullName'
+          required
         />
 </div>
 
@@ -144,6 +145,7 @@ class SignUpFormBase extends Component {
           type="text"
           placeholder="Email Address"
           id='email'
+          required
         />
 </div>
 
@@ -156,6 +158,7 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Password"
           id='password'
+          required
         />
 </div>
 
@@ -168,6 +171,7 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Confirm Password"
           id='passwordconfirm'
+          required
         />
 </div>
 

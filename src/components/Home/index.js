@@ -52,37 +52,37 @@ class HomePage extends Component{
 
   <div className="row">
         <div  className="dashboard">
-        <u>FIRST NAME:</u> {customer.firstname}
+        <span>FIRST NAME:</span> {customer.firstname}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        <u>LAST NAME:</u> {customer.lastname}
+        <span>LAST NAME:</span> {customer.lastname}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        <u>USERNAME:</u> {customer.username}
+        <span>USERNAME:</span> {customer.username}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        <u>EMAIL ADDRESS:</u> {customer.email}
+        <span>EMAIL ADDRESS:</span> {customer.email}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        <u>PHONE NUMBER:</u> {customer.phone}
+        <span>PHONE NUMBER:</span> {customer.phone}
         </div>
   </div>
 
   <div className="row">
         <div className="dashboard">
-        <u>FAVORITE PLAYER:</u> {customer.favoritePlayer}
+        <span>FAVORITE PLAYER:</span> {customer.favoritePlayer}
 
         </div>
   </div>
@@ -92,7 +92,7 @@ class HomePage extends Component{
         <div className='col-2'>
         </div>
         <div className="dashboard">
-          <u>ID#:</u> {customer.favoritePlayerId}
+          <span>ID#:</span> {customer.favoritePlayerId}
         </div>
   </div>
 
@@ -100,21 +100,7 @@ class HomePage extends Component{
 
   <div className="row">
         <div className="dashboard">
-        <u>FAVORITE TEAM:</u> {customer.favoriteTeam}
-        </div>
-  </div>
-
-  <div className="row">
-        <div className="col-2">
-        </div>
-        <div className="dashboard">
-        <u>ID #:</u>{customer.favoriteTeamId}
-        </div>
-  </div>
-
-  <div className="row">
-        <div className="dashboard">
-        <u>FAVORITE SPORT:</u> {customer.favoriteSport}
+        <span>FAVORITE TEAM:</span> {customer.favoriteTeam}
         </div>
   </div>
 
@@ -122,19 +108,33 @@ class HomePage extends Component{
         <div className="col-2">
         </div>
         <div className="dashboard">
-        <u>ID #:</u> {customer.favoriteSportId}
+        <span>ID #:</span>{customer.favoriteTeamId}
         </div>
   </div>
 
   <div className="row">
         <div className="dashboard">
-        <u>ACCOUNT STATUS:</u> {customer.isActive? "ACTIVE" : "DISABLED"}
+        <span>FAVORITE SPORT:</span> {customer.favoriteSport}
+        </div>
+  </div>
+
+  <div className="row">
+        <div className="col-2">
+        </div>
+        <div className="dashboard">
+        <span>ID #:</span> {customer.favoriteSportId}
         </div>
   </div>
 
   <div className="row">
         <div className="dashboard">
-        <u>ACCOUNT PRIVILEGES:</u> {customer.isAdmin? "ADMINISTRATOR" : "STANDARD"}
+        <span>ACCOUNT STATUS:</span> {customer.isActive? "ACTIVE" : "DISABLED"}
+        </div>
+  </div>
+
+  <div className="row">
+        <div className="dashboard">
+        <span>ACCOUNT PRIVILEGES:</span> {customer.isAdmin? "ADMINISTRATOR" : "STANDARD"}
         </div>
   </div>
 <div className="row">

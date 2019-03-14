@@ -50,27 +50,27 @@ class Roster extends Component{
 </div>
 
 <div className="row justify-content-center">
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-heading">
   first name
   </div>
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-heading">
   last name
   </div>
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-heading">
   team
   </div>
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-heading">
   sport
   </div>
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-heading">
   position
   </div>
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-info">
   </div>
 
 
@@ -92,27 +92,27 @@ class Roster extends Component{
                                                             ).map(player=>
   <div className="row justify-content-center">
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-info">
   <div>{player.name.split(' ')[0]}</div>
   </div>
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-info">
   <div>{player.name.split(' ')[1]}</div>
   </div>
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-info">
   <div>{player.teamName}</div>
   </div>
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-info">
   <div>{player.sport}</div>
   </div>
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-info">
   <div>{player.position}</div>
   </div>
 
-  <div className="col-2 list-group-item">
+  <div className="col-2 list-group-item column-info">
   <div><button className="btn btn-outline-success" onClick={this.props.trade} id={player.id}>remove from team</button></div>
   </div>
 

@@ -46,50 +46,50 @@ const Teams=(props)=>{
 
 <div className="row justify-content-center">
 
-<div className="col-2 list-group-item-dark team-heading">
+<div className="col-2 list-group-item-dark team-heading column-heading">
 NAME
 <i className={props.sortedByTeamTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
-<div className="col-2 list-group-item-dark team-heading">
+<div className="col-2 list-group-item-dark team-heading column-heading">
 CITY
 <i className={props.sortedByCityTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
-<div className="col-2 list-group-item-dark team-heading">
+<div className="col-2 list-group-item-dark team-heading column-heading">
 STATE
 <i className={props.sortedByStateTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
-<div className="col-2 list-group-item-dark team-heading">
+<div className="col-2 list-group-item-dark team-heading column-heading">
 SPORT
 <i className={props.sortedBySportTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-info">
 </div>
 
 </div>
 
 <div className="row justify-content-center">
 
-<div className="col-2 list-group-item-dark">
-<button className="btn btn-sm btn-primary" onClick={props.sortByTeamTitle}> sort by name </button>
+<div className="col-2 list-group-item-dark column-info">
+<button className="btn btn-sm btn-primary" onClick={props.sortByTeamTitle}> sort </button>
 </div>
 
-<div className="col-2 list-group-item-dark">
-<button className="btn btn-sm btn-primary" onClick={props.sortByCityTitle}> sorty by city</button>
+<div className="col-2 list-group-item-dark column-info">
+<button className="btn btn-sm btn-primary" onClick={props.sortByCityTitle}> sorty </button>
 </div>
 
-<div className="col-2 list-group-item-dark">
-<button className="btn btn-sm btn-primary" onClick={props.sortByStateTitle}> sorty by state </button>
+<div className="col-2 list-group-item-dark column-info">
+<button className="btn btn-sm btn-primary" onClick={props.sortByStateTitle}> sorty</button>
 </div>
 
-<div className="col-2 list-group-item-dark">
-<button className="btn btn-sm btn-primary" onClick={props.sortBySportTitle}> sorty by sport </button>
+<div className="col-2 list-group-item-dark column-info">
+<button className="btn btn-sm btn-primary" onClick={props.sortBySportTitle}> sorty </button>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-info">
 </div>
 </div>
 
@@ -105,19 +105,19 @@ SPORT
 
 <div className="row justify-content-center">
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item column-info">
 {team.name}
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item column-info">
 {team.city}
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item column-info">
 {team.state}
 </div>
 
-<div className="col-2 list-group-item">
+<div className="col-2 list-group-item column-info">
 {team.sportName}
 </div>
 

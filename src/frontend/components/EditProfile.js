@@ -12,7 +12,7 @@ const EditProfile=(props)=>{
           </div>
 
           <div className='row'>
-          <input className="editprofile"id="firstName" type="text" placeholder="first name"/>
+          <input className="editprofile"id="firstName" type="text" placeholder="first name" required/>
           </div>
 
 
@@ -21,7 +21,7 @@ const EditProfile=(props)=>{
           </div>
 
           <div className='row'>
-          <input className="editprofile"id="lastName" type="text" placeholder="last name"/>
+          <input className="editprofile"id="lastName" type="text" placeholder="last name" required/>
           </div>
 
           <div className="row">
@@ -29,7 +29,7 @@ const EditProfile=(props)=>{
           </div>
 
           <div className='row'>
-          <input className="editprofile"id="userName" type="text" placeholder="username"/>
+          <input className="editprofile"id="userName" type="text" placeholder="username" required/>
           </div>
 
 
@@ -39,7 +39,7 @@ const EditProfile=(props)=>{
           </div>
 
           <div className='row'>
-          <input className="editprofile"id="emailAddress" type="text" placeholder="email address"/>
+          <input className="editprofile"id="emailAddress" type="text" placeholder="email address" required/>
           </div>
 
           <div className="row">
@@ -47,7 +47,7 @@ const EditProfile=(props)=>{
           </div>
 
           <div className='row'>
-          <input className="editprofile"id="phoneNumber" type="text" placeholder="phone number"/>
+          <input className="editprofile"id="phoneNumber" type="text" placeholder="phone number" required/>
           </div>
 
           <div className="row">

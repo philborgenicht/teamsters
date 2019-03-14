@@ -104,7 +104,7 @@ class Sports extends Component{
 
 <div className="list-group-item">
 <div className="row">
-<div className='col-6'>
+<div className='col-6 column-info'>
     {sport.name}
 </div>
 <div className='col-6'>

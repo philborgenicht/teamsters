@@ -54,14 +54,14 @@ class MySports extends Component{
 {this.props.sports.filter(sport=>sport.onList===true).filter(sport=>
                                                               sport.name.toLowerCase().includes(this.props.filterString.toLowerCase())
                                                             ).map(sport=>(
-  <div className="row justify-content-center list-group-item">
+  <div className="row justify-content-center list-group-item column-info">
 
 
   <div>
   {sport.name}
   </div>
   <div>
-  <button className="btn btn-outline-success" onClick={this.props.removeSport} id={sport.id}>remove sport</button>
+  <button className="btn btn-dark" onClick={this.props.removeSport} id={sport.id}>remove sport</button>
   </div>
 
 
