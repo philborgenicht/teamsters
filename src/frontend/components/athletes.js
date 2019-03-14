@@ -10,9 +10,7 @@ class Athletes extends Component{
     return(
       <div className="container ">
 
-      <div className="row justify-content-center">
-        <h1 className="heading"> ATHLETES </h1>
-      </div>
+
 
       <div className="row justify-content-center">
 
@@ -41,7 +39,9 @@ class Athletes extends Component{
 </div>
 
       </div>
-
+      <div className="row justify-content-center">
+        <h1 className="heading"> ATHLETES </h1>
+      </div>
 
 
 

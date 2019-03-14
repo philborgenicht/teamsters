@@ -35,10 +35,11 @@ footer {
 .teamLogo{
   max-width: 200px
 }
-.sportLogo{
-  max-width: 200px
-}
 
+.sportLogo{
+  border-radius: 20px;
+  max-width: 500px
+}
 .nav-link{
   font-size: 12px;
   color:white

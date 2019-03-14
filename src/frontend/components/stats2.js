@@ -18,6 +18,7 @@ state={
     const results = await fetch(`https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=${league}`)
     const data= await results.json()
 console.log(data)
+console.log(league)
 const teams=data.teams
 this.setState({teams:teams})
 console.log(this.state.teams)

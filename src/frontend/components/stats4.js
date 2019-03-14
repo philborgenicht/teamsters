@@ -5,9 +5,35 @@ import axios from 'axios'
 
 class Stats4 extends Component{
 state={
-
+teamId:'',
+leagueId:''
 }
 
+componentDidMount = async() => {
+  const response = await fetch('https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=nba')
+  const basketball= await response.json()
+  const basketballTeams =  basketball.teams
+
+  const response2 = await fetch('https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=mlb')
+    const baseball= await response2.json()
+  const baseballTeams =  baseball.teams
+
+  const response3 = await fetch('https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=nfl')
+    const football= await response3.json()
+  const footballTeams =  football.teams
+
+  const response4 = await fetch('https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=nhl')
+    const hockey= await response4.json()
+  const hockeyTeams =  hockey.teams
+
+
+  this.setState({
+    basketballTeams:basketballTeams,
+    baseballTeams:baseballTeams,
+    footballTeams:footballTeams,
+    hockeyTeams:hockeyTeams
+  })
+}
 //search all teams by league
   searchTeams=async(e)=>{
     e.preventDefault()
@@ -20,7 +46,7 @@ state={
   }
 
 
-// 
+//
 // //Next 5 Events by Team Id
 // https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=133602
 //
