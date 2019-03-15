@@ -5,8 +5,24 @@ import axios from 'axios'
 
 class Stats4 extends Component{
 state={
-teamId:'',
-leagueId:''
+basketballTeamId:'',
+footballTeamId:'',
+baseballTeamId:'',
+hockeyTeamId:'',
+leagueId:'',
+basketballTeams:[],
+baseballTeams:[],
+footballTeams:[],
+hockeyTeams:[],
+viewHockeyTeamGames:false,
+viewBaseballTeamGames:false,
+viewBasketballTeamGames:false,
+viewFootballTeamGames:false,
+viewLeagueGames:false,
+basketballGames:[],
+baseballGames:[],
+footballGames:[],
+hockeyGames:[]
 }
 
 componentDidMount = async() => {
@@ -35,23 +51,76 @@ componentDidMount = async() => {
   })
 }
 //search all teams by league
-  searchTeams=async(e)=>{
+  searchBasketballTeamEvents=async(e)=>{
     e.preventDefault()
-    let league=e.target.league.value
-    this.setState({league:league})
-    const results = await fetch(`https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=${league}`)
+    let basketballTeamId=e.target.basketballTeamId.value.split(' ')[1]
+    this.setState({basketballTeamId:basketballTeamId})
+    const results = await fetch(`https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=${basketballTeamId}`)
     const data= await results.json()
+    const basketballGames= data.events
+    this.setState({basketballGames:basketballGames,viewBasketballTeamGames:true})
+  }
 
+  searchFootballTeamEvents=async(e)=>{
+    e.preventDefault()
+    let footballTeamId=e.target.footballTeamid.value.split(' ')[1]
+    this.setState({footballTeamId:footballTeamId})
+    const results = await fetch(`https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=${footballTeamId}`)
+    const data= await results.json()
+    const footballGames=data.events
+    this.setState({footballGames:footballGames,viewFootballTeamGames:true})
+  }
 
+  searchBaseballTeamEvents=async(e)=>{
+    e.preventDefault()
+    let baseballTeamId=e.target.baseballTeamId.value.split(' ')[1]
+    this.setState({baseballTeamId:baseballTeamId})
+    const results = await fetch(`https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=${baseballTeamId}`)
+    const data= await results.json()
+    const baseballGames=data.events
+    this.setState({baseballGames:baseballGames,viewBaseballTeamGames:true})
+  }
+
+  searchHockeyTeamEvents=async(e)=>{
+    e.preventDefault()
+    let hockeyTeamId=e.target.hockeyTeamId.value.split(' ')[1]
+    this.setState({hockeyTeamId:hockeyTeamId})
+    const results = await fetch(`https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=${hockeyTeamId}`)
+    const data= await results.json()
+    const hockeyGames=data.events
+    this.setState({hockeyGames:hockeyGames,viewHockeyTeamGames:true})
+  }
+
+  searchLeagueEvents=async(e)=>{
+    e.preventDefault()
+    let leagueId=e.target.leagueId.value.split(' ')[1]
+    this.setState({leagueId:leagueId})
+    const results = await fetch(`https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=${leagueId}`)
+    const data= await results.json()
+    const leagueGames=data.events
+    this.setState({leagueGames:leagueGames,viewLeagueGames:true})
   }
 
 
-//
-// //Next 5 Events by Team Id
-// https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=133602
-//
-// Next 15 Events by League Id
-// https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328
+clearHockeyGames=()=>{
+  this.setState({viewHockeyTeamGames:false})
+}
+
+clearFootballGames=()=>{
+  this.setState({viewFootballTeamGames:false})
+}
+
+clearBaseballGames=()=>{
+  this.setState({viewBaseballTeamGames:false})
+}
+
+clearBasketballGames=()=>{
+  this.setState({viewBasketballTeamGames:false})
+}
+
+clearLeagueGames=()=>{
+  this.setState({viewLeagueGames:false})
+}
 
 
 
@@ -59,27 +128,171 @@ componentDidMount = async() => {
   render(){
     return(
 
-      <div>
-      <form onSubmit={this.searchTeams}>
+      <div className='container'>
+      //leaguesearch
+      <div className='row'>
+      <form onSubmit={this.searchLeagueEvents}>
       <div class="form-group">
-              <label for="exampleFormControlSelect1">SELECT A LEAGUE</label>
+              <label for="league">SELECT A LEAGUE</label>
               <select onChange={this.setLeague} class="form-control" id="league">
-                <option>MLB</option>
-                <option>NBA</option>
-                <option>NFL</option>
-                <option>NHL</option>
+                <option>MLB, 4424</option>
+                <option>NBA, 4387</option>
+                <option>NFL, 4391</option>
+                <option>NHL, 4380</option>
 
               </select>
               <button type = 'submit'> search </button>
             </div>
 
       </form>
+      <button onClick={this.clearLeagueGames}>clear</button>
+      </div>
+      //basketball
+      <div className='row'>
+      <form onSubmit={this.searchBasketballTeamEvents}>
+      <select id='basketballTeamId'>
+      {this.state.basketballTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
+      </select>
+<button type="submit"> search </button>
+      </form>
+      <button onClick={this.clearBasketballGames}>clear</button>
+      </div>
+
+      //baseball
+      <div className='row'>
+      <form onSubmit={this.searchBaseballTeamEvents}>
+      <select id='baseballTeamId'>
+      {this.state.baseballTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
+      </select>
+<button type="submit"> search </button>
+      </form>
+
+<button onClick={this.clearBaseballGames}>clear</button>
+      </div>
+
+      //football
+      <div className='row'>
+      <form onSubmit={this.searchFootballTeamEvents}>
+      <select id='footballTeamId'>
+      {this.state.footballTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
+      </select>
+<button type="submit"> search </button>
+      </form>
+
+<button onClick={this.clearFootballGames}>clear</button>
+      </div>
+
+
+      //hockey
+      <div className='row'>
+      <form onSubmit={this.searchHockeyTeamEvents}>
+      <select id='hockeyTeamId'>
+      {this.state.hockeyTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
+      </select>
+<button type="submit"> search </button>
+      </form>
+
+<button onClick={this.clearHockeyGames}>clear</button>
+      </div>
+
+
+<div className='row'>
+{this.state.viewLeagueGames?
+<div>
+{this.state.leagueGames.map(game=>
+<div>
 
 
 
 
 
 
+
+</div>)}
+</div>
+:''}
+</div>
+
+
+
+<div className='row'>
+
+<div className='col-6'>
+{this.state.viewFootballTeamGames?
+<div>
+{this.state.footballGames.map(game=>
+<div>
+
+
+
+
+
+
+
+
+</div>)}
+
+</div>
+:''}
+</div>
+
+<div className='col-6'>
+{this.state.viewBaseballTeamGames?
+<div>
+{this.state.baseballGames.map(game=>
+<div>
+
+
+
+
+
+
+
+
+
+</div>)}
+</div>
+:''}
+</div>
+
+</div>
+
+<div className='row'>
+
+<div className='col-6'>
+{this.state.viewHockeyTeamGames?
+<div>
+{this.state.hockeyGames.map(game=>
+  <div>
+
+
+
+
+
+  </div>
+)}
+</div>
+:''}
+</div>
+
+<div className='col-6'>
+{this.state.viewBasketballTeamGames?
+<div>
+{this.state.basketballGames.map(game=>
+<div>
+
+
+
+
+
+
+
+</div>)}
+</div>
+:''}
+</div>
+
+</div>
 
 
   </div>
