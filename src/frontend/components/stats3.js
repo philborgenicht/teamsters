@@ -54,10 +54,10 @@ componentDidMount = async() => {
 //search all teams by league
   searchTeams=async(e)=>{
     e.preventDefault()
-    let hockeyTeamId=e.target.hockeyTeam.value.split(' ')[e.target.hockeyTeam.value.split(' ').length-1]
-    let footballTeamId=e.target.footballTeam.value.split(' ')[e.target.footballTeam.value.split(' ').length-1]
-    let baseballTeamId=e.target.baseballTeam.value.split(' ')[e.target.baseballTeam.value.split(' ').length-1]
-    let basketballTeamId=e.target.basketballTeam.value.split(' ')[e.target.basketballTeam.value.split(' ').length-1]
+    let hockeyTeamId=e.target.hockeyTeam.value.split(', ')[0]
+    let footballTeamId=e.target.footballTeam.value.split(', ')[0]
+    let baseballTeamId=e.target.baseballTeam.value.split(', ')[0]
+    let basketballTeamId=e.target.basketballTeam.value.split(', ')[0]
 
     let hockeyteam=e.target.hockeyTeam.value.split(' ').slice(0, e.target.hockeyTeam.value.split(' ').length-1)
     let footballteam=e.target.footballTeam.value.split(' ').slice(0, e.target.footballTeam.value.split(' ').length-1)

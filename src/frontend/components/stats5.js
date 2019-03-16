@@ -155,8 +155,55 @@ clearResults=()=>{
 {this.state.viewAllEvents?
 <div>
 {this.state.allEvents.map(event=>
-<div>
+<div className='row'>
 
+<div className='col-2'>
+{idEvent}
+</div>
+
+<div className='col-2'>
+{strEvent}
+</div>
+
+<div className='col-2'>
+{strSport}
+</div>
+
+<div className='col-2'>
+{idLeague}
+</div>
+
+<div className='col-2'>
+{strLeague}
+</div>
+
+<div className='col-2'>
+{strSeason}
+</div>
+
+<div className='col-2'>
+{strHomeTeam}
+</div>
+
+<div className='col-2'>
+{strAwayTeam}
+</div>
+
+<div className='col-2'>
+{dateEvent}
+</div>
+
+<div className='col-2'>
+{strTime}
+</div>
+
+<div className='col-2'>
+{idHomeTeam}
+</div>
+
+<div className='col-2'>
+{idAwayTeam}
+</div>
 
 
 
@@ -174,8 +221,47 @@ clearResults=()=>{
 {this.state.viewTvEvents?
 <div>
 {this.state.tvEvents.map(event=>
-<div>
+<div className='row'>
 
+<div className='col-2'>
+{idEvent}
+</div>
+
+<div className='col-2'>
+{strSport}
+</div>
+
+<div className='col-2'>
+{strEvent}
+</div>
+
+<div className='col-2'>
+{idChannel}
+</div>
+
+<div className='col-2'>
+{strCountry}
+</div>
+
+<div className='col-2'>
+{strLogo}
+</div>
+
+<div className='col-2'>
+{strChannel}
+</div>
+
+<div className='col-2'>
+{strSeason}
+</div>
+
+<div className='col-2'>
+{strTime}
+</div>
+
+<div className='col-2'>
+{dateEvent}
+</div>
 
 
 

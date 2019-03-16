@@ -202,7 +202,19 @@ clearLeagueGames=()=>{
 {this.state.leagueGames.map(game=>
 <div>
 
-
+{idEvent}
+{strEvent}
+{strFilename}
+{strSport}
+{idLeague}
+{strLeague}
+{strSeason}
+{strHomeTeam}
+{strAwayTeam}
+{dateEvent}
+{strTime}
+{idHomeTeam}
+{idAwayTeam}
 
 
 
@@ -223,7 +235,19 @@ clearLeagueGames=()=>{
 {this.state.footballGames.map(game=>
 <div>
 
-
+{idEvent}
+{strEvent}
+{strSport}
+{idLeague}
+{strLeague}
+{strSeason}
+{strHomeTeam}
+{strAwayTeam}
+{dateEvent}
+{strTime}
+{idHomeTeam}
+{idAwayTeam}
+{strThumb}
 
 
 
@@ -242,7 +266,19 @@ clearLeagueGames=()=>{
 {this.state.baseballGames.map(game=>
 <div>
 
-
+{idEvent}
+{strEvent}
+{strSport}
+{idLeague}
+{strLeague}
+{strSeason}
+{strHomeTeam}
+{strAwayTeam}
+{dateEvent}
+{strTime}
+{idHomeTeam}
+{idAwayTeam}
+{strThumb}
 
 
 
@@ -265,7 +301,19 @@ clearLeagueGames=()=>{
 {this.state.hockeyGames.map(game=>
   <div>
 
-
+  {idEvent}
+  {strEvent}
+  {strSport}
+  {idLeague}
+  {strLeague}
+  {strSeason}
+  {strHomeTeam}
+  {strAwayTeam}
+  {dateEvent}
+  {strTime}
+  {idHomeTeam}
+  {idAwayTeam}
+  {strThumb}
 
 
 
@@ -281,7 +329,19 @@ clearLeagueGames=()=>{
 {this.state.basketballGames.map(game=>
 <div>
 
-
+{idEvent}
+{strEvent}
+{strSport}
+{idLeague}
+{strLeague}
+{strSeason}
+{strHomeTeam}
+{strAwayTeam}
+{dateEvent}
+{strTime}
+{idHomeTeam}
+{idAwayTeam}
+{strThumb}
 
 
 
