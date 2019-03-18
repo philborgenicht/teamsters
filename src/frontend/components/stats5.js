@@ -72,14 +72,72 @@ clearResults=()=>{
   this.setState({allEvents:[], tvEvents:[]})
 }
 
-
-
+sortBySport=()=>{
+  let currentEvents=this.state.allEvents
+  let currentTvEvents=this.state.tvEvents
+  let newEvents=currentEvents.sort((event1, event2)=>{
+    if (event1.strSport<event2.strSport){
+      return -1
+    }
+    if (event1.strSport>event2.strSport){
+      return 1
+    }
+    if (event1.strSport===event2.strSport){
+      return 0
+    }
+  })
+  let newTvEvents=currentTvEvents.sort((event1, event2)=>{
+    if (event1.strSport<event2.strSport){
+      return -1
+    }
+    if (event1.strSport>event2.strSport){
+      return 1
+    }
+    if (event1.strSport===event2.strSport){
+      return 0
+    }
+  })
+  this.setState({allEvents:newEvents, tvEvents:newTvEvents})
+}
+sortByDate=()=>{
+  let currentEvents=this.state.allEvents
+  let currentTvEvents=this.state.tvEvents
+  let newEvents=currentEvents.sort((event1, event2)=>{
+    if (event1.dateEvent<event2.dateEvent){
+      return -1
+    }
+    if (event1.dateEvent>event2.dateEvent){
+      return 1
+    }
+    if (event1.dateEvent===event2.dateEvent){
+      return 0
+    }
+  })
+  let newTvEvents=currentTvEvents.sort((event1, event2)=>{
+    if (event1.dateEvent<event2.dateEvent){
+      return -1
+    }
+    if (event1.dateEvent>event2.dateEvent){
+      return 1
+    }
+    if (event1.dateEvent===event2.dateEvent){
+      return 0
+    }
+  })
+  this.setState({allEvents:newEvents, tvEvents:newTvEvents})
+}
 
   render(){
     return(
 
       <div className='container'>
       <div className='row'>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS}>Stats1</Link>
+      </button>
+      </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
@@ -96,12 +154,6 @@ clearResults=()=>{
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
       <Link className="nav-link"to={ROUTES.STATS4}>Stats4</Link>
-      </button>
-      </div>
-
-      <div className='col-3'>
-      <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS5}>Stats5</Link>
       </button>
       </div>
 
@@ -175,10 +227,23 @@ clearResults=()=>{
             </div>
 
       </form>
+      <div className='row'>
+      <button onClick={this.sortBySport}>sort by sport</button>
+      <button onClick={this.sortByDate}>sort by date</button>
+      </div>
 
 {this.state.viewAllEvents?
   <div>
-  {this.state.allEvents.map(game=>
+  {this.state.allEvents.filter(game=>
+
+    game.strSport.toLowerCase().includes(this.props.filterString.toLowerCase())||
+    game.strLeague.toLowerCase().includes(this.props.filterString.toLowerCase())||
+    game.strHomeTeam.toLowerCase().includes(this.props.filterString.toLowerCase())||
+    game.strAwayTeam.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+
+
+    .map(game=>
     <div>
   <div className='row'>
 
@@ -190,9 +255,7 @@ clearResults=()=>{
 {game.strEvent}
 </div>
 
-<div className='col-2 list-group-item'>
-{game.strFilename}
-</div>
+
 
 <div className='col-2 list-group-item'>
 {game.strSport}
@@ -240,7 +303,12 @@ clearResults=()=>{
 
 {this.state.viewTvEvents?
   <div>
-  {this.state.tvEvents.map(game=>
+  {this.state.tvEvents.filter(game=>
+    game.strSport.toLowerCase().includes(this.props.filterString.toLowerCase())||
+    game.strCountry.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+
+    .map(game=>
     <div>
 <div className='row'>
 

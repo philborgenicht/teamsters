@@ -28,9 +28,41 @@ this.setState({viewTeams:true})
 
 
 
-//
+//sorting functions
+
+sortByTeamName=()=>{
+  let currentState=this.state.teams
+  let newState=this.state.teams.sort((team1, team2)=>{
+    if (team1.strTeam<team2.strTeam){
+      return -1
+    }
+    if (team1.strTeam>team2.strTeam){
+      return 1
+    }
+    if (team1.strTeam===team2.strTeam){
+      return 0
+    }
 
 
+})
+  this.setState({teams:newState})
+}
+
+sortByYearFormed=()=>{
+  let currentState=this.state.teams
+  let newState=this.state.teams.sort((team1, team2)=> {
+    if (team1.intFormedYear<team2.intFormedYear){
+      return -1
+    }
+    if (team1.intFormedYear>team2.intFormedYear){
+      return 1
+    }
+    if (team1.intFormedYear===team2.intFormedYear){
+      return 0
+    }
+  })
+  this.setState({teams:newState})
+}
 
 
   render(){
@@ -41,7 +73,7 @@ this.setState({viewTeams:true})
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
+      <Link className="nav-link"to={ROUTES.STATS}>Stats</Link>
       </button>
       </div>
 
@@ -82,7 +114,19 @@ this.setState({viewTeams:true})
 
       </form>
 
+<div className='row'>
 
+<div className='col-3'>
+<button onClick={this.sortByTeamName}>sort by team name</button>
+</div>
+
+<div className='col-3'>
+<button onClick={this.sortByYearFormed}>sort by year formed</button>
+</div>
+
+
+
+</div>
 
 
       {this.state.viewTeams?
@@ -90,7 +134,19 @@ this.setState({viewTeams:true})
 
 
 
-{this.state.teams.map(team=>
+{this.state.teams.filter(team=>
+
+  team.strTeam.toLowerCase().includes(this.props.filterString.toLowerCase())||
+  team.idTeam.toString().includes(this.props.filterString.toLowerCase())||
+  team.intFormedYear.toString().includes(this.props.filterString.toLowerCase())||
+  team.strCountry.toLowerCase().includes(this.props.filterString.toLowerCase())||
+  team.strLeague.toLowerCase().includes(this.props.filterString.toLowerCase())||
+  team.strDescriptionEN.toLowerCase().includes(this.props.filterString.toLowerCase())||
+  team.strStadium.toLowerCase().includes(this.props.filterString.toLowerCase())||
+  team.strStadiumDescription.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+
+  .map(team=>
 <div>
 
 <div className='row justify-content-center'>
@@ -108,8 +164,6 @@ this.setState({viewTeams:true})
 {team.idTeam}
 </div>
 
-
-
 <div className='col-4 list-group-item'>
 <u>Year Formed:</u>
 
@@ -117,31 +171,11 @@ this.setState({viewTeams:true})
 </div>
 
 
-
-
-
 <div className='col-4 list-group-item'>
 <u>Country:</u>
 
 {team.strCountry}
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div className='col-4 list-group-item'>
@@ -251,7 +285,7 @@ this.setState({viewTeams:true})
 <div className='row list-group-item'>
 <u>Fanart: </u>{team.strTeamFanart4}
 </div>
-<br/><br/>
+<br/><hr/>
 </div>
 
 

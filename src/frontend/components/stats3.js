@@ -106,10 +106,118 @@ console.log(this.state)
 
 
 
-//
+  //sorting
+  sortByPlayer=()=>{
+    let currentHockeyPlayers=this.state.hockeyPlayers
+    let currentFootballPlayers=this.state.footballPlayers
+    let currentBaseballPlayers=this.state.baseballPlayers
+    let currentBasketballPlayers=this.state.bastketballPlayers
 
+    let newHockeyPlayers=currentHockeyPlayers.sort((player1,player2)=>{
+      if (player1.strPlayer<player2.strPlayer){
+        return -1
+      }
+      if (player1.strPlayer>player2.strPlayer){
+        return 1
+      }
+      if (player1.strPlayer===player2.strPlayer){
+        return 0
+      }
+    })
 
+    let newFootballPlayers=currentFootballPlayers.sort((player1,player2)=>{
+      if (player1.strPlayer<player2.strPlayer){
+        return -1
+      }
+      if (player1.strPlayer>player2.strPlayer){
+        return 1
+      }
+      if (player1.strPlayer===player2.strPlayer){
+        return 0
+      }
+    })
 
+    let newBaseballPlayers=currentBaseballPlayers.sort((player1,player2)=>{
+      if (player1.strPlayer<player2.strPlayer){
+        return -1
+      }
+      if (player1.strPlayer>player2.strPlayer){
+        return 1
+      }
+      if (player1.strPlayer===player2.strPlayer){
+        return 0
+      }
+    })
+
+    let newBasketballPlayers=currentBasketballPlayers.sort((player1,player2)=>{
+      if (player1.strPlayer<player2.strPlayer){
+        return -1
+      }
+      if (player1.strPlayer>player2.strPlayer){
+        return 1
+      }
+      if (player1.strPlayer===player2.strPlayer){
+        return 0
+      }
+    })
+    this.setState({footballPlayers: newFootballPlayers, basketballPlayers:newBasketballPlayers, baseballPlayers:newBaseballPlayers, hockeyPlayers:newHockeyPlayers})
+  }
+
+  sortByPosition=()=>{
+    let currentHockeyPlayers=this.state.hockeyPlayers
+    let currentFootballPlayers=this.state.footballPlayers
+    let currentBaseballPlayers=this.state.baseballPlayers
+    let currentBasketballPlayers=this.state.bastketballPlayers
+
+    let newHockeyPlayers=currentHockeyPlayers.sort((player1,player2)=>{
+      if (player1.strPosition<player2.strPosition){
+        return -1
+      }
+      if (player1.strPosition>player2.strPosition){
+        return 1
+      }
+      if (player1.strPosition===player2.strPosition){
+        return 0
+      }
+    })
+
+    let newFootballPlayers=currentFootballPlayers.sort((player1,player2)=>{
+      if (player1.strPosition<player2.strPosition){
+        return -1
+      }
+      if (player1.strPosition>player2.strPosition){
+        return 1
+      }
+      if (player1.strPosition===player2.strPosition){
+        return 0
+      }
+    })
+
+    let newBaseballPlayers=currentBaseballPlayers.sort((player1,player2)=>{
+      if (player1.strPosition<player2.strPosition){
+        return -1
+      }
+      if (player1.strPosition>player2.strPosition){
+        return 1
+      }
+      if (player1.strPosition===player2.strPosition){
+        return 0
+      }
+    })
+
+    let newBasketballPlayers=currentBasketballPlayers.sort((player1,player2)=>{
+      if (player1.strPosition<player2.strPosition){
+        return -1
+      }
+      if (player1.strPosition>player2.strPosition){
+        return 1
+      }
+      if (player1.strPosition===player2.strPosition){
+        return 0
+      }
+    })
+    this.setState({footballPlayers: newFootballPlayers, basketballPlayers:newBasketballPlayers, baseballPlayers:newBaseballPlayers, hockeyPlayers:newHockeyPlayers})
+  }
 
   render(){
     return(
@@ -120,13 +228,13 @@ console.log(this.state)
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
+      <Link className="nav-link"to={ROUTES.STATS}>Stats</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS3}>Stats3</Link>
+      <Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
       </button>
       </div>
 
@@ -179,7 +287,11 @@ console.log(this.state)
 <div className='col-6'>
 {this.state.viewPlayers?<div>
 <h1>{this.state.hockeyteam}</h1>
-  {this.state.hockeyPlayers.map(player=>
+  {this.state.hockeyPlayers.filter(player=>
+    player.strPlayer.toLowerCase().includes(this.props.filterString.toLowerCase())||
+    player.strPosition.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+    .map(player=>
   <div className='list-group-item'>
 {player.strPlayer}:
 {player.strPosition}
@@ -191,7 +303,11 @@ console.log(this.state)
 <div className='col-6'>
 {this.state.viewPlayers?<div>
 <h1>{this.state.footballteam}</h1>
-  {this.state.footballPlayers.map(player=>
+  {this.state.footballPlayers.filter(player=>
+    player.strPlayer.toLowerCase().includes(this.props.filterString.toLowerCase())||
+    player.strPosition.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+    .map(player=>
   <div className='list-group-item'>
 
 {player.strPlayer}:
@@ -208,7 +324,11 @@ console.log(this.state)
 <div className='col-6'>
 {this.state.viewPlayers?<div>
 <h1>{this.state.baseballteam}</h1>
-  {this.state.baseballPlayers.map(player=>
+  {this.state.baseballPlayers.filter(player=>
+    player.strPlayer.toLowerCase().includes(this.props.filterString.toLowerCase())||
+    player.strPosition.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+    .map(player=>
   <div className='list-group-item'>
 {player.strPlayer}:
 {player.strPosition}
@@ -220,7 +340,11 @@ console.log(this.state)
 <div className='col-6'>
 {this.state.viewPlayers?<div>
 <h1>{this.state.basketballteam}</h1>
-  {this.state.basketballPlayers.map(player=>
+  {this.state.basketballPlayers.filter(player=>
+    player.strPlayer.toLowerCase().includes(this.props.filterString.toLowerCase())||
+    player.strPosition.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+    .map(player=>
   <div className='list-group-item'>
 {player.strPlayer}:
 {player.strPosition}

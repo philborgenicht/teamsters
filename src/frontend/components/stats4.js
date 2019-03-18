@@ -135,6 +135,12 @@ clearLeagueGames=()=>{
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS}>Stats</Link>
+      </button>
+      </div>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
       <Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
       </button>
       </div>
@@ -142,12 +148,6 @@ clearLeagueGames=()=>{
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
       <Link className="nav-link"to={ROUTES.STATS3}>Stats3</Link>
-      </button>
-      </div>
-
-      <div className='col-3'>
-      <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS4}>Stats4</Link>
       </button>
       </div>
 
@@ -241,10 +241,20 @@ clearLeagueGames=()=>{
       </div>
 
 <hr/>
+
+
+
+
+
+
 <div className='row'>
 {this.state.viewLeagueGames?
 <div>
-{this.state.leagueGames.map(game=>
+{this.state.leagueGames.filter(game=>
+  game.strHomeTeam.toLowerCase().includes(this.props.filterString.toLowerCase())||
+  game.strAwayTeam.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+  .map(game=>
   <div>
 <div className='row'>
 
@@ -297,7 +307,16 @@ Game Time: {game.strTime}
 <div className='col-6'>
 {this.state.viewFootballTeamGames?
 <div>
-{this.state.footballGames.map(game=>
+{this.state.footballGames.filter(game=>
+
+  game.strHomeTeam.toLowerCase().includes(this.props.filterString.toLowerCase())||
+  game.strAwayTeam.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+
+
+
+
+  .map(game=>
 <div className='game-data'>
 
   <div className='row'>
@@ -347,7 +366,16 @@ Game Time: {game.strTime}
 <div className='col-6'>
 {this.state.viewBaseballTeamGames?
 <div>
-{this.state.baseballGames.map(game=>
+{this.state.baseballGames.filter(game=>
+
+  game.strHomeTeam.toLowerCase().includes(this.props.filterString.toLowerCase())||
+  game.strAwayTeam.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+
+
+
+
+  .map(game=>
 <div className='game-data'>
 
 <div className='row'>
@@ -400,7 +428,10 @@ Game Time: {game.strTime}
 <div className='col-6'>
 {this.state.viewHockeyTeamGames?
 <div>
-{this.state.hockeyGames.map(game=>
+{this.state.hockeyGames.filter(game=>
+  game.strHomeTeam.toLowerCase().includes(this.props.filterString.toLowerCase())||
+  game.strAwayTeam.toLowerCase().includes(this.props.filterString.toLowerCase()))
+  .map(game=>
   <div className='game-data'>
   <div className='row'>
   <div className='col-6 list-group-item'>
@@ -445,7 +476,11 @@ Game Time: {game.strTime}
 <div className='col-6'>
 {this.state.viewBasketballTeamGames?
 <div>
-{this.state.basketballGames.map(game=>
+{this.state.basketballGames.filter(game=>
+  game.strHomeTeam.toLowerCase().includes(this.props.filterString.toLowerCase())||
+  game.strAwayTeam.toLowerCase().includes(this.props.filterString.toLowerCase()))
+
+  .map(game=>
 <div className='game-data'>
 <div className='row'>
 <div className='col-6 list-group-item'>

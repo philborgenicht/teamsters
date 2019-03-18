@@ -30,6 +30,12 @@ class HomePage extends Component{
   editProfile=()=>{
     this.setState({editProfile:true})
   }
+
+
+  updateProfile=(e)=>{
+    console.log(e.target)
+    let clientId=this.state.customers.filter(customer=>customer.email===this.state.userEmail).map(customer=>customer.id)[0]
+  }
   render(){
     return(
 
@@ -149,6 +155,7 @@ class HomePage extends Component{
 <div className="col-5">
 
 {this.state.editProfile? <EditProfile
+                                    editProfile={this.updateProfile}
                                     teams={this.state.teams}
                                     customers={this.state.customers}
                                     athletes={this.state.athletes}

@@ -4,7 +4,7 @@ import React from 'react'
 const EditProfile=(props)=>{
   return(
     <div>
-          <form>
+          <form onSubmit={props.editProfile}>
 
 
           <div className="row">

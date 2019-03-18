@@ -400,10 +400,10 @@ setUserEmail=(e)=>{
   acquireSport={this.acquireSport}
   removeSport={this.removeSport} />}/>
 
-<Route exact path={ROUTES.STATS2} render={()=><Stats2 />}/>
-<Route exact path={ROUTES.STATS3} render={()=><Stats3 />}/>
-<Route exact path={ROUTES.STATS4} render={()=><Stats4 />}/>
-<Route exact path={ROUTES.STATS5} render={()=><Stats5 />}/>
+<Route exact path={ROUTES.STATS2} render={()=><Stats2  filterString={this.state.filterString}/>}/>
+<Route exact path={ROUTES.STATS3} render={()=><Stats3 filterString={this.state.filterString}/>}/>
+<Route exact path={ROUTES.STATS4} render={()=><Stats4 filterString={this.state.filterString}/>}/>
+<Route exact path={ROUTES.STATS5} render={()=><Stats5 filterString={this.state.filterString}/>}/>
 
 
 <Route exact path={ROUTES.LANDING} render={()=><LandingPage userEmail={this.state.userEmail}/>}/>
