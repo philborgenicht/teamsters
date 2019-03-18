@@ -42,7 +42,7 @@ const NavigationAuth = (props) => (
 
 
 
-
+        <Link className='nav-link'to={ROUTES.DESCRIPTION}>Main Page</Link>
         <Link className="nav-link"to={ROUTES.STATS}>Stats</Link>
 
 

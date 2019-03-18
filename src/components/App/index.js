@@ -10,7 +10,7 @@ import Stats2 from '../../frontend/components/stats2.js'
 import Stats3 from '../../frontend/components/stats3.js'
 import Stats4 from '../../frontend/components/stats4.js'
 import Stats5 from '../../frontend/components/stats5.js'
-
+import Landing from '../../frontend/components/landing.js'
 
 import Players from '../../frontend/components/managerbox/players.js'
 import Clubs from '../../frontend/components/managerbox/clubs.js'
@@ -37,7 +37,6 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
-import Stats6 from '../../frontend/components/stats6.js'
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
@@ -357,6 +356,7 @@ setUserEmail=(e)=>{
       <Navigation className="sticky-top" search={this.search}/>
 
       <hr />
+<Route exact path={ROUTES.DESCRIPTION} render={()=><Landing/>}/>
 <Route exact path={ROUTES.MAIN} render={()=><Main/>}/>
 <Route exact path={ROUTES.PRACTICE} render={()=><Practice/>}/>
 
@@ -404,7 +404,6 @@ setUserEmail=(e)=>{
 <Route exact path={ROUTES.STATS3} render={()=><Stats3 />}/>
 <Route exact path={ROUTES.STATS4} render={()=><Stats4 />}/>
 <Route exact path={ROUTES.STATS5} render={()=><Stats5 />}/>
-<Route exact path={ROUTES.STATS6} render={()=><Stats6 />}/>
 
 
 <Route exact path={ROUTES.LANDING} render={()=><LandingPage userEmail={this.state.userEmail}/>}/>

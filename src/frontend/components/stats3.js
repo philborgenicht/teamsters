@@ -54,15 +54,15 @@ componentDidMount = async() => {
 //search all teams by league
   searchTeams=async(e)=>{
     e.preventDefault()
-    let hockeyTeamId=e.target.hockeyTeam.value.split(', ')[0]
-    let footballTeamId=e.target.footballTeam.value.split(', ')[0]
-    let baseballTeamId=e.target.baseballTeam.value.split(', ')[0]
-    let basketballTeamId=e.target.basketballTeam.value.split(', ')[0]
+    let hockeyTeamId=e.target.hockeyTeam.value.split(', ')[1]
+    let footballTeamId=e.target.footballTeam.value.split(', ')[1]
+    let baseballTeamId=e.target.baseballTeam.value.split(', ')[1]
+    let basketballTeamId=e.target.basketballTeam.value.split(', ')[1]
 
-    let hockeyteam=e.target.hockeyTeam.value.split(' ').slice(0, e.target.hockeyTeam.value.split(' ').length-1)
-    let footballteam=e.target.footballTeam.value.split(' ').slice(0, e.target.footballTeam.value.split(' ').length-1)
-    let baseballteam=e.target.baseballTeam.value.split(' ').slice(0, e.target.baseballTeam.value.split(' ').length-1)
-    let basketballteam=e.target.basketballTeam.value.split(' ').slice(0, e.target.basketballTeam.value.split(' ').length-1)
+    let hockeyteam=e.target.hockeyTeam.value.split(', ')[0]
+    let footballteam=e.target.footballTeam.value.split(', ')[0]
+    let baseballteam=e.target.baseballTeam.value.split(', ')[0]
+    let basketballteam=e.target.basketballTeam.value.split(', ')[0]
 
     this.setState({hockeyteam:hockeyteam, baseballteam:baseballteam, footballteam:footballteam, basketballteam:basketballteam})
     this.setState({
@@ -116,26 +116,59 @@ console.log(this.state)
 
 
       <div className='container'>
+      <div className='row'>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
+      </button>
+      </div>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS3}>Stats3</Link>
+      </button>
+      </div>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS4}>Stats4</Link>
+      </button>
+      </div>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS4}>Stats5</Link>
+      </button>
+      </div>
+
+      </div>
+      <hr/>
       <form onSubmit={this.searchTeams}>
 
+      <label htmlFor='hockeyTeam'><u>Hockey Team</u></label>
       <select className="form-control" id="hockeyTeam">
       {this.state.hockeyTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
       </select>
-
+<hr/>
+      <label htmlFor='footballTeam'><u>Football Team</u></label>
       <select className="form-control" id="footballTeam">
       {this.state.footballTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
       </select>
-
+<hr/>
+      <label htmlFor='baseballTeam'><u>Baseball Team</u></label>
       <select className="form-control" id="baseballTeam">
       {this.state.baseballTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
       </select>
-
+<hr/>
+      <label htmlFor='basketballTeam'><u>Basketball Team</u></label>
       <select className="form-control" id="basketballTeam">
       {this.state.basketballTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
       </select>
+<hr/>
+<br/>
 
-
-              <button type = 'submit'> search </button>
+              <button className='btn btn-block btn-info' type = 'submit'> search </button>
 
 
       </form>

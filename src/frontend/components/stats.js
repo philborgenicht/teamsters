@@ -37,51 +37,42 @@ reset=()=>{
   document.getElementById('lastname').value=''
 }
 
-//lookup all players by teamid
-//https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=
 
-//lookup events by teamId
-//https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=133602
-
-//lookup events by leagueid
-//https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328
-
-//playerformer teams by player id
-//https://www.thesportsdb.com/api/v1/json/1/lookupformerteams.php?id=34147178
-
-//playerhonours by id
-//
-
-// League Details by Id
-// https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4346
-//
-// Team Details by Id
-// https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=133604
-//
-// Player Details by Id
-// https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id=34145937
-//
-// Event Details by Id
-// https://www.thesportsdb.com/api/v1/json/1/lookupevent.php?id=441613
-//
-// Player Honours by Player Id
-// https://www.thesportsdb.com/api/v1/json/1/lookuphonors.php?id=34147178
-//
-// Player Former Teams by Player Id
-// https://www.thesportsdb.com/api/v1/json/1/lookupformerteams.php?id=34147178
-//
-// Player Contracts by Player Id
-// https://www.thesportsdb.com/api/v1/json/1/lookupcontracts.php?id=34147178
-//
-// Event TV by Event Id
-// https://www.thesportsdb.com/api/v1/json/1/lookuptv.php?id=584911
   render(){
     return(
 
 <div className="container">
 
+<div className='row'>
+
+<div className='col-3'>
+<button className='btn btn-sm btn-info'>
+<Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
+</button>
+</div>
+
+<div className='col-3'>
+<button className='btn btn-sm btn-info'>
+<Link className="nav-link"to={ROUTES.STATS3}>Stats3</Link>
+</button>
+</div>
+
+<div className='col-3'>
+<button className='btn btn-sm btn-info'>
+<Link className="nav-link"to={ROUTES.STATS4}>Stats4</Link>
+</button>
+</div>
+
+<div className='col-3'>
+<button className='btn btn-sm btn-info'>
+<Link className="nav-link"to={ROUTES.STATS4}>Stats5</Link>
+</button>
+</div>
+
+</div>
+<hr/>
                 <div className='row justify-content-center'>
-                <p>stats are awesome</p>
+                <h1>Search a Player</h1>
                 </div>
           <div className='row justify-content-center'>
 

@@ -13,7 +13,9 @@ state={
   baseballTeams:[],
   hockeyTeams:[],
   allEvents:[],
-  tvEvents:[]
+  tvEvents:[],
+  viewAllEvents:false,
+  viewTvEvents:false
 }
 // componentDidMount = async() => {
 //   const response = await fetch('https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=nba')
@@ -61,7 +63,7 @@ state={
     const tvEvents=tvData.tvevents
 
 
-    this.setState({allEvents:allEvents, tvEvents:tvEvents})
+    this.setState({allEvents:allEvents, tvEvents:tvEvents, viewAllEvents:true, viewTvEvents:true})
     console.log(this.state)
   }
 
@@ -76,12 +78,62 @@ clearResults=()=>{
   render(){
     return(
 
-      <div>
+      <div className='container'>
+      <div className='row'>
 
-      <button onClick={this.clearResults}>clear</button>
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
+      </button>
+      </div>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS3}>Stats3</Link>
+      </button>
+      </div>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS4}>Stats4</Link>
+      </button>
+      </div>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS5}>Stats5</Link>
+      </button>
+      </div>
+
+      </div>
+      <hr/>
+<hr/>
+      <button  className='btn btn-block btn-dark' onClick={this.clearResults}>clear</button>
       <form onSubmit={this.searchEvents}>
       <div class="form-group">
-              <label for="exampleFormControlSelect1">SELECT A LEAGUE</label>
+              <select onChange={this.setYear} class="form-control" id="year">
+
+              <option>2018</option>
+                <option>2019</option>
+
+
+              </select>
+
+              <select onChange={this.setMonth} class="form-control" id="month">
+                <option>January 01</option>
+                <option>February 02</option>
+                <option>March 03</option>
+                <option>April 04</option>
+                <option>May 05</option>
+                <option>June 06</option>
+                <option>July 07</option>
+                <option>August 08</option>
+                <option>September 09</option>
+                <option>October 10</option>
+                <option>November 11</option>
+                <option>December 12</option>
+              </select>
+
               <select onChange={this.setDay} class="form-control" id="day">
                 <option>01</option>
                 <option>02</option>
@@ -118,175 +170,129 @@ clearResults=()=>{
 
               </select>
 
-              <select onChange={this.setMonth} class="form-control" id="month">
-                <option>January 01</option>
-                <option>February 02</option>
-                <option>March 03</option>
-                <option>April 04</option>
-                <option>May 05</option>
-                <option>June 06</option>
-                <option>July 07</option>
-                <option>August 08</option>
-                <option>September 09</option>
-                <option>October 10</option>
-                <option>November 11</option>
-                <option>December 12</option>
 
-              </select>
-
-              <select onChange={this.setYear} class="form-control" id="year">
-              <option>2015</option>
-              <option>2016</option>
-              <option>2017</option>
-              <option>2018</option>
-                <option>2019</option>
-                <option>2020</option>
-                <option>2021</option>
-                <option>2022</option>
-
-              </select>
-              <button type = 'submit'> search </button>
+              <button className='btn btn-block btn-dark'type = 'submit'> search </button>
             </div>
 
       </form>
-<div className='row'>
 
-<div className='col-6'>
 {this.state.viewAllEvents?
-<div>
-{this.state.allEvents.map(event=>
-<div className='row'>
+  <div>
+  {this.state.allEvents.map(game=>
+    <div>
+  <div className='row'>
 
-<div className='col-2'>
-{idEvent}
+<div className='col-2 list-group-item'>
+{game.idEvent}
 </div>
 
-<div className='col-2'>
-{strEvent}
+<div className='col-2 list-group-item'>
+{game.strEvent}
 </div>
 
-<div className='col-2'>
-{strSport}
+<div className='col-2 list-group-item'>
+{game.strFilename}
 </div>
 
-<div className='col-2'>
-{idLeague}
+<div className='col-2 list-group-item'>
+{game.strSport}
 </div>
 
-<div className='col-2'>
-{strLeague}
+<div className='col-2 list-group-item'>
+{game.idLeague}
 </div>
 
-<div className='col-2'>
-{strSeason}
+<div className='col-2 list-group-item'>
+{game.strLeague}
 </div>
 
-<div className='col-2'>
-{strHomeTeam}
+<div className='col-2 list-group-item'>
+{game.strSeason}
 </div>
 
-<div className='col-2'>
-{strAwayTeam}
+<div className='col-2 list-group-item'>
+{game.strHomeTeam}
 </div>
 
-<div className='col-2'>
-{dateEvent}
+<div className='col-2 list-group-item'>
+{game.strAwayTeam}
 </div>
 
-<div className='col-2'>
-{strTime}
+<div className='col-2 list-group-item'>
+{game.dateEvent}
 </div>
 
-<div className='col-2'>
-{idHomeTeam}
-</div>
-
-<div className='col-2'>
-{idAwayTeam}
+<div className='col-2 list-group-item'>
+{game.strTime}
 </div>
 
 
 
-
-
-
-
-
-</div>)}
 </div>
-:''}
-</div>
+<hr/>
 
-<div className='col-6'>
+  </div>
+)}
+  </div>
+  :''}
+
+
+
 {this.state.viewTvEvents?
-<div>
-{this.state.tvEvents.map(event=>
+  <div>
+  {this.state.tvEvents.map(game=>
+    <div>
 <div className='row'>
 
-<div className='col-2'>
-{idEvent}
+<div className='col-2 list-group-item'>
+{game.idEvent}
+</div>
+<div className='col-2 list-group-item'>
+{game.strSport}
 </div>
 
-<div className='col-2'>
-{strSport}
+<div className='col-2 list-group-item'>
+{game.strEvent}
 </div>
 
-<div className='col-2'>
-{strEvent}
+<div className='col-2 list-group-item'>
+{game.idChannel}
 </div>
 
-<div className='col-2'>
-{idChannel}
+<div className='col-2 list-group-item'>
+{game.strCountry}
 </div>
 
-<div className='col-2'>
-{strCountry}
+<div className='col-2 list-group-item'>
+{game.strLogo}
 </div>
 
-<div className='col-2'>
-{strLogo}
+<div className='col-2 list-group-item'>
+{game.strChannel}
 </div>
 
-<div className='col-2'>
-{strChannel}
+<div className='col-2 list-group-item'>
+{game.strSeason}
 </div>
 
-<div className='col-2'>
-{strSeason}
+<div className='col-2 list-group-item'>
+{game.strTime}
 </div>
 
-<div className='col-2'>
-{strTime}
-</div>
-
-<div className='col-2'>
-{dateEvent}
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-</div>)}
-</div>
-:''}
-</div>
-
+<div className='col-2 list-group-item'>
+{game.dateEvent}
 </div>
 
 
+</div>
+<hr/>
+</div>
 
-
+  )}
+  </div>
+  :''}
   </div>
 )
 }
 }
-
 export default Stats5;

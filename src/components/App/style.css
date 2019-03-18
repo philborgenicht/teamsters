@@ -89,7 +89,18 @@ footer {
 .hockeyplayer{
   background-color: #E1E5EE
 }
+hr{
+  background-color: green
+}
 
+.game-data{
+  padding:10px
+}
+
+.search-clear{
+  padding-left: 50px;
+  padding-right: 50px
+}
 /*
 9fd356
 #342e37

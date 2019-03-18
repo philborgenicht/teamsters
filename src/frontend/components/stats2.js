@@ -37,9 +37,37 @@ this.setState({viewTeams:true})
     return(
 
       <div className='container'>
+      <div className='row'>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
+      </button>
+      </div>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS3}>Stats3</Link>
+      </button>
+      </div>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS4}>Stats4</Link>
+      </button>
+      </div>
+
+      <div className='col-3'>
+      <button className='btn btn-sm btn-info'>
+      <Link className="nav-link"to={ROUTES.STATS4}>Stats5</Link>
+      </button>
+      </div>
+
+      </div>
+      <hr/>
       <form onSubmit={this.searchTeams}>
       <div class="form-group">
-              <label for="exampleFormControlSelect1">SELECT A LEAGUE</label>
+              <label for="exampleFormControlSelect1"><u>Select a League</u></label>
               <select onChange={this.setLeague} class="form-control" id="league">
                 <option>MLB</option>
                 <option>NBA</option>
@@ -47,6 +75,8 @@ this.setState({viewTeams:true})
                 <option>NHL</option>
 
               </select>
+              <hr/>
+              <br/>
               <button className='btn btn-block btn-info'type = 'submit'> search </button>
             </div>
 
