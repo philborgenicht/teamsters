@@ -108,10 +108,11 @@ console.log(this.state)
 
   //sorting
   sortByPlayer=()=>{
+    console.log(this.state)
     let currentHockeyPlayers=this.state.hockeyPlayers
     let currentFootballPlayers=this.state.footballPlayers
     let currentBaseballPlayers=this.state.baseballPlayers
-    let currentBasketballPlayers=this.state.bastketballPlayers
+    let currentBasketballPlayers=this.state.basketballPlayers
 
     let newHockeyPlayers=currentHockeyPlayers.sort((player1,player2)=>{
       if (player1.strPlayer<player2.strPlayer){
@@ -167,7 +168,7 @@ console.log(this.state)
     let currentHockeyPlayers=this.state.hockeyPlayers
     let currentFootballPlayers=this.state.footballPlayers
     let currentBaseballPlayers=this.state.baseballPlayers
-    let currentBasketballPlayers=this.state.bastketballPlayers
+    let currentBasketballPlayers=this.state.basketballPlayers
 
     let newHockeyPlayers=currentHockeyPlayers.sort((player1,player2)=>{
       if (player1.strPosition<player2.strPosition){
@@ -218,7 +219,9 @@ console.log(this.state)
     })
     this.setState({footballPlayers: newFootballPlayers, basketballPlayers:newBasketballPlayers, baseballPlayers:newBaseballPlayers, hockeyPlayers:newHockeyPlayers})
   }
-
+clear=()=>{
+  this.setState({footballPlayers:[], baseballPlayers:[], basketballPlayers:[], hockeyPlayers:[], viewPlayers:false})
+}
   render(){
     return(
 
@@ -228,25 +231,25 @@ console.log(this.state)
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS}>Stats</Link>
+      <Link className="nav-link"to={ROUTES.STATS}>Search Players</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
+      <Link className="nav-link"to={ROUTES.STATS2}>Search Teams</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS4}>Stats4</Link>
+      <Link className="nav-link"to={ROUTES.STATS4}>Find Upcoming Events</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS4}>Stats5</Link>
+      <Link className="nav-link"to={ROUTES.STATS4}>Find Broadcast Listings</Link>
       </button>
       </div>
 
@@ -254,38 +257,50 @@ console.log(this.state)
       <hr/>
       <form onSubmit={this.searchTeams}>
 
-      <label htmlFor='hockeyTeam'><u>Hockey Team</u></label>
+      <label htmlFor='hockeyTeam'><u>Select A Hockey Team:</u></label>
       <select className="form-control" id="hockeyTeam">
       {this.state.hockeyTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
       </select>
 <hr/>
-      <label htmlFor='footballTeam'><u>Football Team</u></label>
+      <label htmlFor='footballTeam'><u>Select A Football Team:</u></label>
       <select className="form-control" id="footballTeam">
       {this.state.footballTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
       </select>
 <hr/>
-      <label htmlFor='baseballTeam'><u>Baseball Team</u></label>
+      <label htmlFor='baseballTeam'><u>Select A Baseball Team:</u></label>
       <select className="form-control" id="baseballTeam">
       {this.state.baseballTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
       </select>
 <hr/>
-      <label htmlFor='basketballTeam'><u>Basketball Team</u></label>
+      <label htmlFor='basketballTeam'><u>Select A Basketball Team:</u></label>
       <select className="form-control" id="basketballTeam">
       {this.state.basketballTeams.map(team=> <option id={team.id}>{team.strTeam}, {team.idTeam}</option>)}
       </select>
 <hr/>
 <br/>
 
-              <button className='btn btn-block btn-info' type = 'submit'> search </button>
+              <button className='btn btn-block btn-info' type = 'submit'> Search </button>
 
 
       </form>
+
+<br/><hr/>
+<div className='row'>
+<button onClick={this.clear} className='btn btn-block btn-dark'>Clear Results</button>
+</div>
+<br/><hr/>
 
 
 <div className='row'>
 
 <div className='col-6'>
 {this.state.viewPlayers?<div>
+  <div className='row'>
+  <div className='col-12'>
+  <button className='btn btn-block btn-info'onClick={this.sortByPlayer}>Sort By Player</button>
+  </div>
+  </div>
+  <hr/>
 <h1>{this.state.hockeyteam}</h1>
   {this.state.hockeyPlayers.filter(player=>
     player.strPlayer.toLowerCase().includes(this.props.filterString.toLowerCase())||
@@ -302,6 +317,12 @@ console.log(this.state)
 
 <div className='col-6'>
 {this.state.viewPlayers?<div>
+  <div className='row'>
+  <div className='col-12'>
+  <button className='btn btn-block btn-info'onClick={this.sortByPosition}>Sort By Position</button>
+  </div>
+  </div>
+  <hr/>
 <h1>{this.state.footballteam}</h1>
   {this.state.footballPlayers.filter(player=>
     player.strPlayer.toLowerCase().includes(this.props.filterString.toLowerCase())||

@@ -34,7 +34,7 @@ setUserEmail=(e)=>{
   </AuthUserContext.Consumer>
 </div>
 
-{console.log("chicken", useremail)}
+<br/><hr/>
 
 
 
@@ -45,31 +45,31 @@ setUserEmail=(e)=>{
 
 
 <div className='col-2'>
-<Link to={ROUTES.PLAYERS}> My Players </Link>
+<Link to={ROUTES.PLAYERS}> <button className='btn btn-info'>My Players</button> </Link>
 </div>
 
 
 <div className='col-2'>
-<Link to={ROUTES.CLUBS}> My Clubs </Link>
+<Link to={ROUTES.CLUBS}> <button className='btn btn-info'>My Clubs</button> </Link>
 </div>
 
 
 <div className='col-2'>
-<Link to={ROUTES.ACTIVITIES}> My Sports </Link>
+<Link to={ROUTES.ACTIVITIES}> <button className='btn btn-info'>My Sports</button> </Link>
 </div>
 
 
 <div className='col-2'>
-<Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
+<Link to={ROUTES.PLAYER_RECRUITS}> <button className='btn btn-info'>All Players</button> </Link>
 </div>
 
 
 <div className='col-2'>
-<Link to={ROUTES.TEAM_RECRUITS}> All Teams </Link>
+<Link to={ROUTES.TEAM_RECRUITS}> <button className='btn btn-info'>All Teams </button></Link>
 </div>
 
 <div className='col-2'>
-<Link to={ROUTES.SPORT_RECRUITS}> All Sports </Link>
+<Link to={ROUTES.SPORT_RECRUITS}> <button className='btn btn-info'>All Sports </button></Link>
 </div>
 
 

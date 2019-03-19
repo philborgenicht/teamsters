@@ -155,38 +155,38 @@ setUserEmail=(e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button className='btn btn-block btn-dark' onClick={this.setUserEmail} id={authUser.email}> click to make changes </button>
+      <button className='btn btn-block btn-dark' onClick={this.setUserEmail} id={authUser.email}> Click To Make Changes </button>
       </div>
         )}
 
   </AuthUserContext.Consumer>
 </div>
 
-
+<br/><hr/>
 <div className="row justify-content-center">
 
 <div className='col-2'>
-    <Link to={ROUTES.MANAGERBOX}> Manager Box </Link>
+    <Link to={ROUTES.MANAGERBOX}><button className='btn btn-info'> Manager Box </button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.PLAYERS}> My Players</Link>
+    <Link to={ROUTES.PLAYERS}> <button className='btn btn-info'>My Players</button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.CLUBS}> My Clubs</Link>
+    <Link to={ROUTES.CLUBS}> <button className='btn btn-info'>My Clubs</button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.ACTIVITIES}> My Sports</Link>
+    <Link to={ROUTES.ACTIVITIES}> <button className='btn btn-info'>My Sports</button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.SPORT_RECRUITS}> All Sports </Link>
+    <Link to={ROUTES.SPORT_RECRUITS}> <button className='btn btn-info'>All Sports</button> </Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.TEAM_RECRUITS}> All Teams </Link>
+    <Link to={ROUTES.TEAM_RECRUITS}><button className='btn btn-info'> All Teams</button> </Link>
 </div>
 
 
@@ -235,23 +235,23 @@ setUserEmail=(e)=>{
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByFirstName}>sort </button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByFirstName}>Sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByLastName}>sort </button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByLastName}>Sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySport}>sort</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySport}>Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamName}>sort </button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamName}>Sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByPosition}>sort</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByPosition}>Sort</button>
 </div>
 <div className='col-2 list-group-item-dark'>
 </div>
@@ -293,7 +293,7 @@ setUserEmail=(e)=>{
 </div>
 
 <div className="col-2 list-group-item column-info">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-outline-success" onClick={this.recruit} id={athlete.id}> recruit</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-dark" onClick={this.recruit} id={athlete.id}> Recruit </button>
 </div>
 
 

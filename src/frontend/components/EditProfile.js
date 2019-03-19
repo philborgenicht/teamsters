@@ -7,51 +7,20 @@ const EditProfile=(props)=>{
           <form onSubmit={props.editProfile}>
 
 
-          <div className="row">
-          <label className="editprofile"htmlFor="firstName"> <u>FIRST NAME:</u></label>
+          <div className='row'>
+          <label htmlFor='firstname'>New First Name</label>
+          <input id='firstname' placeholder='new first name'required/>
           </div>
 
           <div className='row'>
-          <input className="editprofile"id="firstName" type="text" placeholder="first name" required/>
-          </div>
-
-
-          <div className="row">
-          <label className="editprofile"htmlFor="lastName"> <u>LAST NAME:</u></label>
-          </div>
-
-          <div className='row'>
-          <input className="editprofile"id="lastName" type="text" placeholder="last name" required/>
-          </div>
-
-          <div className="row">
-          <label className="editprofile"htmlFor="userName"> <u>USERNAME:</u></label>
-          </div>
-
-          <div className='row'>
-          <input className="editprofile"id="userName" type="text" placeholder="username" required/>
+          <label htmlFor='lastname'>New Last Name</label>
+          <input id='lastname' placeholder='new last name'required/>
           </div>
 
 
 
           <div className="row">
-          <label className="editprofile"htmlFor="emailAddress"> <u>EMAIL ADDRESS:</u></label>
-          </div>
-
-          <div className='row'>
-          <input className="editprofile"id="emailAddress" type="text" placeholder="email address" required/>
-          </div>
-
-          <div className="row">
-          <label className="editprofile"htmlFor="phoneNumber"> <u>PHONE NUMBER:</u></label>
-          </div>
-
-          <div className='row'>
-          <input className="editprofile"id="phoneNumber" type="text" placeholder="phone number" required/>
-          </div>
-
-          <div className="row">
-          <label htmlFor="favAthlete"><u>FAVORITE ATHLETE:</u></label>
+          <label htmlFor="favAthlete"><u>Favorite Athlete:</u></label>
           </div>
 
           <div className='row'>
@@ -61,7 +30,7 @@ const EditProfile=(props)=>{
           </div>
 
           <div className="row">
-          <label htmlFor="favSport"><u>FAVORITE SPORT:</u>          </label>
+          <label htmlFor="favSport"><u>Favorite Sport:</u>          </label>
           </div>
 
           <div className='row'>
@@ -71,7 +40,7 @@ const EditProfile=(props)=>{
           </div>
 
           <div className="row">
-          <label htmlFor="favTeam"><u>FAVORITE TEAM:</u></label>
+          <label htmlFor="favTeam"><u>Favorite Team:</u></label>
           </div>
 
           <div className='row'>

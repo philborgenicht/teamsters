@@ -25,23 +25,25 @@ class MyTeams extends Component{
   <div className="row justify-content-center">
 
   <div className='col-2'>
-    <Link to={ROUTES.ROSTER}>My Athletes</Link>
+    <Link to={ROUTES.ROSTER}><button className='btn btn-info'>My Athletes</button></Link>
   </div>
 
   <div className='col-2'>
-    <Link to={ROUTES.MYSPORTS}>My Sports</Link>
+    <Link to={ROUTES.MYSPORTS}><button className='btn btn-info'>My Sports</button></Link>
   </div>
 
   <div className='col-2'>
-    <Link to={ROUTES.TEAMS}>Available Teams</Link>
+    <Link to={ROUTES.ATHLETES}><button className='btn btn-info'>Athletes</button></Link>
+  </div>
+  
+  <div className='col-2'>
+    <Link to={ROUTES.TEAMS}><button className='btn btn-info'>Teams</button></Link>
   </div>
 
-  <div className='col-2'>
-    <Link to={ROUTES.ATHLETES}>Available Athletes</Link>
-  </div>
+
 
   <div className='col-2'>
-    <Link to={ROUTES.SPORTS}>Sports</Link>
+    <Link to={ROUTES.SPORTS}><button className='btn btn-info'>Sports</button></Link>
   </div>
 
   </div>
@@ -55,23 +57,23 @@ class MyTeams extends Component{
 
   <div className="row justify-content-center">
 
-  <div className="col-2 list-group-item team-heading column-heading">
-  NAME
+  <div className="col-2 list-group-item-dark team-heading column-heading">
+  Name
   </div>
 
-  <div className="col-2 list-group-item team-heading column-heading">
-  CITY
+  <div className="col-2 list-group-item-dark team-heading column-heading">
+  City
   </div>
 
-  <div className="col-2 list-group-item team-heading column-heading">
-  STATE
+  <div className="col-2 list-group-item-dark team-heading column-heading">
+  State
   </div>
 
-  <div className="col-2 list-group-item team-heading column-heading">
-  SPORT
+  <div className="col-2 list-group-item-dark team-heading column-heading">
+  Sport
   </div>
 
-  <div className="col-2 list-group-item team-heading column-heading">
+  <div className="col-2 list-group-item-dark team-heading column-heading">
 
   </div>
 
@@ -103,7 +105,7 @@ class MyTeams extends Component{
     </div>
 
     <div className="col-2 list-group-item column-info">
-    <div><button className="btn btn-outline-success" onClick={this.props.removeTeam} id={team.id}>remove from list</button></div>
+    <div><button className="btn btn-dark" onClick={this.props.removeTeam} id={team.id}>Remove</button></div>
     </div>
 
 

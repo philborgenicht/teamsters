@@ -135,25 +135,25 @@ clearLeagueGames=()=>{
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS}>Stats</Link>
+      <Link className="nav-link"to={ROUTES.STATS}>Search Players</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
+      <Link className="nav-link"to={ROUTES.STATS2}>Search Teams</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS3}>Stats3</Link>
+      <Link className="nav-link"to={ROUTES.STATS3}>Search Rosters</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS5}>Stats5</Link>
+      <Link className="nav-link"to={ROUTES.STATS5}>Find Broadcast Listings</Link>
       </button>
       </div>
 
@@ -163,7 +163,7 @@ clearLeagueGames=()=>{
       <div className='row justify-content-center'>
             <form onSubmit={this.searchLeagueEvents}>
                 <div class="form-group">
-                        <label for="league">Select a League</label>
+                        <label for="league">Select a League:</label>
                         <select onChange={this.setLeague} class="form-control" id="leagueId">
                           <option>MLB, 4424</option>
                           <option>NBA, 4387</option>
@@ -182,11 +182,11 @@ clearLeagueGames=()=>{
 
       </div>
       <hr/>
-<h2> <u>Search Basketball Events</u></h2>
+<h2> <u>Search Basketball Events:</u></h2>
 
       <div className='row justify-content-center'>
       <form onSubmit={this.searchBasketballTeamEvents}>
-      <label htmlFor="basketballTeamId">Select a Team</label>
+      <label htmlFor="basketballTeamId">Select a Team: </label>
       <select id='basketballTeamId'>
       {this.state.basketballTeams.map(team=> <option id='basketballTeamId'>{team.strTeam}, {team.idTeam}</option>)}
       </select>
@@ -194,28 +194,28 @@ clearLeagueGames=()=>{
       </form>
 
       <br/>
-      <button className='btn  btn-dark search-clear' onClick={this.clearBasketballGames}>clear</button>
+      <button className='btn  btn-info search-clear' onClick={this.clearBasketballGames}>clear</button>
       </div>
 <hr/>
-<h2> <u>Search Baseball Events</u></h2>
+<h2> <u>Search Baseball Events:</u></h2>
       <div className='row justify-content-center'>
       <form onSubmit={this.searchBaseballTeamEvents}>
-      <label htmlFor="baseballTeamId">Select a Team</label>
+      <label htmlFor="baseballTeamId">Select a Team: </label>
       <select id='baseballTeamId'>
       {this.state.baseballTeams.map(team=> <option id='baseballTeamId'>{team.strTeam}, {team.idTeam}</option>)}
       </select>
 <button className='btn  btn-dark search-clear' type="submit"> search </button>
       </form>
 <br/>
-<button className='btn  btn-dark search-clear' onClick={this.clearBaseballGames}>clear</button>
+<button className='btn  btn-info search-clear' onClick={this.clearBaseballGames}>clear</button>
       </div>
 <hr/>
-<h6> The NFL season has recently ended, please check back this fall !</h6>
-<h2> <u>Search Football Events</u></h2>
+<h6> The NFL season has recently ended, please check back this fall!</h6>
+<h2> <u>Search Football Events:</u></h2>
 
       <div className='row justify-content-center'>
       <form onSubmit={this.searchFootballTeamEvents}>
-      <label htmlFor="footballTeamId">Select a Team</label>
+      <label htmlFor="footballTeamId">Select a Team: </label>
       <select disabled id='footballTeamId'>
       {this.state.footballTeams.map(team=> <option id='footballTeamId'>{team.strTeam}, {team.idTeam}</option>)}
       </select>
@@ -223,21 +223,21 @@ clearLeagueGames=()=>{
       </form>
 
 <br/>
-<button disabled className='btn  btn-dark search-clear' onClick={this.clearFootballGames}>clear</button>
+<button disabled className='btn  btn-info search-clear' onClick={this.clearFootballGames}>clear</button>
       </div>
 
 <hr/>
-<h2> Search Hockey Events</h2>
+<h2> <u>Search Hockey Events:</u></h2>
       <div className='row justify-content-center'>
       <form onSubmit={this.searchHockeyTeamEvents}>
-      <label htmlFor="hockeyTeamId">Select a Team</label>
+      <label htmlFor="hockeyTeamId">Select a Team: </label>
       <select id='hockeyTeamId'>
       {this.state.hockeyTeams.map(team=> <option id='hockeyTeamId'>{team.strTeam}, {team.idTeam}</option>)}
       </select>
 <button className='btn  btn-dark search-clear' type="submit"> search </button>
       </form>
 <br/>
-<button className='btn  btn-dark search-clear' onClick={this.clearHockeyGames}>clear</button>
+<button className='btn  btn-info search-clear' onClick={this.clearHockeyGames}>clear</button>
       </div>
 
 <hr/>

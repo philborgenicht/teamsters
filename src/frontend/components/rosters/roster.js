@@ -23,23 +23,25 @@ class Roster extends Component{
 <div className="row justify-content-center">
 
 <div className='col-2'>
-  <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+  <Link to={ROUTES.MYTEAMS}><button className='btn btn-info'>My Teams</button></Link>
 </div>
 
 <div className='col-2'>
-  <Link to={ROUTES.MYSPORTS}>My Sports</Link>
+  <Link to={ROUTES.MYSPORTS}><button className='btn btn-info'>My Sports</button></Link>
+</div>
+
+
+<div className='col-2'>
+  <Link to={ROUTES.ATHLETES}><button className='btn btn-info'>Athletes</button></Link>
 </div>
 
 <div className='col-2'>
-  <Link to={ROUTES.TEAMS}>Available Teams</Link>
+  <Link to={ROUTES.TEAMS}><button className='btn btn-info'>Teams</button></Link>
 </div>
 
-<div className='col-2'>
-  <Link to={ROUTES.ATHLETES}>Available Athletes</Link>
-</div>
 
 <div className='col-2'>
-  <Link to={ROUTES.SPORTS}>Sports</Link>
+  <Link to={ROUTES.SPORTS}><button className='btn btn-info'>Sports</button></Link>
 </div>
 
 
@@ -50,24 +52,24 @@ class Roster extends Component{
 </div>
 
 <div className="row justify-content-center">
-  <div className="col-2 list-group-item column-heading">
-  first name
+  <div className="col-2 list-group-item-dark column-heading">
+  First Name
   </div>
 
-  <div className="col-2 list-group-item column-heading">
-  last name
+  <div className="col-2 list-group-item-dark column-heading">
+  Last Name
   </div>
 
-  <div className="col-2 list-group-item column-heading">
-  team
+  <div className="col-2 list-group-item-dark column-heading">
+  Team
   </div>
 
-  <div className="col-2 list-group-item column-heading">
-  sport
+  <div className="col-2 list-group-item-dark column-heading">
+  Sport
   </div>
 
-  <div className="col-2 list-group-item column-heading">
-  position
+  <div className="col-2 list-group-item-dark column-heading">
+  Position
   </div>
 
   <div className="col-2 list-group-item column-info">
@@ -113,7 +115,7 @@ class Roster extends Component{
   </div>
 
   <div className="col-2 list-group-item column-info">
-  <div><button className="btn btn-outline-success" onClick={this.props.trade} id={player.id}>remove from team</button></div>
+  <div><button className="btn btn-dark" onClick={this.props.trade} id={player.id}>Remove Player</button></div>
   </div>
 
 

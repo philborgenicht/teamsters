@@ -22,25 +22,25 @@ class MySports extends Component{
   <div className="row justify-content-center">
 
   <div className='col-2'>
-  <Link to={ROUTES.ROSTER}>My Athletes</Link>
+  <Link to={ROUTES.ROSTER}><button className='btn btn-info'>My Athletes</button></Link>
   </div>
 
   <div className='col-2'>
-    <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+    <Link to={ROUTES.MYTEAMS}><button className='btn btn-info'>My Teams</button></Link>
   </div>
 
   <div className='col-2'>
-    <Link to={ROUTES.ATHLETES}>Available Athletes</Link>
+    <Link to={ROUTES.ATHLETES}><button className='btn btn-info'>Athletes</button></Link>
   </div>
 
   <div className='col-2'>
-    <Link to={ROUTES.TEAMS}>Available Teams</Link>
+    <Link to={ROUTES.TEAMS}><button className='btn btn-info'>Teams</button></Link>
   </div>
 
 
 
   <div className='col-2'>
-    <Link to={ROUTES.SPORTS}>Sports</Link>
+    <Link to={ROUTES.SPORTS}><button className='btn btn-info'>Sports</button></Link>
   </div>
 
 
@@ -61,7 +61,7 @@ class MySports extends Component{
   {sport.name}
   </div>
   <div>
-  <button className="btn btn-dark" onClick={this.props.removeSport} id={sport.id}>remove sport</button>
+  <button className="btn btn-dark" onClick={this.props.removeSport} id={sport.id}>Remove</button>
   </div>
 
 

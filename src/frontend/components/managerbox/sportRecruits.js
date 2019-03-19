@@ -94,31 +94,31 @@ chooseSport=async (e)=>{
 
   </AuthUserContext.Consumer>
 </div>
-
+<br/><hr/>
 <div className="row justify-content-center">
 
 <div className='col-2'>
-    <Link to={ROUTES.MANAGERBOX}> Manager Box </Link>
+    <Link to={ROUTES.MANAGERBOX}> <button className='btn btn-info'>Manager Box</button> </Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.PLAYERS}> My Players</Link>
+    <Link to={ROUTES.PLAYERS}> <button className='btn btn-info'>My Players</button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.CLUBS}> My Clubs</Link>
+    <Link to={ROUTES.CLUBS}> <button className='btn btn-info'>My Clubs</button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.ACTIVITIES}> My Sports </Link>
+    <Link to={ROUTES.ACTIVITIES}> <button className='btn btn-info'>My Sports </button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
+    <Link to={ROUTES.PLAYER_RECRUITS}> <button className='btn btn-info'>All Players</button> </Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.TEAM_RECRUITS}> All Teams </Link>
+    <Link to={ROUTES.TEAM_RECRUITS}> <button className='btn btn-info'>All Teams</button> </Link>
 </div>
 
 
@@ -144,7 +144,7 @@ chooseSport=async (e)=>{
 
 
 <div className="col-6 list-group-item column-info">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-outline-success" onClick={this.chooseSport} id={sport.id}> choose Sport</button>
+<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-dark" onClick={this.chooseSport} id={sport.id}> Select Sport</button>
 </div>
 
 
@@ -163,7 +163,7 @@ chooseSport=async (e)=>{
 {elem}
 </div>
 <div className='col-6 list-group-item'>
-<button className='btn btn-block btn-dark'type="submit"> confirm </button>
+<button className='btn btn-block btn-dark'type="submit"> Confirm </button>
 </div>
 </form>
 </div>

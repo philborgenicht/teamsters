@@ -32,9 +32,52 @@ class HomePage extends Component{
   }
 
 
-  updateProfile=(e)=>{
+  updateProfile=async(e)=>{
+    e.preventDefault()
     console.log(e.target)
-    let clientId=this.state.customers.filter(customer=>customer.email===this.state.userEmail).map(customer=>customer.id)[0]
+    let client=this.state.customers.filter(customer=>customer.email===this.state.userEmail)[0]
+    let clientId=client.id
+    console.log(clientId)
+    let newfirstname=e.target.firstname.value
+    let newlastname=e.target.lastname.value
+    let fullplayer=e.target.favAthlete.value
+    let fullsport=e.target.favSport.value
+    let fullteam=e.target.favTeam.value
+    console.log(fullplayer, fullsport, fullteam)
+    let splitplayer=fullplayer.split(', ')
+    let splitsport=fullsport.split(', ')
+    let splitteam=fullteam.split(', ')
+    console.log(splitteam, splitsport, splitplayer)
+    let playername=splitplayer[0]
+    let teamname=splitteam[0]
+    let sportname=splitsport[0]
+    let playerid=Number.parseInt(splitplayer[1])
+    let teamid=Number.parseInt(splitteam[1])
+    let sportid=Number.parseInt(splitsport[1])
+    console.log(playerid, teamid, sportid, playername, teamname, sportname)
+    await fetch(`https://galvanize-borgenicht.herokuapp.com/customers/${clientId}`,{
+      method: 'PATCH',
+      body: JSON.stringify({
+        firstname:newfirstname,
+        lastname:newlastname,
+  
+        favoritePlayer:playername,
+        favoritePlayerId:playerid,
+
+        favoriteSport:sportname,
+        favoriteSportId:sportid,
+
+        favoriteTeam:teamname,
+        favoriteTeamId:teamid,
+
+        isActive:true,
+        isAdmin:false
+      }),
+      headers:{
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+    })
   }
   render(){
     return(
@@ -58,93 +101,76 @@ class HomePage extends Component{
 
   <div className="row">
         <div  className="dashboard">
-        <span>FIRST NAME:</span> {customer.firstname}
+        <span><u>First Name:</u></span> {customer.firstname}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        <span>LAST NAME:</span> {customer.lastname}
+        <span><u>Last Name:</u></span> {customer.lastname}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        <span>USERNAME:</span> {customer.username}
+        <span><u>Username:</u></span> {customer.username}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        <span>EMAIL ADDRESS:</span> {customer.email}
+        <span><u>Email Address:</u></span> {customer.email}
         </div>
   </div>
 
   <div className="row">
         <div  className="dashboard">
-        <span>PHONE NUMBER:</span> {customer.phone}
+        <span><u>Phone Number:</u></span> {customer.phone}
         </div>
   </div>
 
   <div className="row">
         <div className="dashboard">
-        <span>FAVORITE PLAYER:</span> {customer.favoritePlayer}
+        <span><u>Favorite Athlete:</u></span> {customer.favoritePlayer}
 
         </div>
   </div>
 
 
-  <div className="row">
-        <div className='col-2'>
-        </div>
-        <div className="dashboard">
-          <span>ID#:</span> {customer.favoritePlayerId}
-        </div>
-  </div>
+
 
 
 
   <div className="row">
         <div className="dashboard">
-        <span>FAVORITE TEAM:</span> {customer.favoriteTeam}
+        <span><u>Favorite Team:</u></span> {customer.favoriteTeam}
         </div>
   </div>
 
-  <div className="row">
-        <div className="col-2">
-        </div>
-        <div className="dashboard">
-        <span>ID #:</span>{customer.favoriteTeamId}
-        </div>
-  </div>
+
 
   <div className="row">
         <div className="dashboard">
-        <span>FAVORITE SPORT:</span> {customer.favoriteSport}
+        <span><u>Favorite Sport:</u></span> {customer.favoriteSport}
         </div>
   </div>
 
+
+
   <div className="row">
-        <div className="col-2">
-        </div>
         <div className="dashboard">
-        <span>ID #:</span> {customer.favoriteSportId}
+        <span><u>Account Status:</u></span> {customer.isActive? "ACTIVE" : "DISABLED"}
         </div>
   </div>
 
   <div className="row">
         <div className="dashboard">
-        <span>ACCOUNT STATUS:</span> {customer.isActive? "ACTIVE" : "DISABLED"}
+        <span><u>Account Privileges:</u></span> {customer.isAdmin? "ADMINISTRATOR" : "STANDARD"}
         </div>
   </div>
-
-  <div className="row">
-        <div className="dashboard">
-        <span>ACCOUNT PRIVILEGES:</span> {customer.isAdmin? "ADMINISTRATOR" : "STANDARD"}
-        </div>
-  </div>
+  <hr/>
 <div className="row">
-<button onClick={this.editProfile} className="btn btn-block btn-primary">edit profile</button>
+<button onClick={this.editProfile} className="btn btn-block btn-primary">Edit Favorites</button>
 </div>
 
 </div>

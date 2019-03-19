@@ -47,25 +47,25 @@ reset=()=>{
 
 <div className='col-3'>
 <button className='btn btn-sm btn-info'>
-<Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
+<Link className="nav-link"to={ROUTES.STATS2}>Search Teams</Link>
 </button>
 </div>
 
 <div className='col-3'>
 <button className='btn btn-sm btn-info'>
-<Link className="nav-link"to={ROUTES.STATS3}>Stats3</Link>
+<Link className="nav-link"to={ROUTES.STATS3}>Search Rosters</Link>
 </button>
 </div>
 
 <div className='col-3'>
 <button className='btn btn-sm btn-info'>
-<Link className="nav-link"to={ROUTES.STATS4}>Stats4</Link>
+<Link className="nav-link"to={ROUTES.STATS4}>Find Upcoming Events</Link>
 </button>
 </div>
 
 <div className='col-3'>
 <button className='btn btn-sm btn-info'>
-<Link className="nav-link"to={ROUTES.STATS4}>Stats5</Link>
+<Link className="nav-link"to={ROUTES.STATS4}>Find Broadcast Listings</Link>
 </button>
 </div>
 

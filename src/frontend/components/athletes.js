@@ -15,27 +15,27 @@ class Athletes extends Component{
       <div className="row justify-content-center">
 
 <div className='col-2'>
-<Link to={ROUTES.PRACTICE}>Practice</Link>
+<Link to={ROUTES.PRACTICE}><button className='btn btn-info'>Practice</button></Link>
 </div>
 
 <div className='col-2'>
-<Link to={ROUTES.ROSTER}>Roster</Link>
+<Link to={ROUTES.ROSTER}><button className='btn btn-info'>Roster</button></Link>
 </div>
 
 <div className='col-2'>
-<Link to={ROUTES.MYTEAMS}>My Teams</Link>
+<Link to={ROUTES.MYTEAMS}><button className='btn btn-info'>My Teams</button></Link>
 </div>
 
 <div className='col-2'>
-<Link to={ROUTES.MYSPORTS}>My Sports</Link>
+<Link to={ROUTES.MYSPORTS}><button className='btn btn-info'>My Sports</button></Link>
 </div>
 
 <div className='col-2'>
-<Link to={ROUTES.TEAMS}>Teams</Link>
+<Link to={ROUTES.TEAMS}><button className='btn btn-info'>Teams</button></Link>
 </div>
 
 <div className='col-2'>
-<Link to={ROUTES.SPORTS}>Sports</Link>
+<Link to={ROUTES.SPORTS}><button className='btn btn-info'>Sports</button></Link>
 </div>
 
       </div>
@@ -79,24 +79,24 @@ class Athletes extends Component{
             <div className="row justify-content-center">
 
             <div className="col-2 list-group-item-dark column-info">
-              <button className="btn btn-sm btn-dark" onClick={this.props.sortByFirstName}>sort </button>
+              <button className="btn btn-sm btn-dark" onClick={this.props.sortByFirstName}>Sort </button>
             </div>
 
             <div className="col-2 list-group-item-dark column-info">
-              <button className="btn btn-sm btn-dark" onClick={this.props.sortByLastName}>sort </button>
+              <button className="btn btn-sm btn-dark" onClick={this.props.sortByLastName}>Sort </button>
             </div>
 
             <div className="col-2 list-group-item-dark column-info">
-              <button className="btn btn-sm btn-dark" onClick={this.props.sortBySport}>sort </button>
+              <button className="btn btn-sm btn-dark" onClick={this.props.sortBySport}>Sort </button>
             </div>
 
             <div className="col-2 list-group-item-dark column-info">
-              <button className="btn btn-sm btn-dark" onClick={this.props.sortByTeamName}>sort </button>
+              <button className="btn btn-sm btn-dark" onClick={this.props.sortByTeamName}>Sort </button>
             </div>
 
 
             <div className="col-2 list-group-item-dark column-info">
-              <button className="btn btn-sm btn-dark" onClick={this.props.sortByPosition}>sort </button>
+              <button className="btn btn-sm btn-dark" onClick={this.props.sortByPosition}>Sort </button>
             </div>
 
             <div className="col-2 list-group-item-dark">

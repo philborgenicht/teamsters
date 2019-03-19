@@ -175,38 +175,38 @@ releaseAthlete=async (e)=>{
 
   </AuthUserContext.Consumer>
 </div>
-
+<br/><hr/>
 <div className="row justify-content-center">
 
 <div className='col-2'>
-    <Link to={ROUTES.MANAGERBOX}> Manager Box </Link>
+    <Link to={ROUTES.MANAGERBOX}> <button className='btn btn-info'>Manager Box </button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.ACTIVITIES}> My Sports</Link>
+    <Link to={ROUTES.ACTIVITIES}><button className='btn btn-info'> My Sports</button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.CLUBS}> My Clubs</Link>
+    <Link to={ROUTES.CLUBS}> <button className='btn btn-info'>My Clubs</button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.PLAYER_RECRUITS}> All Players </Link>
+    <Link to={ROUTES.PLAYER_RECRUITS}> <button className='btn btn-info'>All Players </button></Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.TEAM_RECRUITS}> All Teams </Link>
+    <Link to={ROUTES.TEAM_RECRUITS}> <button className='btn btn-info'>All Teams</button> </Link>
 </div>
 
 <div className='col-2'>
-    <Link to={ROUTES.SPORT_RECRUITS}> All Sports </Link>
+    <Link to={ROUTES.SPORT_RECRUITS}> <button className='btn btn-info'>All Sports</button> </Link>
 </div>
 
 
 </div>
 
 <div className='row justify-content-center'>
-<h1> players </h1>
+<h1> Players </h1>
 </div>
 
 <div className="row justify-content-center">
@@ -251,23 +251,23 @@ Position
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByFirstName} > sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByFirstName} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByLastName} > sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByLastName} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortBySportName} > sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortBySportName} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByTeamName} > sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByTeamName} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByPosition} > sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByPosition} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
@@ -317,7 +317,7 @@ Position
 </div>
 
 <div className='col-2 list-group-item column-info'>
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} id={athlete.id} onClick={this.releaseAthlete}> ditch </button>
+<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} id={athlete.id} onClick={this.releaseAthlete}> Trade </button>
 </div>
 
 

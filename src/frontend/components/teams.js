@@ -15,31 +15,31 @@ const Teams=(props)=>{
 
 <div className="row justify-content-center">
 <div className="col-2">
-      <Link to={ROUTES.PRACTICE}>Practice</Link>
+      <Link to={ROUTES.PRACTICE}><button className='btn btn-info'>Practice</button></Link>
 </div>
 
     <div className="col-2">
-      <Link to={ROUTES.ROSTER}>Roster</Link>
+      <Link to={ROUTES.ROSTER}><button className='btn btn-info'>Roster</button></Link>
 </div>
 
 <div className="col-2">
-      <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+      <Link to={ROUTES.MYTEAMS}><button className='btn btn-info'>My Teams</button></Link>
 </div>
 
 <div className="col-2">
-      <Link to={ROUTES.MYSPORTS}>My Sports</Link>
+      <Link to={ROUTES.MYSPORTS}><button className='btn btn-info'>My Sports</button></Link>
 </div>
 <div className="col-2">
-      <Link to={ROUTES.ATHLETES}>Athletes</Link>
+      <Link to={ROUTES.ATHLETES}><button className='btn btn-info'>Athletes</button></Link>
 </div>
 
       <div className="col-2">
-      <Link to={ROUTES.SPORTS}>Sports</Link></div>
+      <Link to={ROUTES.SPORTS}><button className='btn btn-info'>Sports</button></Link></div>
 </div>
 
 
 <div className="row justify-content-center">
-<h1 className="heading"> TEAMS </h1>
+<h1 className="heading"> Teams </h1>
 </div>
 
 
@@ -47,22 +47,22 @@ const Teams=(props)=>{
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark team-heading column-heading">
-NAME
+Name
 <i className={props.sortedByTeamTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark team-heading column-heading">
-CITY
+City
 <i className={props.sortedByCityTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark team-heading column-heading">
-STATE
+State
 <i className={props.sortedByStateTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark team-heading column-heading">
-SPORT
+Sport
 <i className={props.sortedBySportTitle ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
@@ -74,19 +74,19 @@ SPORT
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark column-info">
-<button className="btn btn-sm btn-primary" onClick={props.sortByTeamTitle}> sort </button>
+<button className="btn btn-sm btn-primary" onClick={props.sortByTeamTitle}> Sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark column-info">
-<button className="btn btn-sm btn-primary" onClick={props.sortByCityTitle}> sorty </button>
+<button className="btn btn-sm btn-primary" onClick={props.sortByCityTitle}> Sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark column-info">
-<button className="btn btn-sm btn-primary" onClick={props.sortByStateTitle}> sorty</button>
+<button className="btn btn-sm btn-primary" onClick={props.sortByStateTitle}> Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-info">
-<button className="btn btn-sm btn-primary" onClick={props.sortBySportTitle}> sorty </button>
+<button className="btn btn-sm btn-primary" onClick={props.sortBySportTitle}> Sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark column-info">
@@ -122,7 +122,7 @@ SPORT
 </div>
 
 <div className="col-2 list-group-item">
-<button className="btn btn-outline-success"id={team.id} onClick={props.acquireTeam}> acquire team </button>
+<button className="btn btn-dark"id={team.id} onClick={props.acquireTeam}> acquire team </button>
 </div>
 
 
@@ -135,21 +135,7 @@ SPORT
 
 
 
-<div className="row">
 
-<div className="col-3">
-      <Rangers />
-</div>
-<div className="col-3">
-      <Rockies />
-</div>
-<div className="col-3">
-      <Lakers />
-</div>
-<div className="col-3">
-      <Broncos />
-</div>
-</div>
 
 
 

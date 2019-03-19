@@ -76,24 +76,24 @@ sortBySport=()=>{
   let currentEvents=this.state.allEvents
   let currentTvEvents=this.state.tvEvents
   let newEvents=currentEvents.sort((event1, event2)=>{
-    if (event1.strSport<event2.strSport){
+    if (event1.strHomeTeam<event2.strHomeTeam){
       return -1
     }
-    if (event1.strSport>event2.strSport){
+    if (event1.strHomeTeam>event2.strHomeTeam){
       return 1
     }
-    if (event1.strSport===event2.strSport){
+    if (event1.strHomeTeam===event2.strHomeTeam){
       return 0
     }
   })
   let newTvEvents=currentTvEvents.sort((event1, event2)=>{
-    if (event1.strSport<event2.strSport){
+    if (event1.strHomeTeam<event2.strHomeTeam){
       return -1
     }
-    if (event1.strSport>event2.strSport){
+    if (event1.strHomeTeam>event2.strHomeTeam){
       return 1
     }
-    if (event1.strSport===event2.strSport){
+    if (event1.strHomeTeam===event2.strHomeTeam){
       return 0
     }
   })
@@ -103,24 +103,24 @@ sortByDate=()=>{
   let currentEvents=this.state.allEvents
   let currentTvEvents=this.state.tvEvents
   let newEvents=currentEvents.sort((event1, event2)=>{
-    if (event1.dateEvent<event2.dateEvent){
+    if (event1.strAwayTeam<event2.strAwayTeam){
       return -1
     }
-    if (event1.dateEvent>event2.dateEvent){
+    if (event1.strAwayTeam>event2.strAwayTeam){
       return 1
     }
-    if (event1.dateEvent===event2.dateEvent){
+    if (event1.strAwayTeam===event2.strAwayTeam){
       return 0
     }
   })
   let newTvEvents=currentTvEvents.sort((event1, event2)=>{
-    if (event1.dateEvent<event2.dateEvent){
+    if (event1.strAwayTeam<event2.strAwayTeam){
       return -1
     }
-    if (event1.dateEvent>event2.dateEvent){
+    if (event1.strAwayTeam>event2.strAwayTeam){
       return 1
     }
-    if (event1.dateEvent===event2.dateEvent){
+    if (event1.strAwayTeam===event2.strAwayTeam){
       return 0
     }
   })
@@ -135,34 +135,37 @@ sortByDate=()=>{
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS}>Stats1</Link>
+      <Link className="nav-link"to={ROUTES.STATS}>Search Players</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS2}>Stats2</Link>
+      <Link className="nav-link"to={ROUTES.STATS2}>Search Teams</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS3}>Stats3</Link>
+      <Link className="nav-link"to={ROUTES.STATS3}>Search Rosters</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS4}>Stats4</Link>
+      <Link className="nav-link"to={ROUTES.STATS4}>Find Upcoming Events</Link>
       </button>
       </div>
 
       </div>
       <hr/>
 <hr/>
-      <button  className='btn btn-block btn-dark' onClick={this.clearResults}>clear</button>
+      <button  className='btn btn-block btn-dark' onClick={this.clearResults}>Clear</button>
+      <br/><hr/>
+
       <form onSubmit={this.searchEvents}>
       <div class="form-group">
+      <label htmlFor="year"><u className='list-group-item'>Year</u></label>
               <select onChange={this.setYear} class="form-control" id="year">
 
               <option>2018</option>
@@ -171,6 +174,8 @@ sortByDate=()=>{
 
               </select>
 
+              <hr/>
+              <label htmlFor='month'><u className='list-group-item'>Month</u></label>
               <select onChange={this.setMonth} class="form-control" id="month">
                 <option>January 01</option>
                 <option>February 02</option>
@@ -185,7 +190,8 @@ sortByDate=()=>{
                 <option>November 11</option>
                 <option>December 12</option>
               </select>
-
+              <hr/>
+              <label htmlFor='day'><u className='list-group-item'>Day</u></label>
               <select onChange={this.setDay} class="form-control" id="day">
                 <option>01</option>
                 <option>02</option>
@@ -221,17 +227,22 @@ sortByDate=()=>{
 
 
               </select>
+              <br/><hr/>
 
-
-              <button className='btn btn-block btn-dark'type = 'submit'> search </button>
+              <button className='btn btn-block btn-dark'type = 'submit'> Search </button>
             </div>
 
       </form>
       <div className='row'>
-      <button onClick={this.sortBySport}>sort by sport</button>
-      <button onClick={this.sortByDate}>sort by date</button>
+      <div className='col-6'>
+      <button className='btn btn-block btn-info' onClick={this.sortBySport}>Sort By Home Team</button>
       </div>
-
+      <div className='col-6'>
+      <button className='btn btn-block btn-info' onClick={this.sortByDate}>Sort By Away Team</button>
+      </div>
+      </div>
+      <br/><hr/>
+<h1>All Events</h1>
 {this.state.viewAllEvents?
   <div>
   {this.state.allEvents.filter(game=>
@@ -248,45 +259,45 @@ sortByDate=()=>{
   <div className='row'>
 
 <div className='col-2 list-group-item'>
-{game.idEvent}
+<u>Event Id:</u> {game.idEvent}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strEvent}
+<u>Competitors:</u> {game.strEvent}
 </div>
 
 
 
 <div className='col-2 list-group-item'>
-{game.strSport}
+<u>Sport:</u> {game.strSport}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.idLeague}
+<u>League Id:</u> {game.idLeague}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strLeague}
+<u>League:</u> {game.strLeague}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strSeason}
+<u>Season:</u> {game.strSeason}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strHomeTeam}
+<u>Home Team:</u> {game.strHomeTeam}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strAwayTeam}
+<u>Away Team:</u> {game.strAwayTeam}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.dateEvent}
+<u>Game Date:</u> {game.dateEvent}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strTime}
+<u>Game Time:</u> {game.strTime}
 </div>
 
 
@@ -298,8 +309,8 @@ sortByDate=()=>{
 )}
   </div>
   :''}
-
-
+<br/><hr/>
+<h1>Television Events:</h1>
 
 {this.state.viewTvEvents?
   <div>
@@ -313,42 +324,42 @@ sortByDate=()=>{
 <div className='row'>
 
 <div className='col-2 list-group-item'>
-{game.idEvent}
+<u>Event Id:</u> {game.idEvent}
 </div>
 <div className='col-2 list-group-item'>
-{game.strSport}
-</div>
-
-<div className='col-2 list-group-item'>
-{game.strEvent}
+<u>Sport:</u> {game.strSport}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.idChannel}
+<u>Competitors:</u> {game.strEvent}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strCountry}
+<u>Broadcast Channel:</u> {game.idChannel}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strLogo}
+<u>Country:</u> {game.strCountry}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strChannel}
+<u>Game Logo:</u> {game.strLogo}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strSeason}
+<u>Channel Name:</u> {game.strChannel}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.strTime}
+<u>Season:</u> {game.strSeason}
 </div>
 
 <div className='col-2 list-group-item'>
-{game.dateEvent}
+<u>Game Time:</u> {game.strTime}
+</div>
+
+<div className='col-2 list-group-item'>
+<u>Game Date:</u> {game.dateEvent}
 </div>
 
 

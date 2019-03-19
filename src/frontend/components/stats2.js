@@ -73,25 +73,25 @@ sortByYearFormed=()=>{
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS}>Stats</Link>
+      <Link className="nav-link"to={ROUTES.STATS}>Search Players</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS3}>Stats3</Link>
+      <Link className="nav-link"to={ROUTES.STATS3}>Search Rosters</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS4}>Stats4</Link>
+      <Link className="nav-link"to={ROUTES.STATS4}>Find Upcoming Events</Link>
       </button>
       </div>
 
       <div className='col-3'>
       <button className='btn btn-sm btn-info'>
-      <Link className="nav-link"to={ROUTES.STATS4}>Stats5</Link>
+      <Link className="nav-link"to={ROUTES.STATS4}>Find Broadcast Listings</Link>
       </button>
       </div>
 
@@ -113,21 +113,21 @@ sortByYearFormed=()=>{
             </div>
 
       </form>
-
+<br/><hr/>
 <div className='row'>
 
-<div className='col-3'>
-<button onClick={this.sortByTeamName}>sort by team name</button>
+<div className='col-6'>
+<button className='btn btn-block btn-dark'onClick={this.sortByTeamName}>sort by team name</button>
 </div>
 
-<div className='col-3'>
-<button onClick={this.sortByYearFormed}>sort by year formed</button>
+<div className='col-6'>
+<button className='btn btn-block btn-dark'onClick={this.sortByYearFormed}>sort by year formed</button>
 </div>
 
 
 
 </div>
-
+<br/><hr/>
 
       {this.state.viewTeams?
         <div>

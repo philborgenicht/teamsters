@@ -65,23 +65,24 @@ class Sports extends Component{
 
 
 <div className="col-2">
-    <Link to={ROUTES.PRACTICE}>Practice</Link>
+    <Link to={ROUTES.PRACTICE}><button className='btn btn-info'>Practice</button></Link>
 </div>
 <div className="col-2">
-    <Link to={ROUTES.ROSTER}>Roster</Link>
+    <Link to={ROUTES.ROSTER}><button className='btn btn-info'>Roster</button></Link>
 </div>
 <div className="col-2">
-    <Link to={ROUTES.MYTEAMS}>My Teams</Link>
+    <Link to={ROUTES.MYTEAMS}><button className='btn btn-info'>My Teams</button></Link>
 </div>
 <div className="col-2">
-    <Link to={ROUTES.MYSPORTS}>My Sports</Link>
+    <Link to={ROUTES.MYSPORTS}><button className='btn btn-info'>My Sports</button></Link>
 </div>
 <div className="col-2">
-    <Link to={ROUTES.TEAMS}>Teams</Link>
+    <Link to={ROUTES.ATHLETES}><button className='btn btn-info'>Athletes</button></Link>
 </div>
 <div className="col-2">
-    <Link to={ROUTES.ATHLETES}>Athletes</Link>
+    <Link to={ROUTES.TEAMS}><button className='btn btn-info'>Teams</button></Link>
 </div>
+
 
 </div>
     <div className="row justify-content-center">
@@ -105,10 +106,10 @@ class Sports extends Component{
 <div className="list-group-item">
 <div className="row">
 <div className='col-6 column-info'>
-    {sport.name}
+    <h3>{sport.name}</h3>
 </div>
 <div className='col-6'>
- <button className="btn btn-block btn-success" onClick={this.props.acquireSport} id={sport.id}> add to list </button>
+ <button className="btn btn-block btn-info" onClick={this.props.acquireSport} id={sport.id}> Add to List </button>
 </div>
 </div>
 </div>
@@ -118,22 +119,22 @@ class Sports extends Component{
 <div className="col-6">
 
 <div className="row list-group-item sport-title">
-<Link to={ROUTES.FOOTBALL}>Football</Link>
+<Link to={ROUTES.FOOTBALL}><button className='btn btn-info'>Football</button></Link>
 
 </div>
 
 <div className="row list-group-item sport-title">
-<Link to={ROUTES.BASEBALL}>Baseball</Link>
+<Link to={ROUTES.BASEBALL}><button className='btn btn-info'>Baseball</button></Link>
 
 </div>
 
 <div className="row list-group-item sport-title">
-<Link to={ROUTES.BASKETBALL}>Basketball</Link>
+<Link to={ROUTES.BASKETBALL}><button className='btn btn-info'>Basketball</button></Link>
 
 </div>
 
 <div className="row list-group-item sport-title">
-<Link to={ROUTES.HOCKEY}>Hockey</Link>
+<Link to={ROUTES.HOCKEY}><button className='btn btn-info'>Hockey</button></Link>
 
 </div>
 
