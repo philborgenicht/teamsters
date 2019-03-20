@@ -48,11 +48,14 @@ componentDidMount = async() => {
 sortByTeamTitle=()=>{
   let currentTeams=this.state.teams
   let newState=currentTeams.sort((team1, team2)=>{
-    if((team1.name)<(team2.name)){
+    if(team1.name<team2.name){
       return -1
     }
-    else if((team1.name)>(team2.name)){
+    if(team1.name>team2.name){
       return 1
+    }
+    if(team1.name===team2.name){
+      return 0
     }
   })
   this.setState({teams:newState, sortedByTeamTitle:true, sortedBySportTitle:false, sortedByCityTitle:false, sortedByStateTitle:false})
@@ -62,11 +65,14 @@ sortByTeamTitle=()=>{
 sortByCityTitle=()=>{
   let currentTeams=this.state.teams
   let newState=currentTeams.sort((team1, team2)=>{
-    if((team1.city)<(team2.city)){
+    if(team1.city<team2.city){
       return -1
     }
-    else if((team1.city)>(team2.city)){
+    if(team1.city>team2.city){
       return 1
+    }
+    if(team1.city===team2.city){
+      return 0
     }
   })
 this.setState({teams:newState, sortedByTeamTitle:false, sortedBySportTitle:false, sortedByCityTitle:true, sortedByStateTitle:false})}
@@ -74,11 +80,14 @@ this.setState({teams:newState, sortedByTeamTitle:false, sortedBySportTitle:false
 sortByStateTitle=()=>{
   let currentTeams=this.state.teams
   let newState=currentTeams.sort((team1, team2)=>{
-    if((team1.state)<(team2.state)){
+    if(team1.state<team2.state){
       return -1
     }
-    else if((team1.state)>(team2.state)){
+    if(team1.state>team2.state){
       return 1
+    }
+    if(team1.state===team2.state){
+      return 0
     }
   })
 this.setState({teams:newState, sortedByTeamTitle:false, sortedBySportTitle:false, sortedByCityTitle:false, sortedByStateTitle:true})}
@@ -86,11 +95,14 @@ this.setState({teams:newState, sortedByTeamTitle:false, sortedBySportTitle:false
 sortBySportTitle=()=>{
   let currentTeams=this.state.teams
   let newState=currentTeams.sort((team1, team2)=>{
-    if((team1.sportName)<(team2.sportName)){
+    if(team1.sportName<team2.sportName){
       return -1
     }
-    else if((team1.sportName)>(team2.sportName)){
+    if(team1.sportName>team2.sportName){
       return 1
+    }
+    if(team1.sportName===team2.sportName){
+      return 0
     }
   })
 this.setState({teams:newState, sortedByTeamTitle:false, sortedBySportTitle:true, sortedByCityTitle:false, sortedByStateTitle:false})}
@@ -244,7 +256,7 @@ setUserEmail=(e)=>{
 
 
 
-{this.props.teams.filter(team=>
+{this.state.teams.filter(team=>
   team.name.toLowerCase().includes(this.props.filterString.toLowerCase())||
   team.city.toLowerCase().includes(this.props.filterString.toLowerCase())||
   team.state.toLowerCase().includes(this.props.filterString.toLowerCase())||

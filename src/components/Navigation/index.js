@@ -93,7 +93,7 @@ const NavigationNonAuth = (props) => (
 
       <form class="form-inline my-2 my-lg-0">
         <input  onChange={(e)=>props.search(e)} id="input" class="form-control mr-sm-2" type="search"  aria-label="Search" required/>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
   </div>

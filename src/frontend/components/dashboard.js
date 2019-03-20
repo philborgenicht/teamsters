@@ -136,7 +136,7 @@ render(){
 
       </div>
       <div className="col-6">
-      <button className="btn btn-outline-success" onClick={this.editProfile}>Edit Profile </button>
+      <button className="btn btn-dark" onClick={this.editProfile}>Edit Profile </button>
       {this.state.editProfile? <EditProfile
                                             customers={this.state.customers}
                                             athletes={this.state.athletes}

@@ -120,7 +120,7 @@ class Athletes extends Component{
                           <div className="col-2 list-group-item athleteinfo column-info">{athlete.sport}</div>
                           <div className="col-2 list-group-item athleteinfo column-info">{athlete.teamName}</div>
                           <div className="col-2 list-group-item athleteinfo column-info">{athlete.position}</div>
-                          <div  className="col-2 list-group-item athleteinfo column-info"><button className="btn btn-outline-success" id={athlete.id}className="btn btn-sm btn-success" onClick={this.props.draft}> Add to My Team </button></div>
+                          <div  className="col-2 list-group-item athleteinfo column-info"><button className="btn btn-info" id={athlete.id}className="btn btn-sm btn-success" onClick={this.props.draft}> Add to My Team </button></div>
                           </div>
                                             )}
 

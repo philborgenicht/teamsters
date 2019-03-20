@@ -45,12 +45,16 @@ componentDidMount = async() => {
 sortByFirstName=()=>{
   let currentAthletes=this.state.athletes
   let newState=currentAthletes.sort((ath1, ath2)=>{
-    if((ath1.name.split(' ')[0])<(ath2.name.split(' ')[0])){
+    if(ath1.name.split(' ')[0]<ath2.name.split(' ')[0]){
       return -1
     }
-    else if((ath1.name.split(' ')[0])>(ath2.name.split(' ')[0])){
+    if(ath1.name.split(' ')[0]>ath2.name.split(' ')[0]){
       return 1
     }
+    if(ath1.name.split(' ')[0]===ath2.name.split(' ')[0]){
+      return 0
+    }
+
   })
   this.setState({athletes:newState, sortedByFirstName:true, sortedByLastName:false, sortedByTeamName:false, sortedByPosition:false, sortedBySport:false})
 }
@@ -59,11 +63,14 @@ sortByFirstName=()=>{
 sortByPosition=()=>{
   let currentAthletes=this.state.athletes
   let newState=currentAthletes.sort((ath1, ath2)=>{
-    if((ath1.position)<(ath2.position)){
+    if(ath1.position<ath2.position){
       return -1
     }
-    else if((ath1.position)>(ath2.position)){
+    if((ath1.position)>(ath2.position)){
       return 1
+    }
+    if(ath1.position===ath2.position){
+      return 0
     }
   })
   this.setState({athletes:newState, sortedByFirstName:false, sortedByLastName:false, sortedByTeamName:false, sortedByPosition:true, sortedBySport:false})
@@ -72,11 +79,14 @@ sortByPosition=()=>{
 sortByLastName=()=>{
   let currentAthletes=this.state.athletes
   let newState=currentAthletes.sort((ath1, ath2)=>{
-    if((ath1.name.split(' ')[1])<(ath2.name.split(' ')[1])){
+    if(ath1.name.split(' ')[1]<ath2.name.split(' ')[1]){
       return -1
     }
-    else if((ath1.name.split(' ')[1])>(ath2.name.split(' ')[1])){
+    else if(ath1.name.split(' ')[1]>ath2.name.split(' ')[1]){
       return 1
+    }
+    if(ath1.name.split(' ')[1]===ath2.name.split(' ')[1]){
+      return 0
     }
   })
   this.setState({athletes:newState, sortedByFirstName:false, sortedByLastName:true, sortedByTeamName:false, sortedByPosition:false, sortedBySport:false})
@@ -85,10 +95,13 @@ sortByLastName=()=>{
 sortByTeamName=()=>{
   let currentAthletes=this.state.athletes
   let newState=currentAthletes.sort((ath1, ath2)=>{
-    if((ath1.teamName)<(ath2.teamName)){
+    if(ath1.teamName<ath2.teamName){
       return -1
     }
-    else if((ath1.teamName)>(ath2.teamName)){
+    if(ath1.teamName>ath2.teamName){
+      return 1
+    }
+    if(ath1.teamName===ath2.teamName){
       return 1
     }
   })
@@ -98,11 +111,14 @@ sortByTeamName=()=>{
 sortBySport=()=>{
   let currentAthletes=this.state.athletes
   let newState=currentAthletes.sort((ath1, ath2)=>{
-    if((ath1.sport)<(ath2.sport)){
+    if(ath1.sport<ath2.sport){
       return -1
     }
-    else if((ath1.sport)>(ath2.sport)){
+    if(ath1.sport>ath2.sport){
       return 1
+    }
+    if(ath1.sport===ath2.sport){
+      return 0
     }
   })
   this.setState({athletes:newState, sortedByFirstName:false, sortedByLastName:false, sortedByTeamName:false, sortedByPosition:false, sortedBySport:true})
@@ -262,7 +278,7 @@ setUserEmail=(e)=>{
 
 
 
-{this.props.athletes.filter(athlete=>
+{this.state.athletes.filter(athlete=>
   athlete.name.split(' ')[0].toLowerCase().includes(this.props.filterString.toLowerCase())||
   athlete.name.split(' ')[1].toLowerCase().includes(this.props.filterString.toLowerCase())||
   athlete.sport.toLowerCase().includes(this.props.filterString.toLowerCase())||
