@@ -41,12 +41,12 @@ setEmail=(e)=>{
 }
 
 editTeams=()=>{
-  this.state.userEmail==="philborgenicht@gmail.com"? this.setState({showAddTeam:true}): alert("sorry, only phil borgenicht can do that")
+  this.state.userEmail==="philborgenicht@gmail.com"? this.setState({showAddTeam:true}): this.setState({accessDenied:true})
 }
 
 
 editAthletes=()=>{
-    this.state.userEmail==="philborgenicht@gmail.com"? this.setState({showAddAthlete:true}): alert("sorry, only phil borgenicht can do that")
+    this.state.userEmail==="philborgenicht@gmail.com"? this.setState({showAddAthlete:true}): this.setState({accessDenied:true})
 }
 
 
@@ -138,10 +138,14 @@ document.getElementById('position').value=''
                       :
                       ''
 }
+<br/><hr/>
 <div className="row justify-content-center">
 
 
-
+{this.state.accessDenied?
+  <div class="alert alert-danger" role="alert">
+  <h1> ACCESS DENIED!</h1>
+</div>:''}
 
 
 {this.state.showAddTeam?

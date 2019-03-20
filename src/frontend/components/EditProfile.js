@@ -10,11 +10,15 @@ const EditProfile=(props)=>{
 
           <div className='row'>
           <label htmlFor='firstname'><u>First Name:</u></label>
+          </div>
+          <div className='row'>
           <input id='firstname' placeholder='new first name'required/>
           </div>
 
           <div className='row'>
           <label htmlFor='lastname'><u>Last Name:</u></label>
+          </div>
+          <div className='row'>
           <input id='lastname' placeholder='new last name'required/>
           </div>
 
@@ -55,13 +59,10 @@ const EditProfile=(props)=>{
           <div className="row">
           <button className="btn btn-block btn-dark" type="submit" > Submit Changes </button>
           </div>
-
-
-
-
-
-
-
+          </form>
+          <br/><hr/>
+          <form>
+          <button className='btn btn-block btn-dark'>Confirm Changes</button>
           </form>
     </div>
   )

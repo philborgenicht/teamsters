@@ -78,6 +78,10 @@ class HomePage extends Component{
         'Accept': 'application/json',
       }
     })
+    let newArray= await fetch('https://galvanize-borgenicht.herokuapp.com/customers/')
+    let newData= await newArray.json()
+
+    this.setState({customers:newData})
   }
   render(){
     return(

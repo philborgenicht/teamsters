@@ -157,7 +157,7 @@ releaseTeam=async (e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button className='btn btn-block btn-dark' id={authUser.email} onClick={this.setUserEmail}> View My Teams </button>
+      <button className='btn btn-block btn-dark' id={authUser.email} onClick={this.props.viewMyTeams}> View My Teams </button>
     </div>
     )}
   </AuthUserContext.Consumer>
@@ -235,19 +235,19 @@ Sport
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamTitle}>sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamTitle}>sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByCityTitle}>sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByCityTitle}>sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByStateTitle}>sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByStateTitle}>sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySportTitle}>sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySportTitle}>sort</button>
 </div>
 
 
@@ -256,7 +256,7 @@ Sport
 </div>
 
 
-{this.state.currentUserTeams.filter(team=>
+{this.props.currentUserTeams.filter(team=>
   team.name.toLowerCase().includes(this.props.filterString.toLowerCase())||
 
   team.city.toLowerCase().includes(this.props.filterString.toLowerCase())||
@@ -284,7 +284,7 @@ Sport
 </div>
 
 <div className='col-2 list-group-item column-info'>
-<button className='btn btn-block btn-dark' disabled={this.state.isEditable? '' : 'disabled'} id={team.id} onClick={this.releaseTeam}> Release</button>
+<button className='btn btn-block btn-dark' disabled={this.props.isEditable? '' : 'disabled'} id={team.id} onClick={this.props.deleteTeam}> Release</button>
 </div>
 
 

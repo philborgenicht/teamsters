@@ -154,7 +154,7 @@ setUserEmail=(e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button className='btn btn-block btn-dark' onClick={this.setUserEmail} id={authUser.email}> Click To Make Changes</button>
+      <button className='btn btn-block btn-dark' onClick={this.props.setUserEmail} id={authUser.email}> Click To Make Changes</button>
       </div>
         )}
 
@@ -231,19 +231,19 @@ setUserEmail=(e)=>{
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamTitle}>Sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamTitle}>Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByCityTitle}>Sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByCityTitle}>Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByStateTitle}>Sort </button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByStateTitle}>Sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySportTitle}>Sort </button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySportTitle}>Sort </button>
 </div>
 
 
@@ -284,7 +284,7 @@ setUserEmail=(e)=>{
 
 
 <div className="col-2 list-group-item column-info">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-info" onClick={this.purchase} id={team.id}> Purchase</button>
+<button disabled={this.props.isEditable? '' : 'disabled'}className="btn btn-info" onClick={this.props.recruitTeam} id={team.id}> Purchase</button>
 </div>
 
 

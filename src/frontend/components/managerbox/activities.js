@@ -62,36 +62,7 @@ setUserEmail=(e)=>{
   this.setState({currentUserSports:currentUserSports})
 }
 
-deleteSport=async (e)=>{
-  let sportId=e.target.id
-  let undesiredSport=this.props.sports.filter(sport=>sport.id==sportId)[0]
-  let customer=this.state.customers.filter(customer=>customer.email===this.state.userEmail)[0]
-  let undesiredSportId=undesiredSport.id
-  let customerId=customer.id
-  let entryToDelete=this.props.customers_sports.filter(entry=>entry.customerId==customerId && entry.sportId===undesiredSportId)[0]
-  let idToDelete=entryToDelete.id
-  console.log(entryToDelete)
-  console.log(idToDelete, "idtodelete")
 
-  let currentState=this.state.sportsToDelete
-  currentState.push(undesiredSport.name)
-  this.setState({sportsToDelete:currentState})
-
-  //delete a team from a user's individual dashboard
-  await fetch(`https://galvanize-borgenicht.herokuapp.com/customers_sports/${idToDelete}`,{
-    method: 'DELETE',
-
-  })
-
-  let currentUser=this.state.customers.filter(customer=>customer.id===customerId)[0]
-  console.log("chicken", currentUser)
-  this.setState({currentUser:currentUser})
-  console.log("currentuser", currentUser)
-
-  let currentUserSportsIds=this.props.customers_sports.filter(entry=>entry.customerId==currentUser.id).map(entry=>entry.sportId)
-  let currentUserSports=this.props.sports.filter(sport=>currentUserSportsIds.includes(sport.id))
-  this.setState({currentUserSports:currentUserSports})
-}
 
 
 
@@ -106,7 +77,7 @@ deleteSport=async (e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button className='btn btn-block btn-dark'id={authUser.email} onClick={this.setUserEmail}> View My Sports </button>
+      <button className='btn btn-block btn-dark'id={authUser.email} onClick={this.props.viewMySports}> View My Sports </button>
     </div>
     )}
   </AuthUserContext.Consumer>
@@ -168,7 +139,7 @@ Sport
 
 
 
-{this.state.currentUserSports.filter(sport=>
+{this.props.currentUserSports.filter(sport=>
   sport.name.toLowerCase().includes(this.props.filterString.toLowerCase())).
   map(sport=>
 <div className='row justify-content-center'>
@@ -181,7 +152,7 @@ Sport
 
 
 <div className='col-6 list-group-item column-info'>
-<button className='btn btn-block btn-dark'disabled={this.state.isEditable? '' : 'disabled'} id={sport.id} onClick={this.deleteSport}> Release </button>
+<button className='btn btn-block btn-dark'disabled={this.props.isEditable? '' : 'disabled'} id={sport.id} onClick={this.props.deleteSport}> Release </button>
 </div>
 
 

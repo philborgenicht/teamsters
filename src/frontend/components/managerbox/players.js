@@ -169,7 +169,7 @@ releaseAthlete=async (e)=>{
       <div>
 
       <p>Account: {authUser.email}</p>
-      <button className='btn btn-block btn-dark' id={authUser.email} onClick={this.setUserEmail}>VIEW YOUR PLAYERS </button>
+      <button className='btn btn-block btn-dark' id={authUser.email} onClick={this.props.viewMyAthletes}>VIEW YOUR PLAYERS </button>
       </div>
      )}
 
@@ -255,19 +255,19 @@ Position
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByLastName} > Sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.sortByLastName} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortBySportName} > Sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.sortBySportName} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByTeamName} > Sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.sortByTeamName} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByPosition} > Sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.sortByPosition} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
@@ -277,14 +277,14 @@ Position
 
 </div>
 
-
+{console.log('chicken', this.props.currentUserAthletes)}
 <div className="row justify-content-center">
 
 
 
 
 </div>
-{this.state.currentUserAthletes.filter(athlete=>
+{this.props.currentUserAthletes.filter(athlete=>
   athlete.name.split(' ')[0].toLowerCase().includes(this.props.filterString.toLowerCase())||
   athlete.name.split(' ')[1].toLowerCase().includes(this.props.filterString.toLowerCase())||
   athlete.teamName.toLowerCase().includes(this.props.filterString.toLowerCase())||
@@ -317,7 +317,7 @@ Position
 </div>
 
 <div className='col-2 list-group-item column-info'>
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} id={athlete.id} onClick={this.releaseAthlete}> Trade </button>
+<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} id={athlete.id} onClick={this.props.deletePlayer}> Trade </button>
 </div>
 
 

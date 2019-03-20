@@ -88,7 +88,7 @@ chooseSport=async (e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button className='btn btn-block btn-dark' id={authUser.email} onClick={this.setUserEmail} > click to make changes </button>
+      <button className='btn btn-block btn-dark' id={authUser.email} onClick={this.props.setUserEmail} > click to make changes </button>
       </div>
       )}
 
@@ -144,7 +144,7 @@ chooseSport=async (e)=>{
 
 
 <div className="col-6 list-group-item column-info">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-dark" onClick={this.chooseSport} id={sport.id}> Select Sport</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className="btn btn-dark" onClick={this.props.recruitSport} id={sport.id}> Select Sport</button>
 </div>
 
 

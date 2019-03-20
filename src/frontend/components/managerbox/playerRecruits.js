@@ -124,39 +124,40 @@ sortBySport=()=>{
   this.setState({athletes:newState, sortedByFirstName:false, sortedByLastName:false, sortedByTeamName:false, sortedByPosition:false, sortedBySport:true})
 }
 
-recruit=async (e)=>{
-  let playerId=e.target.id
-  let desiredAthlete=this.props.athletes.filter(athlete=>athlete.id==playerId)[0]
-  let athleteId=desiredAthlete.id
-  console.log("desiredathlete", desiredAthlete)
-  let customer=this.state.customers.filter(user=>user.email===this.state.userEmail)[0]
-  console.log(customer)
-  let customerId=customer.id
-  console.log(customer.id)
+// recruit=async (e)=>{
+//   let playerId=e.target.id
+//   let desiredAthlete=this.props.athletes.filter(athlete=>athlete.id==playerId)[0]
+//   let athleteId=desiredAthlete.id
+//   console.log("desiredathlete", desiredAthlete)
+//   let customer=this.state.customers.filter(user=>user.email===this.state.userEmail)[0]
+//   console.log(customer)
+//   let customerId=customer.id
+//   console.log(customer.id)
+//
+//   let currentState=this.state.playersToAdd
+//   currentState.push(desiredAthlete.name)
+//   this.setState({playersToAdd:currentState})
+//
+//   ///posting new athlete to an individual user's dashboard
+//   let newAthletes= await fetch('https://galvanize-borgenicht.herokuapp.com/customers_athletes/',{
+//     method: 'POST',
+//     body: JSON.stringify({
+//       customerId:customerId,
+//       athleteId:athleteId
+//
+//     }),
+//     headers:{
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json',
+//     }
+//   })
+//
+// }
 
-  let currentState=this.state.playersToAdd
-  currentState.push(desiredAthlete.name)
-  this.setState({playersToAdd:currentState})
 
-  ///posting new athlete to an individual user's dashboard
-  await fetch('https://galvanize-borgenicht.herokuapp.com/customers_athletes/',{
-    method: 'POST',
-    body: JSON.stringify({
-      customerId:customerId,
-      athleteId:athleteId
 
-    }),
-    headers:{
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    }
-  })
 
-}
-setUserEmail=(e)=>{
-  this.setState({userEmail:e.target.id})
-  this.setState({isEditable:true})
-}
+
   render(){
     let useremail
     return(
@@ -171,7 +172,7 @@ setUserEmail=(e)=>{
     {authUser => (
       <div>
       <p>Account: {useremail=authUser.email}</p>
-      <button className='btn btn-block btn-dark' onClick={this.setUserEmail} id={authUser.email}> Click To Make Changes </button>
+      <button className='btn btn-block btn-dark' onClick={this.props.setUserEmail} id={authUser.email}> Click To Make Changes </button>
       </div>
         )}
 
@@ -251,23 +252,23 @@ setUserEmail=(e)=>{
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByFirstName}>Sort </button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByFirstName}>Sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByLastName}>Sort </button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByLastName}>Sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySport}>Sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySport}>Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamName}>Sort </button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamName}>Sort </button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByPosition}>Sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByPosition}>Sort</button>
 </div>
 <div className='col-2 list-group-item-dark column-heading'>
 </div>
@@ -309,7 +310,7 @@ setUserEmail=(e)=>{
 </div>
 
 <div className="col-2 list-group-item column-info">
-<button disabled={this.state.isEditable? '' : 'disabled'} className="btn btn-dark" onClick={this.recruit} id={athlete.id}> Recruit </button>
+<button  disabled={this.props.isEditable? '' : 'disabled'}className="btn btn-dark" onClick={this.props.recruit} id={athlete.id}> Recruit </button>
 </div>
 
 
@@ -326,7 +327,11 @@ setUserEmail=(e)=>{
 {elem}
 </div>
 <div className='col-6 list-group-item column-info'>
-<button className='btn btn-block btn-dark'type="submit"> confirm </button>
+
+<button className='btn btn-block btn-dark'>confirm</button>
+
+
+
 </div>
 </form>
 </div>
