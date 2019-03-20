@@ -61,9 +61,14 @@ class App extends Component{
     sortedByStateTitle:false,
     sortedByTeamTitle:false,
     userEmail:'',
-    currentUserAthletes:[],
-    currentUserTeams:[],
-    currentUserSports:[],
+
+    currentUserAthletes:[        {id: 89, name:'Aaron Judge', sport:'Baseball', sportId:2, teamId:25, teamName:'New York Yankees', position:'Right Field', onTeam:false},
+],
+
+    currentUserTeams:[{id: 1, name: 'Los Angeles Lakers', city:'Los Angeles', state:'California', sportName:'Basketball', sportId:1, onList:false}],
+
+    currentUserSports:[        {id: 1, name: 'Basketball', onList:false},
+],
     isEditable:false
   }
   componentDidMount = async() => {
@@ -505,16 +510,16 @@ deleteSport=async (e)=>{
 }
 
 deletePlayer=async (e)=>{
-  let playerId=e.target.id
-  let playertorelease=this.state.athletes.filter(athlete=>athlete.id==playerId)[0]
-  let customeremail=this.state.userEmail
-  let customer=this.state.customers.filter(customer=>customer.email===customeremail)[0]
+  let player=e.target.id
+  let playerToRelease=this.state.athletes.filter(athlete=>athlete.id==player)[0]
+  let playerToReleaseId=playerToRelease.id
+  let customerEmail=this.state.userEmail
+  let customer=this.state.customers.filter(customer=>customer.email===customerEmail)[0]
   let customerId=customer.id
-  let athleteId=playertorelease.id
-  console.log(customerId, athleteId)
-  let entryToDelete=this.state.customers_athletes.filter(entry=>entry.customerId==customer.id && entry.athleteId==athleteId)[0]
+
+  let entryToDelete=this.state.customers_athletes.filter(entry=>entry.customerId==customer.id && entry.athleteId==playerToReleaseId)[0]
   let idToDelete=entryToDelete.id
-  console.log(entryToDelete, idToDelete)
+  // console.log(entryToDelete, idToDelete)
   await fetch(`https://galvanize-borgenicht.herokuapp.com/customers_athletes/${idToDelete}`,{
     method: 'DELETE',
   })
@@ -535,12 +540,12 @@ deletePlayer=async (e)=>{
 deleteTeam=async (e)=>{
   let teamId=e.target.id
   let teamToRelease=this.state.teams.filter(team=>team.id==teamId)[0]
-
+  let teamToReleaseId=teamToRelease.id
 
   let customeremail=this.state.userEmail
   let customer=this.state.customers.filter(customer=>customer.email===customeremail)[0]
   let customerId=customer.id
-  let teamToReleaseId=teamToRelease.id
+
 
   let entryToDelete=this.state.customers_teams.filter(entry=>entry.customerId==customerId && entry.teamId==teamToReleaseId)[0]
   let idToDelete=entryToDelete.id
@@ -564,6 +569,13 @@ deleteTeam=async (e)=>{
       <Navigation className="sticky-top" search={this.search}/>
 
       <hr />
+
+
+
+
+
+
+
 <Route exact path={ROUTES.PRACTICE} render={()=><Practice/>}/>
 
 
