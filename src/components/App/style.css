@@ -62,7 +62,8 @@ footer {
   border-width: 1px;
   border-color: black;
   border-style: solid;
-  font-size: 15px
+  font-size: 22px;
+  text-shadow: 1px 1px #ffffff
 }
 
 .column-info{

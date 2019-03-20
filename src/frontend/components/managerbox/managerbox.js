@@ -42,7 +42,7 @@ setUserEmail=(e)=>{
 
 
 
-
+<hr/>
 
 <div className='col-2'>
 <Link to={ROUTES.PLAYERS}> <button className='btn btn-info'>My Players</button> </Link>

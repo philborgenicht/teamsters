@@ -60,7 +60,7 @@ class HomePage extends Component{
       body: JSON.stringify({
         firstname:newfirstname,
         lastname:newlastname,
-  
+
         favoritePlayer:playername,
         favoritePlayerId:playerid,
 
@@ -170,7 +170,7 @@ class HomePage extends Component{
   </div>
   <hr/>
 <div className="row">
-<button onClick={this.editProfile} className="btn btn-block btn-primary">Edit Favorites</button>
+<button onClick={this.editProfile} className="btn btn-block btn-primary">Make Changes</button>
 </div>
 
 </div>

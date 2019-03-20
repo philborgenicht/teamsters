@@ -15,7 +15,7 @@ class Practice extends Component{
 
   </AuthUserContext.Consumer>
 
-
+<br/><hr/>
 
   <div className="row justify-content-center">
 
@@ -46,7 +46,7 @@ class Practice extends Component{
   </div>
 
 </div>
-
+<hr/>
 <div className="row justify-content-center">
 <h1> Practice Box </h1>
 </div>

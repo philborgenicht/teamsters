@@ -192,8 +192,8 @@ setUserEmail=(e)=>{
 
 
 </div>
-
-<div className='row'>
+<hr/>
+<div className='row justify-content-center'>
 <h1> All Players </h1>
 </div>
 
@@ -226,7 +226,7 @@ setUserEmail=(e)=>{
 <i className={this.state.sortedByPosition ? "fa fa-spinner fa-pulse" : ''}></i>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 
 </div>
 
@@ -234,26 +234,26 @@ setUserEmail=(e)=>{
 
 <div className="row justify-content-center">
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 <button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByFirstName}>Sort </button>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 <button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByLastName}>Sort </button>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 <button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySport}>Sort</button>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 <button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamName}>Sort </button>
 </div>
 
-<div className="col-2 list-group-item-dark">
+<div className="col-2 list-group-item-dark column-heading">
 <button disabled={this.state.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByPosition}>Sort</button>
 </div>
-<div className='col-2 list-group-item-dark'>
+<div className='col-2 list-group-item-dark column-heading'>
 </div>
 </div>
 

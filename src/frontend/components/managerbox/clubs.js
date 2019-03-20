@@ -194,7 +194,7 @@ releaseTeam=async (e)=>{
 
 
 </div>
-
+<hr/>
 <div className='row justify-content-center'>
 <h1> Clubs </h1>
 </div>

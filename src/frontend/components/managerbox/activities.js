@@ -145,7 +145,7 @@ deleteSport=async (e)=>{
 
 
 </div>
-
+<hr/>
 <div className='row justify-content-center'>
 <h1> Sports </h1>
 </div>

@@ -94,7 +94,7 @@ chooseSport=async (e)=>{
 
   </AuthUserContext.Consumer>
 </div>
-<br/><hr/>
+<hr/>
 <div className="row justify-content-center">
 
 <div className='col-2'>
@@ -124,9 +124,9 @@ chooseSport=async (e)=>{
 
 
 </div>
-
+<hr/>
 <div className='row justify-content-center'>
-<h1> activities</h1>
+<h1> Activities</h1>
 </div>
 
 

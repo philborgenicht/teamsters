@@ -45,6 +45,7 @@ class MySports extends Component{
 
 
   </div>
+  <hr/>
   <div className="row justify-content-center">
       <h1>My Sports</h1>
   </div>

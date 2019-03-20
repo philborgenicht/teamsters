@@ -60,6 +60,7 @@ class Sports extends Component{
   render(){
   return(
     <div className="container ">
+    <br/><hr/>
 <div className="row justify-content-center">
 
 
@@ -85,6 +86,7 @@ class Sports extends Component{
 
 
 </div>
+<hr/>
     <div className="row justify-content-center">
     <h1 className="heading">SPORTS!</h1>
     </div>
@@ -109,7 +111,7 @@ class Sports extends Component{
     <h3>{sport.name}</h3>
 </div>
 <div className='col-6'>
- <button className="btn btn-block btn-info" onClick={this.props.acquireSport} id={sport.id}> Add to List </button>
+ <button className="btn btn-block btn-dark" onClick={this.props.acquireSport} id={sport.id}> Add to List </button>
 </div>
 </div>
 </div>
@@ -119,22 +121,22 @@ class Sports extends Component{
 <div className="col-6">
 
 <div className="row list-group-item sport-title">
-<Link to={ROUTES.FOOTBALL}><button className='btn btn-info'>Football</button></Link>
+<Link to={ROUTES.FOOTBALL}><button className='btn btn-dark'>Football</button></Link>
 
 </div>
 
 <div className="row list-group-item sport-title">
-<Link to={ROUTES.BASEBALL}><button className='btn btn-info'>Baseball</button></Link>
+<Link to={ROUTES.BASEBALL}><button className='btn btn-dark'>Baseball</button></Link>
 
 </div>
 
 <div className="row list-group-item sport-title">
-<Link to={ROUTES.BASKETBALL}><button className='btn btn-info'>Basketball</button></Link>
+<Link to={ROUTES.BASKETBALL}><button className='btn btn-dark'>Basketball</button></Link>
 
 </div>
 
 <div className="row list-group-item sport-title">
-<Link to={ROUTES.HOCKEY}><button className='btn btn-info'>Hockey</button></Link>
+<Link to={ROUTES.HOCKEY}><button className='btn btn-dark'>Hockey</button></Link>
 
 </div>
 

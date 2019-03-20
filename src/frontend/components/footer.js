@@ -25,10 +25,10 @@ const Footer=(props)=>{
 
                   <ul className="list-unstyled">
                     <li>
-                      <a href="#!">The Developer</a>
+                      <a href="https://www.linkedin.com/in/phillipborgenicht/" target='blank'>The Developer</a>
                     </li>
                     <li>
-                      <a href="#!">The School</a>
+                      <a href="https://www.galvanize.com" target='blank'>The School</a>
                     </li>
                     <li>
 
@@ -46,23 +46,23 @@ const Footer=(props)=>{
 
                   <ul className="list-unstyled">
                     <li>
-                      <a href="#!">ESPN</a>
+                      <a href="https://www.espn.com" target='blank'>ESPN</a>
                     </li>
                     <li>
-                      <a href="#!">NEW YORK YANKEES</a>
+                      <a href="https://www.mlb.com/yankees" target='blank'>NEW YORK YANKEES</a>
                     </li>
                     <li>
-                      <a href="#!">LOS ANGELES LAKERS</a>
+                      <a href="https://www.nba.com/lakers" target='blank'>LOS ANGELES LAKERS</a>
                     </li>
                     <li>
-                      <a href="#!">NEW YORK RANGERS</a>
+                      <a href="https://www.nhl.com/rangers" target='blank'>NEW YORK RANGERS</a>
                     </li>
                   </ul>
 
                 </div>
             </div>
           </div>          <div className="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="galvanize.com"> Galvanize Institute</a>
+            <a href="https://www.galvanize.com" target='blank'> Galvanize Institute</a>
           </div>
         </footer>
 

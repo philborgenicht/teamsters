@@ -18,9 +18,14 @@ class Roster extends Component{
     {authUser => (  <p>Account: {useremail=authUser.email}</p>  )}
 
   </AuthUserContext.Consumer>
-
+<br/><hr/>
 
 <div className="row justify-content-center">
+
+
+<div className='col-2'>
+  <Link to={ROUTES.PRACTICE}><button className='btn btn-info'>Practice Box</button></Link>
+</div>
 
 <div className='col-2'>
   <Link to={ROUTES.MYTEAMS}><button className='btn btn-info'>My Teams</button></Link>
@@ -46,8 +51,9 @@ class Roster extends Component{
 
 
 </div>
-
+<hr/>
 <div className="row justify-content-center">
+
 <h1>My Athletes</h1>
 </div>
 
@@ -72,7 +78,7 @@ class Roster extends Component{
   Position
   </div>
 
-  <div className="col-2 list-group-item column-info">
+  <div className="col-2 list-group-item-dark column-heading">
   </div>
 
 

@@ -8,7 +8,7 @@ render(){
     <div className="container">
 
     <h1 className="heading">Welcome to Teamsters</h1>
-
+<hr/>
     <p className="landing">Here at Teamsters, we specialize in info about all of your favorites sports, teams, and athletes.
     If you are not a member you can feel free to browse our collection of teams, rosters, sports, and events.
     Once you have signed up, however, you can select your favorite teams, sports, and athletes.

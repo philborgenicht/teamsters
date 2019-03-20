@@ -35,7 +35,7 @@ class MyTeams extends Component{
   <div className='col-2'>
     <Link to={ROUTES.ATHLETES}><button className='btn btn-info'>Athletes</button></Link>
   </div>
-  
+
   <div className='col-2'>
     <Link to={ROUTES.TEAMS}><button className='btn btn-info'>Teams</button></Link>
   </div>
@@ -47,7 +47,7 @@ class MyTeams extends Component{
   </div>
 
   </div>
-
+<hr/>
   <div className="row justify-content-center">
   <h1 className="heading"> My Teams </h1>
   </div>

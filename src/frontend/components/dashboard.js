@@ -37,6 +37,7 @@ render(){
 <h1 className="heading"> ACCOUNT INFORMATION:</h1>
 </div>
 <div>
+<hr/>
       {this.state.customers.filter(customer=>
       customer.email===customerId).map(customer=>
       <div className="row">

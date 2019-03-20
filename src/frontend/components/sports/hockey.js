@@ -9,7 +9,22 @@ class Hockey extends Component {
   render(){
   return(
           <div className='container'>
-                    <Link to={ROUTES.SPORTS}>Sports</Link>
+            <hr/>
+          <div className='row justify-content-center'>
+          <div className='col-3'>
+                  <Link to={ROUTES.SPORTS}><button className='btn btn-block btn-info'>Sports</button></Link>
+          </div>
+          <div className='col-3'>
+                  <Link to={ROUTES.FOOTBALL}><button className='btn btn-block btn-info'>Football</button></Link>
+          </div>
+          <div className='col-3'>
+                  <Link to={ROUTES.BASKETBALL}><button className='btn btn-block btn-info'>Basketball</button></Link>
+          </div>
+          <div className='col-3'>
+                  <Link to={ROUTES.BASEBALL}><button className='btn btn-block btn-info'>Baseball</button></Link>
+          </div>
+          </div>
+          <hr/>
 <div className='row justify-content-center'>
           <img className="sportLogo" src={nhl} alt='baseball'/>
 </div>

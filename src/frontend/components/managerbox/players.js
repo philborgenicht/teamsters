@@ -175,7 +175,7 @@ releaseAthlete=async (e)=>{
 
   </AuthUserContext.Consumer>
 </div>
-<br/><hr/>
+<hr/>
 <div className="row justify-content-center">
 
 <div className='col-2'>
@@ -211,31 +211,31 @@ releaseAthlete=async (e)=>{
 
 <div className="row justify-content-center">
 
-<div className="col-2 list-group-item-dark column-info">
+<div className="col-2 list-group-item-dark column-heading">
 First Name
 <i className={this.state.sortedByFirstName ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2 list-group-item-dark column-info">
+<div className="col-2 list-group-item-dark column-heading">
 Last Name
 <i className={this.state.sortedByLastName ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2 list-group-item-dark column-info">
+<div className="col-2 list-group-item-dark column-heading">
 Sport
 <i className={this.state.sortedBySportName ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2 list-group-item-dark column-info">
+<div className="col-2 list-group-item-dark column-heading">
 Team
 <i className={this.state.sortedByTeamName ? "fa fa-spinner fa-pulse" : ''}></i>
 
 </div>
 
-<div className="col-2 list-group-item-dark column-info">
+<div className="col-2 list-group-item-dark column-heading">
 Position
 <i className={this.state.sortedByPosition ? "fa fa-spinner fa-pulse" : ''}></i>
 

@@ -4,16 +4,17 @@ import React from 'react'
 const EditProfile=(props)=>{
   return(
     <div>
+    <hr/>
           <form onSubmit={props.editProfile}>
 
 
           <div className='row'>
-          <label htmlFor='firstname'>New First Name</label>
+          <label htmlFor='firstname'><u>First Name:</u></label>
           <input id='firstname' placeholder='new first name'required/>
           </div>
 
           <div className='row'>
-          <label htmlFor='lastname'>New Last Name</label>
+          <label htmlFor='lastname'><u>Last Name:</u></label>
           <input id='lastname' placeholder='new last name'required/>
           </div>
 
@@ -49,7 +50,7 @@ const EditProfile=(props)=>{
           </select>
           </div>
 <br/><br/>
-
+<hr/>
 
           <div className="row">
           <button className="btn btn-block btn-dark" type="submit" > Submit Changes </button>
