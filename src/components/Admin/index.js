@@ -70,6 +70,9 @@ await fetch('https://galvanize-borgenicht.herokuapp.com/teams',{
     'Accept': 'application/json',
   }
 })
+document.getElementById('city').value=''
+document.getElementById('teamName').value=''
+document.getElementById('state').value=''
 }
 
 submitAthlete= async(e) => {
@@ -98,6 +101,10 @@ await fetch('https://galvanize-borgenicht.herokuapp.com/athletes',{
     'Accept': 'application/json',
   }
 })
+document.getElementById('name').value=''
+document.getElementById('sport').value=''
+document.getElementById('team').value=''
+document.getElementById('position').value=''
 }
 
 

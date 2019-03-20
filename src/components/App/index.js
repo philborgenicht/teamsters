@@ -254,6 +254,11 @@ let sportId=Number.parseInt(fullSport[fullSport.length-1])
     }
   })
 
+document.getElementById('firstname').value=''
+document.getElementById('lastname').value=''
+document.getElementById('username').value=''
+document.getElementById('phone').value=''
+
 }
 
   forget=()=>{

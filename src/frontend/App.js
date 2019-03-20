@@ -234,14 +234,6 @@ logout=()=>{
 
 
 
-<Link to={ROUTES.ROSTER}>Roster</Link>
-<Link to={ROUTES.TEAMS}>Teams</Link>
-<Link to={ROUTES.ATHLETES}>Athletes</Link>
-<Link to={ROUTES.SPORTS}>Landing</Link>
-<Link to={ROUTES.ADMIN}>Admin</Link>
-<Link to={ROUTES.HOME}>Home</Link>
-<Link to={ROUTES.STATS}>Stats</Link>
-<Link to={ROUTES.SIGN_IN}>Sign In</Link>
 
 
 
