@@ -15,6 +15,7 @@ import Players from '../../frontend/components/managerbox/players.js'
 import Clubs from '../../frontend/components/managerbox/clubs.js'
 import Activities from '../../frontend/components/managerbox/activities.js'
 import ManagerBox from '../../frontend/components/managerbox/managerbox.js'
+import Description from '../../frontend/components/description.js'
 
 import SportRecruits from '../../frontend/components/managerbox/sportRecruits.js'
 import PlayerRecruits from '../../frontend/components/managerbox/playerRecruits.js'
@@ -565,6 +566,8 @@ deleteTeam=async (e)=>{
 
       <hr />
 <Route exact path={ROUTES.PRACTICE} render={()=><Practice/>}/>
+
+<Route exact path={ROUTES.DESCRIPTION} render={()=><Description/>}/>
 
 <Route exact path={ROUTES.MANAGERBOX} render={()=><ManagerBox/>}/>
 
