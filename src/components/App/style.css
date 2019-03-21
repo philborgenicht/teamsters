@@ -79,32 +79,41 @@ footer {
   border-style: solid;
 }
 .basketballplayer{
-  color: blue
+color:black;
+text-shadow:1px 1px blue
 }
 .baseballplayer{
-  color:red
+  color:black;
+  text-shadow:1px 1px red
 }
 .footballplayer{
-  color:red
+  color:black;
+  text-shadow:1px 1px green
 }
 .hockeyplayer{
-  color:red
+  color:black;
+  text-shadow:1px 1px purple
 }
 
 .basketballteam{
-  color:red
+  color:black;
+  text-shadow:1px 1px blue
 }
 
 .footballteam{
-  color:red
+  color:black;
+  text-shadow:1px 1px green
 }
 
 .baseballteam{
-  color:red
+  color:black;
+  text-shadow:1px 1px red
 }
 
 .hockeyteam{
-  color:red
+  color:black;
+  text-shadow:1px 1px purple
+
 }
 
 .selected{

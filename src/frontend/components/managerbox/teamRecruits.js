@@ -202,22 +202,22 @@ setUserEmail=(e)=>{
 
 <div className="col-2 list-group-item-dark column-heading">
 <div>Team Name</div>
-<i className={this.state.sortedByTeamTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedByTeamTitle ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 <div>Team City</div>
-<i className={this.state.sortedByCityTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedByCityTitle ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 <div>Team State</div>
-<i className={this.state.sortedByStateTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedByStateTitle ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 <div>Sport Affiliation</div>
-<i className={this.state.sortedBySportTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedBySportTitle ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 

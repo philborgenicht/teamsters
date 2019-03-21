@@ -61,71 +61,7 @@ releaseAthlete=(e)=>{
   console.log(e.target.id)
 }
 
-sortByFirstName=()=>{
-  let currentAthletes=this.state.currentUserAthletes
-  let newState=currentAthletes.sort((ath1, ath2)=>{
-    if((ath1.name.split(' ')[0])<(ath2.name.split(' ')[0])){
-      return -1
-    }
-    else if((ath1.name.split(' ')[0])>(ath2.name.split(' ')[0])){
-      return 1
-    }
-  })
-  this.setState({currentUserAthletes:newState, sortedByFirstName:true, sortedByLastName:false, sortedByTeamName:false, sortedByPosition:false, sortedBySport:false})
-}
 
-
-sortByPosition=()=>{
-  let currentAthletes=this.state.currentUserAthletes
-  let newState=currentAthletes.sort((ath1, ath2)=>{
-    if((ath1.position)<(ath2.position)){
-      return -1
-    }
-    else if((ath1.position)>(ath2.position)){
-      return 1
-    }
-  })
-  this.setState({currentUserAthletes:newState, sortedByFirstName:false, sortedByLastName:false, sortedByTeamName:false, sortedByPosition:true, sortedBySportName:false})
-}
-
-sortByLastName=()=>{
-  let currentAthletes=this.state.currentUserAthletes
-  let newState=currentAthletes.sort((ath1, ath2)=>{
-    if((ath1.name.split(' ')[1])<(ath2.name.split(' ')[1])){
-      return -1
-    }
-    else if((ath1.name.split(' ')[1])>(ath2.name.split(' ')[1])){
-      return 1
-    }
-  })
-  this.setState({currentUserAthletes:newState, sortedByFirstName:false, sortedByLastName:true, sortedByTeamName:false, sortedByPosition:false, sortedBySportName:false})
-}
-
-sortByTeamName=()=>{
-  let currentAthletes=this.state.currentUserAthletes
-  let newState=currentAthletes.sort((ath1, ath2)=>{
-    if((ath1.teamName)<(ath2.teamName)){
-      return -1
-    }
-    else if((ath1.teamName)>(ath2.teamName)){
-      return 1
-    }
-  })
-  this.setState({currentUserAthletes:newState, sortedByFirstName:false, sortedByLastName:false, sortedByTeamName:true, sortedByPosition:false, sortedBySportName:false})
-}
-
-sortBySportName=()=>{
-  let currentAthletes=this.state.currentUserAthletes
-  let newState=currentAthletes.sort((ath1, ath2)=>{
-    if((ath1.sport)<(ath2.sport)){
-      return -1
-    }
-    else if((ath1.sport)>(ath2.sport)){
-      return 1
-    }
-  })
-  this.setState({currentUserAthletes:newState, sortedByFirstName:false, sortedByLastName:false, sortedByTeamName:false, sortedByPosition:false, sortedBySportName:true})
-}
 
 
 releaseAthlete=async (e)=>{
@@ -213,31 +149,31 @@ releaseAthlete=async (e)=>{
 
 <div className="col-2 list-group-item-dark column-heading">
 First Name
-<i className={this.state.sortedByFirstName ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.props.sortedByFirstName ? "fas fa-angle-double-down" : ''}></i>
 
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 Last Name
-<i className={this.state.sortedByLastName ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.props.sortedByLastName ? "fas fa-angle-double-down" : ''}></i>
 
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 Sport
-<i className={this.state.sortedBySportName ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.props.sortedBySport ? "fas fa-angle-double-down" : ''}></i>
 
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 Team
-<i className={this.state.sortedByTeamName ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.props.sortedByTeamName ? "fas fa-angle-double-down" : ''}></i>
 
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 Position
-<i className={this.state.sortedByPosition ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.props.sortedByPosition ? "fas fa-angle-double-down" : ''}></i>
 
 </div>
 
@@ -251,23 +187,23 @@ Position
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.state.isEditable? '' : 'disabled'} onClick={this.sortByFirstName} > Sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.props.sortByFirstName} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.sortByLastName} > Sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.props.sortByLastName} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.sortBySportName} > Sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.props.sortBySport} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.sortByTeamName} > Sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.props.sortByTeamName} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.sortByPosition} > Sort</button>
+<button className='btn btn-sm btn-dark' disabled={this.props.isEditable? '' : 'disabled'} onClick={this.props.sortByPosition} > Sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">

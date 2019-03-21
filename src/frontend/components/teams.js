@@ -48,22 +48,22 @@ const Teams=(props)=>{
 
 <div className="col-2 list-group-item-dark team-heading column-heading">
 Name
-<i className={props.sortedByTeamTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={props.sortedByTeamTitle ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark team-heading column-heading">
 City
-<i className={props.sortedByCityTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={props.sortedByCityTitle ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark team-heading column-heading">
 State
-<i className={props.sortedByStateTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={props.sortedByStateTitle ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark team-heading column-heading">
 Sport
-<i className={props.sortedBySportTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={props.sortedBySportTitle ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark column-info">

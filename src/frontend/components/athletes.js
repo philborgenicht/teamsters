@@ -50,27 +50,27 @@ class Athletes extends Component{
 
                         <div className="col-2 list-group-item-dark athlete-heading column-heading">
                         First Name
-                        <i className={this.props.sortedByFirstName ? "fa fa-spinner fa-pulse" : ''}></i>
+                        <i className={this.props.sortedByFirstName ? "fas fa-angle-double-down" : ''}></i>
                         </div>
 
                         <div className="col-2 list-group-item-dark athlete-heading column-heading">
                         Last Name
-                        <i className={this.props.sortedByLastName ? "fa fa-spinner fa-pulse" : ''}></i>
+                        <i className={this.props.sortedByLastName ? "fas fa-angle-double-down" : ''}></i>
                         </div>
 
                         <div className="col-2 list-group-item-dark athlete-heading column-heading">
                         Sport
-                        <i className={this.props.sortedBySport ? "fa fa-spinner fa-pulse" : ''}></i>
+                        <i className={this.props.sortedBySport ? "fas fa-angle-double-down" : ''}></i>
                         </div>
 
                         <div className="col-2 list-group-item-dark athlete-heading column-heading">
                         Team
-                        <i className={this.props.sortedByTeamName ? "fa fa-spinner fa-pulse" : ''}></i>
+                        <i className={this.props.sortedByTeamName ? "fas fa-angle-double-down" : ''}></i>
                         </div>
 
                         <div className="col-2 list-group-item-dark athlete-heading column-heading">
                         Position
-                        <i className={this.props.sortedByPosition ? "fa fa-spinner fa-pulse" : ''}></i>
+                        <i className={this.props.sortedByPosition ? "fas fa-angle-double-down" : ''}></i>
                         </div>
 
                         <div className="col-2 list-group-item-dark column-heading">
@@ -119,7 +119,7 @@ class Athletes extends Component{
                           <div className="col-2 list-group-item athleteinfo column-info">{athlete.sport}</div>
                           <div className="col-2 list-group-item athleteinfo column-info">{athlete.teamName}</div>
                           <div className="col-2 list-group-item athleteinfo column-info">{athlete.position}</div>
-                          <div  className="col-2 list-group-item athleteinfo column-info"><button className="btn btn-info" id={athlete.id}className="btn btn-sm btn-success" onClick={this.props.draft}> Add to My Team </button></div>
+                          <div  className="col-2 list-group-item athleteinfo column-info"><button className="btn btn-info" id={athlete.id}className="btn btn-sm btn-dark" onClick={this.props.draft}> Add to My Team </button></div>
 
                           </div>
                                             )}

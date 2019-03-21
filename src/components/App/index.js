@@ -61,6 +61,15 @@ class App extends Component{
     sortedByStateTitle:false,
     sortedByTeamTitle:false,
     userEmail:'',
+    myPlayersSortedBySport:false,
+    myPlayersSortedByLastName:false,
+    myPlayersSortedByPosition:false,
+    myPlayersSortedByFirstName:false,
+    myPlayersSortedByTeamName:false,
+    myTeamsSortedByCityTitle:false,
+    myTeamsSortedByStateTitle:false,
+    myTeamsSortedByTeamTitle:false,
+    myTeamsSortedBySportTitle:false,
 
 
     currentUserAthletes:[        {id: 89, name:'Aaron Judge', sport:'Baseball', sportId:2, teamId:25, teamName:'New York Yankees', position:'Right Field', onTeam:false},
@@ -99,7 +108,59 @@ class App extends Component{
 
     this.setState({athletes:athletes, sports:sports, teams:teams, customers:customers, customers_athletes:customers_athletes, customers_sports:customers_sports, customers_teams:customers_teams})
   }
+  sortMyTeamsByTeamTitle=()=>{
+    let currentTeams=this.state.currentUserTeams
+    let newState=currentTeams.sort((team1, team2)=>{
+      if((team1.name)<(team2.name)){
+        return -1
+      }
+      else if((team1.name)>(team2.name)){
+        return 1
+      }
+    })
+    this.setState({currentUserTeams:newState, myTeamsSortedByTeamTitle:true, myTeamsSortedByCityTitle:false, myTeamsSortedByStateTitle:false, myTeamsSortedBySportTitle:false})
+  }
+  sortMyTeamsByCityTitle=()=>{
+    let currentTeams=this.state.currentUserTeams
+    let newState=currentTeams.sort((team1, team2)=>{
+      if((team1.city)<(team2.city)){
+        return -1
+      }
+      else if((team1.city)>(team2.city)){
+        return 1
+      }
+    })
+    this.setState({currentUserTeams:newState, myTeamsSortedByTeamTitle:false, myTeamsSortedByCityTitle:true, myTeamsSortedByStateTitle:false, myTeamsSortedBySportTitle:false})
+  }
 
+  sortMyTeamsByStateTitle=()=>{
+    let currentTeams=this.state.currentUserTeams
+    let newState=currentTeams.sort((team1, team2)=>{
+      if((team1.state)<(team2.state)){
+        return -1
+      }
+      else if((team1.state)>(team2.state)){
+        return 1
+      }
+    })
+    this.setState({currentUserTeams:newState, myTeamsSortedByTeamTitle:false, myTeamsSortedByCityTitle:false, myTeamsSortedByStateTitle:true, myTeamsSortedBySportTitle:false})
+  }
+
+  sortMyTeamsBySportTitle=()=>{
+    let currentTeams=this.state.currentUserTeams
+    let newState=currentTeams.sort((team1, team2)=>{
+      if((team1.sportName)<(team2.sportName)){
+        return -1
+      }
+      else if((team1.sportName)>(team2.sportName)){
+        return 1
+      }
+    })
+    this.setState({currentUserTeams:newState, myTeamsSortedByTeamTitle:false, myTeamsSortedByCityTitle:false, myTeamsSortedByStateTitle:false, myTeamsSortedBySportTitle:true})
+  }
+
+
+  ///
   sortByTeamTitle=()=>{
     let currentTeams=this.state.teams
     let newState=currentTeams.sort((team1, team2)=>{
@@ -459,6 +520,8 @@ let newData= await newArray.json()
 let newTeamIds=newData.filter(entry=>entry.customerId===customerId).map(entry=>entry.teamId)
 let newTeams=this.state.teams.filter(entry=>newTeamIds.includes(entry.id))
 this.setState({currentUserTeams:newTeams})
+document.getElementById(desiredTeamId).style.visibility='hidden'
+
 }
 
 recruitSport=async (e)=>{
@@ -574,7 +637,71 @@ deleteTeam=async (e)=>{
   let newTeams=this.state.teams.filter(entry=>newTeamsIdsArray.includes(entry.id))
   this.setState({currentUserTeams:newTeams})
 }
+sortMyPlayersByFirstName=()=>{
+  let currentAthletes=this.state.currentUserAthletes
+  let newState=currentAthletes.sort((ath1, ath2)=>{
+    if((ath1.name.split(' ')[0])<(ath2.name.split(' ')[0])){
+      return -1
+    }
+    else if((ath1.name.split(' ')[0])>(ath2.name.split(' ')[0])){
+      return 1
+    }
+  })
+  this.setState({currentUserAthletes:newState, myPlayersSortedByFirstName:true, myPlayersSortedByLastName:false, myPlayersSortedByTeamName:false, myPlayersSortedByPosition:false, myPlayersSortedBySport:false})
+}
 
+
+sortMyPlayersByPosition=()=>{
+  let currentAthletes=this.state.currentUserAthletes
+  let newState=currentAthletes.sort((ath1, ath2)=>{
+    if((ath1.position)<(ath2.position)){
+      return -1
+    }
+    else if((ath1.position)>(ath2.position)){
+      return 1
+    }
+  })
+  this.setState({currentUserAthletes:newState, myPlayersSortedByFirstName:false, myPlayersSortedByLastName:false, myPlayersSortedByTeamName:false, myPlayersSortedByPosition:true, myPlayersSortedBySport:false})
+}
+
+sortMyPlayersByLastName=()=>{
+  let currentAthletes=this.state.currentUserAthletes
+  let newState=currentAthletes.sort((ath1, ath2)=>{
+    if((ath1.name.split(' ')[1])<(ath2.name.split(' ')[1])){
+      return -1
+    }
+    else if((ath1.name.split(' ')[1])>(ath2.name.split(' ')[1])){
+      return 1
+    }
+  })
+  this.setState({currentUserAthletes:newState, myPlayersSortedByFirstName:false, myPlayersSortedByLastName:true, myPlayersSortedByTeamName:false, myPlayersSortedByPosition:false, myPlayersSortedBySport:false})
+}
+
+sortMyPlayersByTeamName=()=>{
+  let currentAthletes=this.state.currentUserAthletes
+  let newState=currentAthletes.sort((ath1, ath2)=>{
+    if((ath1.teamName)<(ath2.teamName)){
+      return -1
+    }
+    else if((ath1.teamName)>(ath2.teamName)){
+      return 1
+    }
+  })
+  this.setState({currentUserAthletes:newState, myPlayersSortedByFirstName:false, myPlayersSortedByLastName:false, myPlayersSortedByTeamName:true, myPlayersSortedByPosition:false, myPlayersSortedBySport:false})
+}
+
+sortMyPlayersBySport=()=>{
+  let currentAthletes=this.state.currentUserAthletes
+  let newState=currentAthletes.sort((ath1, ath2)=>{
+    if((ath1.sport)<(ath2.sport)){
+      return -1
+    }
+    else if((ath1.sport)>(ath2.sport)){
+      return 1
+    }
+  })
+  this.setState({currentUserAthletes:newState, myPlayersSortedByFirstName:false, myPlayersSortedByLastName:false, myPlayersSortedByTeamName:false, myPlayersSortedByPosition:false, myPlayersSortedBySport:true})
+}
 
   render(){
     return(
@@ -596,6 +723,16 @@ deleteTeam=async (e)=>{
 <Route exact path={ROUTES.MANAGERBOX} render={()=><ManagerBox/>}/>
 
 <Route exact path={ROUTES.PLAYERS} render={()=><Players
+  sortByTeamName={this.sortMyPlayersByTeamName}
+  sortByFirstName={this.sortMyPlayersByFirstName}
+  sortByLastName={this.sortMyPlayersByLastName}
+  sortByPosition={this.sortMyPlayersByPosition}
+  sortBySport={this.sortMyPlayersBySport}
+  sortedBySport={this.state.myPlayersSortedBySport}
+  sortedByFirstName={this.state.myPlayersSortedByFirstName}
+  sortedByLastName={this.state.myPlayersSortedByLastName}
+  sortedByTeamName={this.state.myPlayersSortedByTeamName}
+  sortedByPosition={this.state.myPlayersSortedByPosition}
   deletePlayer={this.deletePlayer}
   viewMyAthletes={this.viewMyAthletes}
   isEditable={this.state.isEditable}
@@ -614,6 +751,14 @@ deleteTeam=async (e)=>{
   trade={this.trade} />}/>
 
 <Route exact path={ROUTES.CLUBS} render={()=><Clubs
+  sortBySportTitle={this.sortMyTeamsBySportTitle}
+  sortByCityTitle={this.sortMyTeamsByCityTitle}
+  sortByStateTitle={this.sortMyTeamsByStateTitle}
+  sortByTeamTitle={this.sortMyTeamsByTeamTitle}
+  sortedByCityTitle={this.state.myTeamsSortedByCityTitle}
+  sortedByStateTitle={this.state.myTeamsSortedByStateTitle}
+  sortedByTeamTitle={this.state.myTeamsSortedByTeamTitle}
+  sortedBySportTitle={this.state.myTeamsSortedBySportTitle}
   deleteTeam={this.deleteTeam}
   viewMyTeams={this.viewMyTeams}
   isEditable={this.state.isEditable}

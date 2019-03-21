@@ -205,25 +205,25 @@ releaseTeam=async (e)=>{
 
 <div className="col-2 list-group-item-dark column-heading">
 Team
-<i className={this.state.sortedByTeamTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedByTeamTitle ? "fas fa-angle-double-down" : ''}></i>
 
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 City
-<i className={this.state.sortedByCityTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedByCityTitle ? "fas fa-angle-double-down" : ''}></i>
 
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 State
-<i className={this.state.sortedByStateTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedByStateTitle ? "fas fa-angle-double-down" : ''}></i>
 
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 Sport
-<i className={this.state.sortedBySportTitle ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedBySportTitle ? "fas fa-angle-double-down" : ''}></i>
 
 </div>
 
@@ -235,19 +235,19 @@ Sport
 <div className="row justify-content-center">
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByTeamTitle}>sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.props.sortByTeamTitle}>sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByCityTitle}>sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.props.sortByCityTitle}>sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortByStateTitle}>sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.props.sortByStateTitle}>sort</button>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
-<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.sortBySportTitle}>sort</button>
+<button disabled={this.props.isEditable? '' : 'disabled'} className='btn btn-sm btn-dark' onClick={this.props.sortBySportTitle}>sort</button>
 </div>
 
 
@@ -263,7 +263,7 @@ Sport
   team.state.toLowerCase().includes(this.props.filterString.toLowerCase())||
   team.sportName.toLowerCase().includes(this.props.filterString.toLowerCase())).
   map(team=>
-<div className={team.sportName==="Basketball"? "row basketballteam": team.sportName==="Football"? "row footballteam": team.sportName==="Baseball"? "row baseballteam": team.sportName==="Hockey"? "row hockeyteam" :''}>
+<div className={team.sportName==="Basketball"? "row basketballteam justify-content-center": team.sportName==="Football"? "row footballteam justify-content-center": team.sportName==="Baseball"? "row baseballteam justify-content-center": team.sportName==="Hockey"? "row hockeyteam justify-content-center" :''}>
 
 
 <div className='col-2 list-group-item column-info'>

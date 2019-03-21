@@ -220,27 +220,27 @@ sortBySport=()=>{
 
 <div className="col-2 list-group-item-dark column-heading">
 <div>First Name</div>
-<i className={this.state.sortedByFirstName ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedByFirstName ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 <div>Last Name</div>
-<i className={this.state.sortedByLastName ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedByLastName ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 <div>Sport</div>
-<i className={this.state.sortedBySport ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedBySport ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 <div>Team</div>
-<i className={this.state.sortedByTeamName ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedByTeamName ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
 <div>Position</div>
-<i className={this.state.sortedByPosition ? "fa fa-spinner fa-pulse" : ''}></i>
+<i className={this.state.sortedByPosition ? "fas fa-angle-double-down" : ''}></i>
 </div>
 
 <div className="col-2 list-group-item-dark column-heading">
