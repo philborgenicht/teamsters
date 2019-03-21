@@ -97,31 +97,30 @@ class Roster extends Component{
                                                             athlete.sport.toLowerCase().includes(this.props.filterString.toLowerCase())||
                                                             athlete.teamName.toLowerCase().includes(this.props.filterString.toLowerCase())||
                                                             athlete.position.toLowerCase().includes(this.props.filterString.toLowerCase())
-                                                            ).map(player=>
-  <div className="row justify-content-center">
-
+                                                          ).map(athlete=>
+<div className={athlete.sport==="Basketball"? "row basketballplayer": athlete.sport==="Football"? "row footballplayer": athlete.sport==="Baseball"? "row baseballplayer": athlete.sport==="Hockey"? "row hockeyplayer" :''}>
   <div className="col-2 list-group-item column-info">
-  <div>{player.name.split(' ')[0]}</div>
+  <div>{athlete.name.split(' ')[0]}</div>
   </div>
 
   <div className="col-2 list-group-item column-info">
-  <div>{player.name.split(' ')[1]}</div>
+  <div>{athlete.name.split(' ')[1]}</div>
   </div>
 
   <div className="col-2 list-group-item column-info">
-  <div>{player.teamName}</div>
+  <div>{athlete.teamName}</div>
   </div>
 
   <div className="col-2 list-group-item column-info">
-  <div>{player.sport}</div>
+  <div>{athlete.sport}</div>
   </div>
 
   <div className="col-2 list-group-item column-info">
-  <div>{player.position}</div>
+  <div>{athlete.position}</div>
   </div>
 
   <div className="col-2 list-group-item column-info">
-  <div><button className="btn btn-dark" onClick={this.props.trade} id={player.id}>Remove Player</button></div>
+  <div><button className="btn btn-dark" onClick={this.props.trade} id={athlete.id}>Remove Player</button></div>
   </div>
 
 

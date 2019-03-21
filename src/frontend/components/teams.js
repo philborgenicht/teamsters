@@ -103,8 +103,7 @@ Sport
 
                         ).map(team=>(
 
-<div className="row justify-content-center">
-
+<div className={team.sportName==="Basketball"? "row basketballteam justify-content-center": team.sportName==="Football"? "row footballteam justify-content-center": team.sportName==="Baseball"? "row baseballteam justify-content-center": team.sportName==="Hockey"? "row hockeyteam justify-content-center" :''}>
 <div className="col-2 list-group-item column-info">
 {team.name}
 </div>

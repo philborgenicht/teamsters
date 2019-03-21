@@ -62,6 +62,7 @@ class App extends Component{
     sortedByTeamTitle:false,
     userEmail:'',
 
+
     currentUserAthletes:[        {id: 89, name:'Aaron Judge', sport:'Baseball', sportId:2, teamId:25, teamName:'New York Yankees', position:'Right Field', onTeam:false},
 ],
 
@@ -288,6 +289,7 @@ document.getElementById('phone').value=''
     let currentAthletes=[...this.state.athletes]
     let drafted=currentAthletes.filter(athlete=>athlete.id===playerid)
     drafted[0].onTeam=true
+    document.getElementById(e.target.id).style.visibility='hidden'
   }
 
   acquireSport=(e)=>{
@@ -295,6 +297,7 @@ document.getElementById('phone').value=''
     let currentSports=[...this.state.sports]
     let acquired=currentSports.filter(sport=>sport.id===sportId)
     acquired[0].onList=true
+    document.getElementById(e.target.id).style.visibility='hidden'
 
   }
 
@@ -303,6 +306,7 @@ document.getElementById('phone').value=''
     let teamId=Number.parseInt(e.target.id)
     let chosenTeam=currentTeams.filter(team=>team.id===teamId)[0]
     chosenTeam.onList=true
+    document.getElementById(e.target.id).style.visibility='hidden'
   }
   trade=(e)=>{
     let playerid=Number.parseInt(e.target.id)
@@ -429,6 +433,7 @@ let newData= await newArray.json()
 let newAthleteIds=newData.filter(entry=>entry.customerId===customerId).map(entry=>entry.athleteId)
 let newAthletes=this.state.athletes.filter(entry=>newAthleteIds.includes(entry.id))
 this.setState({currentUserAthletes:newAthletes})
+document.getElementById(playerId).style.visibility='hidden'
 }
 
 recruitTeam=async (e)=>{
@@ -452,8 +457,6 @@ recruitTeam=async (e)=>{
 let newArray= await fetch('https://galvanize-borgenicht.herokuapp.com/customers_teams/')
 let newData= await newArray.json()
 let newTeamIds=newData.filter(entry=>entry.customerId===customerId).map(entry=>entry.teamId)
-//
-//
 let newTeams=this.state.teams.filter(entry=>newTeamIds.includes(entry.id))
 this.setState({currentUserTeams:newTeams})
 }
@@ -483,7 +486,18 @@ let newData= await newArray.json()
 let newSportIds=newData.filter(entry=>entry.customerId===customerId).map(entry=>entry.sportId)
 let newSports=this.state.sports.filter(entry=>newSportIds.includes(entry.id))
 this.setState({currentUserSports:newSports})
+console.log(document.getElementById(desiredSportId))
 }
+
+
+
+
+
+
+
+
+
+
 deleteSport=async (e)=>{
   let sportId=e.target.id
   console.log(sportId)

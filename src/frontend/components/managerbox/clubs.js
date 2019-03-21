@@ -263,8 +263,7 @@ Sport
   team.state.toLowerCase().includes(this.props.filterString.toLowerCase())||
   team.sportName.toLowerCase().includes(this.props.filterString.toLowerCase())).
   map(team=>
-<div className='row justify-content-center'>
-
+<div className={team.sportName==="Basketball"? "row basketballteam": team.sportName==="Football"? "row footballteam": team.sportName==="Baseball"? "row baseballteam": team.sportName==="Hockey"? "row hockeyteam" :''}>
 
 
 <div className='col-2 list-group-item column-info'>

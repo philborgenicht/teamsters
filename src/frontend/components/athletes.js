@@ -114,13 +114,13 @@ class Athletes extends Component{
                                     athlete.teamName.toLowerCase().includes(this.props.filterString.toLowerCase())||
                                     athlete.position.toLowerCase().includes(this.props.filterString.toLowerCase())
                         ).map(athlete=>
-                          <div className="row justify-content-center">
-                          <div className="col-2 list-group-item athleteinfo column-info">{athlete.name.split(' ')[0]}</div>
+<div className={athlete.sport==="Basketball"? "row basketballplayer": athlete.sport==="Football"? "row footballplayer": athlete.sport==="Baseball"? "row baseballplayer": athlete.sport==="Hockey"? "row hockeyplayer" :''}>                          <div className="col-2 list-group-item athleteinfo column-info">{athlete.name.split(' ')[0]}</div>
                           <div className="col-2 list-group-item athleteinfo column-info">{athlete.name.split(' ')[1]}</div>
                           <div className="col-2 list-group-item athleteinfo column-info">{athlete.sport}</div>
                           <div className="col-2 list-group-item athleteinfo column-info">{athlete.teamName}</div>
                           <div className="col-2 list-group-item athleteinfo column-info">{athlete.position}</div>
                           <div  className="col-2 list-group-item athleteinfo column-info"><button className="btn btn-info" id={athlete.id}className="btn btn-sm btn-success" onClick={this.props.draft}> Add to My Team </button></div>
+
                           </div>
                                             )}
 

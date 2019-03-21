@@ -79,17 +79,43 @@ footer {
   border-style: solid;
 }
 .basketballplayer{
-  background-color: #2A324B
+  color: blue
 }
 .baseballplayer{
-  background-color: #767B91
+  color:red
 }
 .footballplayer{
-  background-color: #C7CCDB
+  color:red
 }
 .hockeyplayer{
-  background-color: #E1E5EE
+  color:red
 }
+
+.basketballteam{
+  color:red
+}
+
+.footballteam{
+  color:red
+}
+
+.baseballteam{
+  color:red
+}
+
+.hockeyteam{
+  color:red
+}
+
+.selected{
+background-color: red
+}
+
+.drafted{
+
+}
+
+
 hr{
   background-color: green
 }

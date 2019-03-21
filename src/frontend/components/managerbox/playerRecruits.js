@@ -286,7 +286,7 @@ sortBySport=()=>{
   athlete.teamName.toLowerCase().includes(this.props.filterString.toLowerCase())||
   athlete.position.toLowerCase().includes(this.props.filterString.toLowerCase()))
   .map(athlete=>
-<div className="row">
+<div  className={athlete.sport==="Basketball"? "row basketballplayer justify-content-center": athlete.sport==="Football"? "row footballplayer justify-content-center": athlete.sport==="Baseball"? "row baseballplayer justify-content-center": athlete.sport==="Hockey"? "row hockeyplayer justify-content-center" :''}>
 
 
 <div className="col-2 list-group-item column-info">
