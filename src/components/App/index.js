@@ -72,13 +72,31 @@ class App extends Component{
     myTeamsSortedBySportTitle:false,
 
 
-    currentUserAthletes:[        {id: 89, name:'Aaron Judge', sport:'Baseball', sportId:2, teamId:25, teamName:'New York Yankees', position:'Right Field', onTeam:false},
-],
+    currentUserTeams:[{
+    id: 23,
+    name: "Portland Trailblazers",
+    city: "Portland",
+    state: "Oregon",
+    sportName: "Basketball",
+    sportId: 1,
+    onList: false
+  }],
 
-    currentUserTeams:[{id: 1, name: 'Los Angeles Lakers', city:'Los Angeles', state:'California', sportName:'Basketball', sportId:1, onList:false}],
-
-    currentUserSports:[        {id: 1, name: 'Basketball', onList:false},
-],
+    currentUserAthletes:[  {
+    id: 21,
+    name: "Donovan Mitchell",
+    sport: "Basketball",
+    sportId: 1,
+    teamName: "Utah Jazz",
+    teamId: 19,
+    position: "Guard",
+    onTeam: false
+  }],
+    currentUserSports:[  {
+    id: 1,
+    name: "Basketball",
+    onList: false
+  }],
     isEditable:false
   }
   componentDidMount = async() => {
@@ -471,12 +489,17 @@ this.setState({currentUserTeams:newTeams})
 }
 
 recruit=async (e)=>{
+  let useremail=this.state.userEmail
   let playerId=e.target.id
   let desiredAthlete=this.state.athletes.filter(athlete=>athlete.id==playerId)[0]
   let athleteId=desiredAthlete.id
-  let customer=this.state.customers.filter(user=>user.email===this.state.userEmail)[0]
+  let customer=this.state.customers.filter(user=>user.email===useremail)[0]
   let customerId=customer.id
-  //posting new athlete to an individual user's dashboard
+  console.log(desiredAthlete)
+  console.log(customer)
+  console.log(typeof(athleteId))
+  console.log(typeof(customerId))
+//   //posting new athlete to an individual user's dashboard
   await fetch('https://galvanize-borgenicht.herokuapp.com/customers_athletes/',{
     method: 'POST',
     body: JSON.stringify({
@@ -491,23 +514,32 @@ recruit=async (e)=>{
   })
 let newArray= await fetch('https://galvanize-borgenicht.herokuapp.com/customers_athletes/')
 let newData= await newArray.json()
-let newAthleteIds=newData.filter(entry=>entry.customerId===customerId).map(entry=>entry.athleteId)
+console.log(newData)
+let newAthleteIds=newData.filter(entry=>entry.customerId==customerId).map(entry=>entry.athleteId)
 let newAthletes=this.state.athletes.filter(entry=>newAthleteIds.includes(entry.id))
 this.setState({currentUserAthletes:newAthletes})
 document.getElementById(playerId).style.visibility='hidden'
 }
 
 recruitTeam=async (e)=>{
-  let desiredTeamId=e.target.id
-  let desiredTeam=this.state.teams.filter(team=>team.id==desiredTeamId)[0]
-  let teamId=desiredTeam.id
-  let customer=this.state.customers.filter(user=>user.email===this.state.userEmail)[0]
-  let customerId=customer.id
-  //posting new team to an individual user's dashboard
+  let useremail=this.state.userEmail
+  let clickedId=e.target.id
+  console.log(clickedId)
+  let team=this.state.teams.filter(team=>team.id==clickedId)[0]
+  console.log('taem',team)
+  let teamId=team.id
+  console.log(useremail)
+  let customer=this.state.customers.filter(user=>user.email===useremail)[0]
+  console.log(customer)
+  let customerid=customer.id
+  console.log(typeof(customerid))
+  console.log(typeof(teamId))
+
+
   await fetch('https://galvanize-borgenicht.herokuapp.com/customers_teams/',{
     method: 'POST',
     body: JSON.stringify({
-      customerId:customerId,
+      customerId:customerid,
       teamId:teamId
     }),
     headers:{
@@ -517,19 +549,23 @@ recruitTeam=async (e)=>{
   })
 let newArray= await fetch('https://galvanize-borgenicht.herokuapp.com/customers_teams/')
 let newData= await newArray.json()
-let newTeamIds=newData.filter(entry=>entry.customerId===customerId).map(entry=>entry.teamId)
+console.log('newdata', newData)
+let newTeamIds=newData.filter(entry=>entry.customerId==customerid).map(entry=>entry.teamId)
+console.log(newTeamIds)
 let newTeams=this.state.teams.filter(entry=>newTeamIds.includes(entry.id))
+console.log(newTeams)
 this.setState({currentUserTeams:newTeams})
-document.getElementById(desiredTeamId).style.visibility='hidden'
+document.getElementById(teamId).style.visibility='hidden'
 
 }
 
 recruitSport=async (e)=>{
+  let useremail=this.state.userEmail
   let desiredSportId=e.target.id
   let desiredSport=this.state.sports.filter(sport=>sport.id==desiredSportId)[0]
 
   let sportId=desiredSport.id
-  let customer=this.state.customers.filter(user=>user.email===this.state.userEmail)[0]
+  let customer=this.state.customers.filter(user=>user.email===useremail)[0]
   console.log(customer)
   let customerId=customer.id
   await fetch('https://galvanize-borgenicht.herokuapp.com/customers_sports/',{
@@ -546,10 +582,10 @@ recruitSport=async (e)=>{
 let newArray= await fetch('https://galvanize-borgenicht.herokuapp.com/customers_sports/')
 let newData= await newArray.json()
 
-let newSportIds=newData.filter(entry=>entry.customerId===customerId).map(entry=>entry.sportId)
+let newSportIds=newData.filter(entry=>entry.customerId==customerId).map(entry=>entry.sportId)
 let newSports=this.state.sports.filter(entry=>newSportIds.includes(entry.id))
 this.setState({currentUserSports:newSports})
-console.log(document.getElementById(desiredSportId))
+document.getElementById(sportId).style.visibility="hidden"
 }
 
 
@@ -593,48 +629,62 @@ deletePlayer=async (e)=>{
   let customerEmail=this.state.userEmail
   let customer=this.state.customers.filter(customer=>customer.email===customerEmail)[0]
   let customerId=customer.id
-
+  console.log(player)
+  console.log(playerToRelease)
+  console.log(customer)
   let entryToDelete=this.state.customers_athletes.filter(entry=>entry.customerId==customer.id && entry.athleteId==playerToReleaseId)[0]
   let idToDelete=entryToDelete.id
-  // console.log(entryToDelete, idToDelete)
+  console.log(entryToDelete, idToDelete)
   await fetch(`https://galvanize-borgenicht.herokuapp.com/customers_athletes/${idToDelete}`,{
     method: 'DELETE',
   })
   let newArray= await fetch('https://galvanize-borgenicht.herokuapp.com/customers_athletes/')
   let newData= await newArray.json()
   console.log(newData)
-  let currentCustomersAthletes=newData
-  console.log(currentCustomersAthletes)
-  let newEntries=currentCustomersAthletes.filter(entry=>entry.customerId==customerId)
-  let athleteIds=newEntries.map(entry=>entry.athleteId)
-  let newAthletes=this.state.athletes.filter(entry=>athleteIds.includes(entry.id))
-  this.setState({currentUserAthletes:newAthletes})
+  // let currentCustomersAthletes=newData
+  // console.log(currentCustomersAthletes)
+  // let newEntries=currentCustomersAthletes.filter(entry=>entry.customerId==customerId)
+  // let athleteIds=newEntries.map(entry=>entry.athleteId)
+  // let newAthletes=this.state.athletes.filter(entry=>athleteIds.includes(entry.id))
+  // this.setState({currentUserAthletes:newAthletes})
+
+  let newPlayerList=newData.filter(entry=>entry.customerId==customerId)
+  let newPlayerIdArray=newPlayerList.map(entry=>entry.athleteId)
+  let newPlayers=this.state.athletes.filter(entry=>newPlayerIdArray.includes(entry.id))
+  this.setState({currentUserAthletes:newPlayers})
 
 }
 
 
 
 deleteTeam=async (e)=>{
+  let useremail=this.state.userEmail
   let teamId=e.target.id
   let teamToRelease=this.state.teams.filter(team=>team.id==teamId)[0]
   let teamToReleaseId=teamToRelease.id
+  console.log(useremail)
+  console.log(teamId)
+  console.log(teamToRelease)
+  console.log(teamToReleaseId)
 
-  let customeremail=this.state.userEmail
-  let customer=this.state.customers.filter(customer=>customer.email===customeremail)[0]
+  // let customeremail=this.state.userEmail
+  let customer=this.state.customers.filter(customer=>customer.email===useremail)[0]
   let customerId=customer.id
-
-
+  //
+  //
   let entryToDelete=this.state.customers_teams.filter(entry=>entry.customerId==customerId && entry.teamId==teamToReleaseId)[0]
   let idToDelete=entryToDelete.id
+  console.log(entryToDelete)
   await fetch(`https://galvanize-borgenicht.herokuapp.com/customers_teams/${idToDelete}`,{
     method: 'DELETE',
   })
   let newArray= await fetch('https://galvanize-borgenicht.herokuapp.com/customers_teams/')
   let newData= await newArray.json()
-
+  console.log(newData)
   let newTeamsList=newData.filter(entry=>entry.customerId==customerId)
   let newTeamsIdsArray=newTeamsList.map(entry=>entry.teamId)
   let newTeams=this.state.teams.filter(entry=>newTeamsIdsArray.includes(entry.id))
+  console.log(newTeams)
   this.setState({currentUserTeams:newTeams})
 }
 sortMyPlayersByFirstName=()=>{
@@ -649,7 +699,6 @@ sortMyPlayersByFirstName=()=>{
   })
   this.setState({currentUserAthletes:newState, myPlayersSortedByFirstName:true, myPlayersSortedByLastName:false, myPlayersSortedByTeamName:false, myPlayersSortedByPosition:false, myPlayersSortedBySport:false})
 }
-
 
 sortMyPlayersByPosition=()=>{
   let currentAthletes=this.state.currentUserAthletes
@@ -711,12 +760,6 @@ sortMyPlayersBySport=()=>{
 
       <hr />
 
-
-
-
-
-
-
 <Route exact path={ROUTES.PRACTICE} render={()=><Practice/>}/>
 
 
@@ -764,7 +807,7 @@ sortMyPlayersBySport=()=>{
   isEditable={this.state.isEditable}
   setUserEmail={this.setUserEmail}
   currentUserTeams={this.state.currentUserTeams}
-userEmail={this.state.userEmail}
+  userEmail={this.state.userEmail}
   athletes={this.state.athletes}
   customers={this.state.customers}
   teams={this.state.teams}
@@ -807,10 +850,10 @@ userEmail={this.state.userEmail}
 <Route exact path={ROUTES.SIGN_IN} render={()=><SignInPage />}/>
 
 <Route exact path={ROUTES.SPORT_RECRUITS} render={()=><SportRecruits
-  isEditable={this.state.isEditable}
-  setUserEmail={this.setUserEmail}
-  userEmail={this.state.userEmail}
-  recruitSport={this.recruitSport}
+                                                      isEditable={this.state.isEditable}
+                                                      setUserEmail={this.setUserEmail}
+                                                      userEmail={this.state.userEmail}
+                                                      recruitSport={this.recruitSport}
                                                       customers={this.state.customers}
                                                       sortBySportTitle={this.sortBySportTitle}
                                                       filterString={this.state.filterString}
@@ -829,10 +872,10 @@ userEmail={this.state.userEmail}
 
 
 <Route exact path={ROUTES.TEAM_RECRUITS} render={()=><TeamRecruits
-  isEditable={this.state.isEditable}
-  setUserEmail={this.setUserEmail}
-  userEmail={this.state.userEmail}
-  recruitTeam={this.recruitTeam}
+                                                      isEditable={this.state.isEditable}
+                                                      setUserEmail={this.setUserEmail}
+                                                      userEmail={this.state.userEmail}
+                                                      recruitTeam={this.recruitTeam}
                                                       sortByTeamTitle={this.sortByTeamTitle}
                                                       sortByCityTitle={this.sortByCityTitle}
                                                       sortByStateTitle={this.sortByStateTitle}
@@ -854,9 +897,9 @@ userEmail={this.state.userEmail}
                                                         />}/>
 
 <Route exact path={ROUTES.PLAYER_RECRUITS} render={()=><PlayerRecruits
-  isEditable={this.state.isEditable}
-  setUserEmail={this.setUserEmail}
-  userEmail={this.state.userEmail}
+                                                        isEditable={this.state.isEditable}
+                                                        setUserEmail={this.setUserEmail}
+                                                        userEmail={this.state.userEmail}
                                                         recruit={this.recruit}
                                                         filterString={this.state.filterString}
                                                         sortByFirstName={this.sortByFirstName}
@@ -900,6 +943,7 @@ userEmail={this.state.userEmail}
 <Route exact path={ROUTES.HOCKEY} render={()=><Hockey/>}/>
 
       <Route exact path={ROUTES.HOME} component={HomePage} />
+
       <Route exact path={ROUTES.ROSTER} render={()=><Roster
                                                       search={this.search}
                                                       filterString={this.state.filterString}
@@ -963,9 +1007,6 @@ userEmail={this.state.userEmail}
                                                         sports={this.state.sports}
                                                         teams={this.state.teams}
                                                         customers={this.state.customers}
-
-
-
                                                 />}/>
 
       <Route exact path={ROUTES.ACCOUNT} render={()=>
@@ -982,12 +1023,8 @@ userEmail={this.state.userEmail}
                                                   teams={this.state.teams}
                                                   submitForm={this.submitForm}
                                                   postUser={this.postUser}
-
-
                                                   />} />
     <Route exact path={ROUTES.ADMIN} render={()=><AdminPage
-
-
                                                   sports={this.state.sports}
                                                   />}
                                                   />

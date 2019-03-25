@@ -6,96 +6,9 @@ import { AuthUserContext } from '../../../components/Session';
 import { withAuthorization } from '../../../components/Session';
 
 class Players extends Component{
-state={
-  rosters:[],
-  customers:[],
-  athletes:[],
-  currentUser:[],
-  userEmail:'',
-  teams:[],
-  customers_athletes:[],
-  customers_teams:[],
-  currentUserAthletes:[],
-  isEditable:false,
-  playersToDelete:[]
-}
-
-componentDidMount = async() => {
-  const response = await fetch('https://galvanize-borgenicht.herokuapp.com/athletes')
-  const athletes = await response.json()
-
-  const response2 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers_athletes')
-  const customers_athletes= response2.json()
-
-  const response3 = await fetch('https://galvanize-borgenicht.herokuapp.com/teams')
-  const teams= response3.json()
-
-  const response4 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers')
-  const customers = await response4.json()
-
-  const response5 = await fetch('https://galvanize-borgenicht.herokuapp.com/customers_teams')
-  const customers_teams= response5.json()
 
 
-  this.setState({athletes:athletes, customers:customers, customers_athletes:customers_athletes})
-}
-
-setUserEmail=(e)=>{
-  let userEmail=e.target.id
-  this.setState({userEmail:userEmail})
-
-  let currentUser=this.state.customers.filter(customer=>customer.email===userEmail)[0]
-  this.setState({currentUser:currentUser})
-
-  let currentUserAthleteIds=this.props.customers_athletes.filter(entry=>entry.customerId==currentUser.id).map(entry=>entry.athleteId)
-  console.log('chicken', currentUserAthleteIds)
-
-  let currentUserAthletes=this.state.athletes.filter(athlete=>currentUserAthleteIds.includes(athlete.id))
-  console.log("currentuserathletes", currentUserAthletes)
-
-  this.setState({currentUserAthletes:currentUserAthletes})
-  this.setState({isEditable:true})
-}
-
-releaseAthlete=(e)=>{
-  console.log(e.target.id)
-}
-
-
-
-
-releaseAthlete=async (e)=>{
-  let athleteId=e.target.id
-  let undesiredAthlete=this.props.athletes.filter(athlete=>athlete.id==athleteId)[0]
-  let customer=this.state.customers.filter(customer=>customer.email===this.state.userEmail)[0]
-  let undesiredAthleteId=undesiredAthlete.id
-  let customerId=customer.id
-  let entryToDelete=this.props.customers_athletes.filter(entry=>entry.customerId==customerId && entry.athleteId===undesiredAthleteId)[0]
-  let idToDelete=entryToDelete.id
-  console.log(entryToDelete)
-  console.log(idToDelete, "idtodelete")
-
-  let currentState=this.state.playersToDelete
-  currentState.push(undesiredAthlete.name)
-  this.setState({playersToDelete:currentState})
-
-  //delete a team from a user's individual dashboard
-  await fetch(`https://galvanize-borgenicht.herokuapp.com/customers_athletes/${idToDelete}`,{
-    method: 'DELETE',
-
-  })
-
-  let currentUser=this.state.customers.filter(customer=>customer.id===customerId)[0]
-  this.setState({currentUser:currentUser})
-
-  let currentUserAthleteIds=this.props.customers_athletes.filter(entry=>entry.customerId==currentUser.id).map(entry=>entry.athleteId)
-  let currentUserAthletes=this.props.athletes.filter(athlete=>currentUserAthleteIds.includes(athlete.id))
-  this.setState({currentUserAthletes:currentUserAthletes})
-}
   render(){
-    // let currentUser=this.state.customers.filter(customer=>customer.email===this.state.userEmail)[0]
-
-    // let currentUserAthleteIds=this.props.customers_athletes.filter(entry=>entry.customerId===currentUserId)
     return(
 
 <div className="container">
@@ -213,11 +126,7 @@ Position
 
 </div>
 
-{console.log('chicken', this.props.currentUserAthletes)}
 <div className="row justify-content-center">
-
-
-
 
 </div>
 {this.props.currentUserAthletes.filter(athlete=>
@@ -257,28 +166,7 @@ Position
 </div>
 
 
-
-
-
-
-
 </div>)}
-
-{this.state.playersToDelete.map(elem=>
-<div>
-<div>
-<form>
-<div className="col-6 list-group-item">
-{elem}
-</div>
-<div className='col-6 list-group-item'>
-<button className='btn btn-block btn-dark' type="submit"> confirm </button>
-</div>
-</form>
-</div>
-</div>)}
-
-
 
 
 </div>
